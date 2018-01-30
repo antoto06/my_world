@@ -15,4 +15,5 @@ sfVector2f project_iso_point(int x, int y, int z)
 
 	projection.x = cos(angle_x_rad) * x - cos(angle_x_rad) * y;
 	projection.y = sin(angle_y_rad) * y + sin(angle_y_rad) * x - z;
+	return projection;
 }

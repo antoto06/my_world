@@ -21,7 +21,7 @@ OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
 
 CFLAGS	+=	-Wall -Wextra
 
-CFLAGS	+=	-I./include
+CFLAGS	+=	-I./include -g3
 
 LDFLAG	=	-L./lib/my -lmy
 
@@ -29,7 +29,7 @@ all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 		make -C lib/my
-		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog
+		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog -g3
 clean	:
 		make -C lib/my clean
 		rm -f $(NAME)

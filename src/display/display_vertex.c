@@ -16,8 +16,8 @@ int display_vertex(sfRenderWindow *window, sfVector2f **map2d)
 	while (i < MAP_X) {
 		while (j < MAP_Y) {
 			if (j != 0) {
-				tmp = create_line(map2d[i][j], map2d[i][j - 1]);
-				sfRenderWindow_drawVertexArray(window, tmp, sfTrue);
+				tmp = create_line(&map2d[i][j], &map2d[i][j - 1]);
+				sfRenderWindow_drawVertexArray(window, tmp, sfFalse);
 			}
 			j++;
 		}
