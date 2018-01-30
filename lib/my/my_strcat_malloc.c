@@ -25,7 +25,7 @@ void check_malloc(char *src)
 		exit(84);
 }
 
-char	*my_strcat_malloc(char *dest, char *src)
+char *my_strcat_malloc(char *dest, char *src)
 {
 	int len = my_strlen_protect(dest);
 	int i = 0;
@@ -33,21 +33,15 @@ char	*my_strcat_malloc(char *dest, char *src)
 
 	check_malloc(res);
 	if (dest == NULL) {
-		while (src[i]) {
+		for (i = 0; src[i]; i++)
 			res[i] = src[i];
-			i++;
-		}
+		res[i] = '\0';
 		return res;
 	}
-	while (dest[i]) {
+	for (i = 0; dest[i]; i++)
 		res[i] = dest[i];
-		i++;
-	}
-	i = 0;
-	while (src[i] != '\0') {
+	for (i = 0; src[i] != '\0'; i++)
 		res[len + i] = src[i];
-		i++;
-	}
 	res[len + i] = '\0';
 	return res;
 }

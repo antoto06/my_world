@@ -11,7 +11,15 @@ SRC	=	my_put_nbr.c \
 		my_strlen.c \
 		my_strcat_malloc.c \
 		my_putstr.c \
-		my_putstr_err.c
+		my_putstr_err.c \
+		my_strncmp.c \
+		my_strcpy.c \
+		my_str_to_word_array2.c \
+		my_str_isalpha.c \
+		my_strcmp.c \
+		my_array_size.c \
+		clear_str.c \
+		my_memset.c
 
 OBJ	=	$(SRC:.c=.o)
 
