@@ -23,12 +23,17 @@
 
 #define MAP_X 6
 #define MAP_Y 6
-#define ANGLE_X 30
-#define ANGLE_Y 20
+#define ANGLE_X 35
+#define ANGLE_Y 25
 #define SCALING_X 128
 #define SCALING_Y 128
 #define SCALING_Z 128
 
+typedef struct window_s {
+	sfRenderWindow *m_window;
+} window_t;
+
 sfVector2f project_iso_point(int x, int y, int z);
+window_t create_window(int x, int y);
 
 #endif

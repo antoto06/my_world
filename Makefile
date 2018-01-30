@@ -14,10 +14,12 @@ SRC_GENE	=	src/generation/generate_2D_map.c
 
 SRC_MATHS	=	src/maths/iso_projection.c
 
+SRC_STRUCT	=	src/structures/create_window.c
+
 SRC		=	src/main.c
 
 OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
-		$(SRC_MATHS:.c=.o)
+		$(SRC_MATHS:.c=.o) $(SRC_STRUCT:.c=.o)
 
 CFLAGS	+=	-Wall -Wextra
 
