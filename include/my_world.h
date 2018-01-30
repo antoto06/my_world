@@ -23,11 +23,11 @@
 
 #define MAP_X 6
 #define MAP_Y 6
-#define ANGLE_X 45
-#define ANGLE_Y 35
-#define SCALING_X 64
-#define SCALING_Y 64
-#define SCALING_Z 64
+#define ANGLE_X 30
+#define ANGLE_Y 20
+#define SCALING_X 128
+#define SCALING_Y 128
+#define SCALING_Z 128
 
 sfVector2f project_iso_point(int x, int y, int z);
 
