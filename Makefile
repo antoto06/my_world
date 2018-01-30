@@ -5,39 +5,34 @@
 ## Makefile
 ##
 
-NAME	=
+NAME		=	my_world
 
-NAME_UT	=	units
+SRC_DISPLAY	=	src/display/create_vertex.c \
+			src/display/display_vertex.c
 
-SRC	=
+SRC_GENE	=	src/generation/generate_2D_map.c
 
-SRC_UT	=
+SRC_MATHS	=	src/maths/iso_projection.c
 
-OBJ_UT	=	$(SRC_UT:.c=.o)
+SRC		=	src/main.c
 
-OBJ	=	$(SRC:.c=.o)
+OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
+		$(SRC_MATHS:.c=.o)
 
 CFLAGS	+=	-Wall -Wextra
 
-CFLAGS	+=	-I./include -g3 --coverage
+CFLAGS	+=	-I./include
 
-LDFLAG	=	-L./lib/my -lmy -lcriterion -lgcov
+LDFLAG	=	-L./lib/my -lmy
 
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 		make -C lib/my
-		cc -o $(NAME) $(OBJ) $(LDFLAG)
-
-tests_run:	$(OBJ_UT)
-		make -C lib/my
-		cc -o $(NAME_UT) $(OBJ_UT) $(LDFLAG)
-		./units
-
+		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog
 clean	:
 		make -C lib/my clean
 		rm -f $(NAME)
-		rm -f $(NAME_UT)
 
 fclean	:	clean
 		make -C lib/my fclean
