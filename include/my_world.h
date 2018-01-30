@@ -25,13 +25,26 @@
 #define MAP_Y 6
 #define ANGLE_X 35
 #define ANGLE_Y 25
-#define SCALING_X 128
-#define SCALING_Y 128
-#define SCALING_Z 128
+#define SCALING_X 64
+#define SCALING_Y 64
+#define SCALING_Z 64
+
+#define BUTTON_GREEN "ressources/UI/button_green.png"
+#define FONT1 "ressources/Font/Font1.otf"
 
 typedef struct window_s {
 	sfRenderWindow *m_window;
 } window_t;
+
+typedef struct button_s {
+	sfRectangleShape *shape;
+	sfTexture *txtr;
+	sfVector2f size;
+	sfVector2f pos;
+	sfText *message;
+	sfFont *font;
+	sfBool clicked;
+} button_t;
 
 sfVector2f project_iso_point(int x, int y, int z);
 window_t create_window(int x, int y);
