@@ -68,5 +68,5 @@ map_node_t **create_2d_map(int[MAP_X][MAP_Y], window_t);
 int display_vertex(sfRenderWindow *, map_node_t **);
 void display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
-
+sfVector2f quick_projection_iso_point(sfVector2f, int);
 #endif

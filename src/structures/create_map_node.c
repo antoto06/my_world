@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-sfVector2f *get_convex_points(sfVector2f position)
+sfVector2f *get_convex_points(sfVector2f position, int z)
 {
 	sfVector2f *vector_array = malloc(sizeof(sfVector2f) * 4);
 
@@ -19,6 +19,17 @@ sfVector2f *get_convex_points(sfVector2f position)
 	vector_array[3].x = position.x;
 	vector_array[3].y = position.y + SCALING_Y;
 	return vector_array;
+}
+
+void set_convex_point(sfVector2f *vector_array, map_node_t *node, int z)
+{
+	int i = 0;
+
+	sfConvexShape_setPointCount(node->node_shape, 4);
+	while (i < 4) {
+		sfConvexShape_setPoint(node->node_shape, i, vector_array[i]);
+		i++;
+	}
 }
 
 map_node_t create_map_node(int x, int y, int z, window_t window)
@@ -33,7 +44,8 @@ map_node_t create_map_node(int x, int y, int z, window_t window)
 	node.hover_shape_txtr = sfTexture_createFromFile(HOVER_SHAPE, NULL);
 	node.node_shape = sfConvexShape_create();
 	node.node_txtr = sfTexture_createFromFile(CONVEX_SHAPE, NULL);
-	node.convex_points = get_convex_points(node.iso_point);
+	node.convex_points = get_convex_points(node.iso_point, z);
+	set_convex_point(node.convex_points, &node, z);
 	sfConvexShape_setTexture(node.node_shape, node.node_txtr, sfFalse);
 	sfCircleShape_setTexture(node.hover_shape, node.hover_shape_txtr, sfFalse);
 	sfCircleShape_setRadius(node.hover_shape, 5.0);
