@@ -17,7 +17,7 @@ int main(int ac, char **av)
 		{00, 00, 00, 00, 00, 00},
 		{00, 00, 00, 00, 00, 00}
 	};
-	sfVector2f **map2d = create_2d_map(map3d);
+	map_node_t **map2d = create_2d_map(map3d);
 	window_t window = create_window(my_getnbr(av[1]), my_getnbr(av[2]));
 
 	while (1) {

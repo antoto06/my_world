@@ -15,7 +15,8 @@ SRC_GENE	=	src/generation/generate_2D_map.c
 SRC_MATHS	=	src/maths/iso_projection.c
 
 SRC_STRUCT	=	src/structures/create_window.c \
-			src/structures/create_button.c
+			src/structures/create_button.c \
+			src/structures/create_map_node.c
 
 SRC		=	src/main.c
 

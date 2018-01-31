@@ -30,7 +30,14 @@
 #define SCALING_Z 64
 
 #define BUTTON_GREEN "ressources/UI/button_green.png"
+#define HOVER_SHAPE "ressources/UI/hover_vertex.png"
 #define FONT1 "ressources/Font/Font1.otf"
+
+typedef struct map_node_s {
+	sfVector2f iso_point;
+	sfCircleShape *hover_shape;
+	sfTexture *hover_shape_txtr;
+} map_node_t;
 
 typedef struct window_s {
 	sfRenderWindow *m_window;
@@ -48,5 +55,6 @@ typedef struct button_s {
 
 sfVector2f project_iso_point(int x, int y, int z);
 window_t create_window(int x, int y);
+map_node_t create_map_node(int, int, int);
 
 #endif
