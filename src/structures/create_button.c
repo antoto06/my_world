@@ -10,7 +10,7 @@
 button_t create_button(sfVector2f position, char *msg)
 {
 	button_t button;
-	sfVector2f size = { 50, 50 };
+	sfVector2f size = {50, 50};
 
 	button.shape = sfRectangleShape_create();
 	button.txtr = sfTexture_createFromFile(BUTTON_GREEN, NULL);
