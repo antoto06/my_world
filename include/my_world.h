@@ -48,6 +48,7 @@ typedef struct map_node_s {
 typedef struct window_s {
 	sfVector2u size;
 	sfRenderWindow *m_window;
+	sfEvent event;
 } window_t;
 
 typedef struct button_s {

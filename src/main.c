@@ -28,6 +28,10 @@ int main(int ac, char **av)
 
 	(void)ac;
 	while (1) {
+		while (sfRenderWindow_pollEvent(window.m_window, &window.event)) {
+			if (window.event.type == sfEvtClosed)
+				sfRenderWindow_close(window.m_window);
+		}
 		sfRenderWindow_clear(window.m_window, sfBlack);
 		display_vertex(window.m_window, map2d);
 		sfRenderWindow_display(window.m_window);
