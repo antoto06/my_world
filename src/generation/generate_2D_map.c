@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-map_node_t **create_2d_map(int map3d[MAP_X][MAP_Y])
+map_node_t **create_2d_map(int map3d[MAP_X][MAP_Y], window_t window)
 {
 	map_node_t **map2d;
 	int i = 0;
@@ -17,7 +17,7 @@ map_node_t **create_2d_map(int map3d[MAP_X][MAP_Y])
 	while (i < MAP_X) {
 		map2d[i] = malloc(sizeof(map_node_t) * MAP_Y);
 		while (j < MAP_Y) {
-			map2d[i][j] = create_map_node(i, j, map3d[i][j]);
+			map2d[i][j] = create_map_node(i, j, map3d[i][j], window);
 			j++;
 		}
 		j = 0;

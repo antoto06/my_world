@@ -30,6 +30,8 @@ int display_vertex(sfRenderWindow *window, map_node_t **map2d)
 				sfRenderWindow_drawCircleShape(window, map2d[i][j].hover_shape,
 					NULL);
 			}
+			sfRenderWindow_drawCircleShape(window, map2d[0][0].hover_shape,
+					NULL);
 			j++;
 		}
 		j = 0;

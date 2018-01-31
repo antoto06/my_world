@@ -7,14 +7,14 @@
 
 #include "my_world.h"
 
-map_node_t create_map_node(int x, int y, int z)
+map_node_t create_map_node(int x, int y, int z, window_t window)
 {
 	map_node_t node;
 
 	node.iso_point = project_iso_point(y * SCALING_X, x * SCALING_Y,
 					z * SCALING_Z);
-	node.iso_point.x += 680;
-	node.iso_point.y += 230;
+	node.iso_point.x += window.size.x;
+	node.iso_point.y += window.size.y - 2 * SCALING_Y;
 	node.hover_shape = sfCircleShape_create();
 	node.hover_shape_txtr = sfTexture_createFromFile(HOVER_SHAPE, NULL);
 	sfCircleShape_setTexture(node.hover_shape, node.hover_shape_txtr, sfFalse);

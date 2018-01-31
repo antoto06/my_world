@@ -23,8 +23,8 @@
 #include <stdlib.h>
 #include "my.h"
 
-#define MAP_X 6
-#define MAP_Y 6
+#define MAP_X 12
+#define MAP_Y 12
 #define ANGLE_X 35
 #define ANGLE_Y 25
 #define SCALING_X 64
@@ -42,6 +42,7 @@ typedef struct map_node_s {
 } map_node_t;
 
 typedef struct window_s {
+	sfVector2u size;
 	sfRenderWindow *m_window;
 } window_t;
 
@@ -57,8 +58,8 @@ typedef struct button_s {
 
 sfVector2f project_iso_point(int x, int y, int z);
 window_t create_window(int x, int y);
-map_node_t create_map_node(int, int, int);
-map_node_t **create_2d_map(int[MAP_X][MAP_Y]);
+map_node_t create_map_node(int, int, int, window_t);
+map_node_t **create_2d_map(int[MAP_X][MAP_Y], window_t);
 int display_vertex(sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 
