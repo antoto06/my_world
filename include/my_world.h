@@ -61,6 +61,7 @@ window_t create_window(int x, int y);
 map_node_t create_map_node(int, int, int, window_t);
 map_node_t **create_2d_map(int[MAP_X][MAP_Y], window_t);
 int display_vertex(sfRenderWindow *, map_node_t **);
+int display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 
 #endif
