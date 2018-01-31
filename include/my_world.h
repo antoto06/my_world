@@ -33,10 +33,14 @@
 
 #define BUTTON_GREEN "ressources/UI/button_green.png"
 #define HOVER_SHAPE "ressources/UI/hover_vertex.png"
+#define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
 #define FONT1 "ressources/Font/Font1.otf"
 
 typedef struct map_node_s {
 	sfVector2f iso_point;
+	sfConvexShape *node_shape;
+	sfTexture *node_txtr;
+	sfVector2f *convex_points;
 	sfCircleShape *hover_shape;
 	sfTexture *hover_shape_txtr;
 } map_node_t;
@@ -61,7 +65,7 @@ window_t create_window(int x, int y);
 map_node_t create_map_node(int, int, int, window_t);
 map_node_t **create_2d_map(int[MAP_X][MAP_Y], window_t);
 int display_vertex(sfRenderWindow *, map_node_t **);
-int display_point(int, int, sfRenderWindow *, map_node_t **);
+void display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 
 #endif
