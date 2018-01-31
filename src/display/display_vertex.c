@@ -13,18 +13,18 @@ void display_point(int j, int i, sfRenderWindow *window, map_node_t **map2d)
 	sfVertexArray *tmp_inv;
 
 	if (j != 0) {
-	  tmp = create_line(&map2d[i][j].iso_point,
-			    &map2d[i][j - 1].iso_point);
-	  sfRenderWindow_drawVertexArray(window, tmp, sfFalse);
-	  sfRenderWindow_drawCircleShape(window, map2d[i][j].hover_shape,
-					 NULL);
+		tmp = create_line(&map2d[i][j].iso_point,
+				  &map2d[i][j - 1].iso_point);
+		sfRenderWindow_drawVertexArray(window, tmp, sfFalse);
+		sfRenderWindow_drawCircleShape(window, map2d[i][j].hover_shape,
+					       NULL);
 	}
 	if (i != 0) {
-	  tmp_inv = create_line(&map2d[i][j].iso_point,
-				&map2d[i - 1][j].iso_point);
-	  sfRenderWindow_drawVertexArray(window, tmp_inv, sfFalse);
-	  sfRenderWindow_drawCircleShape(window, map2d[i][j].hover_shape,
-					 NULL);
+		tmp_inv = create_line(&map2d[i][j].iso_point,
+				      &map2d[i - 1][j].iso_point);
+		sfRenderWindow_drawVertexArray(window, tmp_inv, sfFalse);
+		sfRenderWindow_drawCircleShape(window, map2d[i][j].hover_shape,
+					       NULL);
 	}
 	sfRenderWindow_drawCircleShape(window, map2d[0][0].hover_shape,
 				       NULL);
