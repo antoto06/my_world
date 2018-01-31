@@ -20,6 +20,8 @@
 #include <SFML/Graphics/Export.h>
 #include <SFML/Graphics/Rect.h>
 #include <stddef.h>
+#include <stdlib.h>
+#include "my.h"
 
 #define MAP_X 6
 #define MAP_Y 6
@@ -56,5 +58,8 @@ typedef struct button_s {
 sfVector2f project_iso_point(int x, int y, int z);
 window_t create_window(int x, int y);
 map_node_t create_map_node(int, int, int);
+map_node_t **create_2d_map(int[MAP_X][MAP_Y]);
+int display_vertex(sfRenderWindow *, map_node_t **);
+sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 
 #endif

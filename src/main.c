@@ -20,6 +20,7 @@ int main(int ac, char **av)
 	map_node_t **map2d = create_2d_map(map3d);
 	window_t window = create_window(my_getnbr(av[1]), my_getnbr(av[2]));
 
+	(void)ac;
 	while (1) {
 		sfRenderWindow_clear(window.m_window, sfBlack);
 		display_vertex(window.m_window, map2d);
