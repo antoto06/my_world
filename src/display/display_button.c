@@ -7,9 +7,18 @@
 
 #include "my_world.h"
 
-void display_button(window_t window, button_t button[4])
+void display_button_translate(window_t window, button_t *buttons)
 {
-	//malloc button without fixed size
-	sfRenderWindow_drawRectangleShape(window.m_window, button[0].shape, NULL);
-	sfRenderWindow_drawText(window.m_window, button[0].message, NULL);
+	int i = 0;
+
+	while (i < 4) {
+		sfRenderWindow_drawRectangleShape(window.m_window, buttons[i].shape, NULL);
+		sfRenderWindow_drawText(window.m_window, buttons[i].message, NULL);
+		i++;
+	}
+}
+
+void display_button(window_t window)
+{
+	display_button_translate(window, window.window_ui.button_translate);
 }
