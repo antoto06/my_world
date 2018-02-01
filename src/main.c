@@ -23,13 +23,9 @@ int main(int ac, char **av)
 		{00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
 		{00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00}
 	};
-	window_t window;
-	map_node_t **map2d;
+	window_t window = create_window(my_getnbr(av[1]), my_getnbr(av[2]));
+	map_node_t **map2d = create_2d_map(map3d, window);
 
-	if (check_error(ac, av) < 0)
-		return 84;
-	window = create_window(my_getnbr(av[1]), my_getnbr(av[2]));
-	map2d = create_2d_map(map3d, window);
 	generate_texture(map2d);
 	(void)ac;
 	while (sfRenderWindow_isOpen(window.m_window)) {

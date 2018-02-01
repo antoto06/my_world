@@ -7,8 +7,9 @@
 
 #include "my_world.h"
 
-void display_button(window_t window, button_t button)
+void display_button(window_t window, button_t button[4])
 {
-	sfRenderWindow_drawRectangleShape(window.m_window, button.shape, NULL);
-	sfRenderWindow_drawText(window.m_window, button.message, NULL);
+	//malloc button without fixed size
+	sfRenderWindow_drawRectangleShape(window.m_window, button[0].shape, NULL);
+	sfRenderWindow_drawText(window.m_window, button[0].message, NULL);
 }

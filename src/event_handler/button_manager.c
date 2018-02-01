@@ -12,6 +12,6 @@ void button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 {
 	if (button_is_clicked(window->window_ui.button_translate,
 			mouse_event) == sfTrue) {
-		button_translate_left(map2d);
+		button_translate(map2d, -1, 0);
 	}
 }
