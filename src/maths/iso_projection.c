@@ -7,13 +7,6 @@
 
 #include "my_world.h"
 
-sfVector2f quick_projection_iso_point(sfVector2f point_to_project, int z)
-{
-	return project_iso_point(point_to_project.y * SCALING_X,
-			point_to_project.x * SCALING_Y,
-			z  * SCALING_Z);
-}
-
 sfVector2f project_iso_point(int x, int y, int z)
 {
 	sfVector2f projection;

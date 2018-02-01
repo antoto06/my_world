@@ -1,36 +1,11 @@
 /*
 ** EPITECH PROJECT, 2018
-** create map noe
+** create map node
 ** File description:
 ** world
 */
 
 #include "my_world.h"
-
-sfVector2f *get_convex_points(sfVector2f position, int z)
-{
-	sfVector2f *vector_array = malloc(sizeof(sfVector2f) * 4);
-
-	vector_array[0] = position;
-	vector_array[1].x = position.x + SCALING_X;
-	vector_array[1].y = position.y;
-	vector_array[2].x = position.x + SCALING_X;
-	vector_array[2].y = position.y + SCALING_Y;
-	vector_array[3].x = position.x;
-	vector_array[3].y = position.y + SCALING_Y;
-	return vector_array;
-}
-
-void set_convex_point(sfVector2f *vector_array, map_node_t *node, int z)
-{
-	int i = 0;
-
-	sfConvexShape_setPointCount(node->node_shape, 4);
-	while (i < 4) {
-		sfConvexShape_setPoint(node->node_shape, i, vector_array[i]);
-		i++;
-	}
-}
 
 map_node_t create_map_node(int x, int y, int z, window_t window)
 {
@@ -42,11 +17,6 @@ map_node_t create_map_node(int x, int y, int z, window_t window)
 	node.iso_point.y += window.size.y - 2 * SCALING_Y;
 	node.hover_shape = sfCircleShape_create();
 	node.hover_shape_txtr = sfTexture_createFromFile(HOVER_SHAPE, NULL);
-	node.node_shape = sfConvexShape_create();
-	node.node_txtr = sfTexture_createFromFile(CONVEX_SHAPE, NULL);
-	node.convex_points = get_convex_points(node.iso_point, z);
-	set_convex_point(node.convex_points, &node, z);
-	sfConvexShape_setTexture(node.node_shape, node.node_txtr, sfFalse);
 	sfCircleShape_setTexture(node.hover_shape, node.hover_shape_txtr, sfFalse);
 	sfCircleShape_setRadius(node.hover_shape, 5.0);
 	sfCircleShape_setPosition(node.hover_shape, node.iso_point);
