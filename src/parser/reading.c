@@ -7,13 +7,11 @@
 
 void	my_rd(char *str)
 {
-	int fd = open(str, O_RDONLY);
+	FILE fp = fopen(str, O_RDONLY);
 	char *s;
 
-	while (s) {
-		free (s);
-		s = get_next_line(fd);
-	}
+	while (s)
+		fread(s, 1, 1, fp);
 	my_str_to_word_array(s);
 }
 

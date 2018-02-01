@@ -29,11 +29,13 @@ SRC_BUTTON	=	src/button_behaviour/button_translate.c
 
 SRC_PARSER	=	src/parser/parser.c
 
+SRC_ERROR	=	src/error/error_window.c
+
 SRC		=	src/main.c
 
 OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
 		$(SRC_MATHS:.c=.o) $(SRC_STRUCT:.c=.o) $(SRC_EVENT:.c=.o) \
-		$(SRC_BUTTON:.c=.o) $(SRC_PARSER:.c=.o)
+		$(SRC_BUTTON:.c=.o) $(SRC_PARSER:.c=.o) $(SRC_ERROR:.c=.o)
 
 CFLAGS	+=	-Wall -Wextra
 

@@ -72,7 +72,7 @@ typedef struct window_s {
 } window_t;
 
 sfVector2f project_iso_point(int x, int y, int z);
-window_t create_window(int x, int y);
+window_t create_window(int, int);
 map_node_t create_map_node(int, int, int, window_t);
 map_node_t **create_2d_map(int[MAP_X][MAP_Y], window_t);
 int display_vertex(sfRenderWindow *, map_node_t **);
