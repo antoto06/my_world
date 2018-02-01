@@ -23,7 +23,8 @@ SRC_STRUCT	=	src/structures/create_window.c \
 
 SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/click_button.c \
-			src/event_handler/button_manager.c
+			src/event_handler/button_manager.c \
+			src/event_handler/hover_manager.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c
 

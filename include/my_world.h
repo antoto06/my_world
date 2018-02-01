@@ -49,6 +49,7 @@ typedef struct map_node_s {
 	sfVector2f *convex_points;
 	sfCircleShape *hover_shape;
 	sfTexture *hover_shape_txtr;
+	sfBool hover_visible;
 } map_node_t;
 
 typedef struct button_s {
