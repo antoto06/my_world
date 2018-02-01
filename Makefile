@@ -18,10 +18,12 @@ SRC_MATHS	=	src/maths/iso_projection.c
 
 SRC_STRUCT	=	src/structures/create_window.c \
 			src/structures/create_button.c \
-			src/structures/create_map_node.c
+			src/structures/create_map_node.c \
+			src/structures/create_ui.c
 
 SRC_EVENT	=	src/event_handler/event_manager.c \
-			src/event_handler/click_button.c
+			src/event_handler/click_button.c \
+			src/event_handler/button_manager.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c
 

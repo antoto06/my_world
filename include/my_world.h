@@ -51,12 +51,6 @@ typedef struct map_node_s {
 	sfTexture *hover_shape_txtr;
 } map_node_t;
 
-typedef struct window_s {
-	sfVector2u size;
-	sfRenderWindow *m_window;
-	sfEvent event;
-} window_t;
-
 typedef struct button_s {
 	sfRectangleShape *shape;
 	sfTexture *txtr;
@@ -64,8 +58,18 @@ typedef struct button_s {
 	sfVector2f pos;
 	sfText *message;
 	sfFont *font;
-	sfBool clicked;
 } button_t;
+
+typedef struct ui_s {
+	button_t button_translate;
+} ui_t;
+
+typedef struct window_s {
+	sfVector2u size;
+	sfRenderWindow *m_window;
+	sfEvent event;
+	ui_t window_ui;
+} window_t;
 
 sfVector2f project_iso_point(int x, int y, int z);
 window_t create_window(int x, int y);
@@ -76,5 +80,6 @@ void display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 sfVector2f quick_projection_iso_point(sfVector2f, int);
 button_t create_button(sfVector2f position, char *msg);
+ui_t create_ui();
 
 #endif

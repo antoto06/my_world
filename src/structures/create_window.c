@@ -19,5 +19,6 @@ window_t create_window(int m_x, int m_y)
 	m_size = sfRenderWindow_getSize(window.m_window);
 	window.size.x = m_size.x / 2;
 	window.size.y = m_size.y / 2;
+	window.window_ui = create_ui();;
 	return window;
 }
