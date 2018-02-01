@@ -36,6 +36,12 @@
 #define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
 #define FONT1 "ressources/Font/Font1.otf"
 
+typedef struct input_map_s {
+	int **map;
+	int len_x;
+	int len_y;
+} input_map_t;
+
 typedef struct map_node_s {
 	sfVector2f iso_point;
 	sfConvexShape *node_shape;
@@ -69,4 +75,6 @@ int display_vertex(sfRenderWindow *, map_node_t **);
 void display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 sfVector2f quick_projection_iso_point(sfVector2f, int);
+button_t create_button(sfVector2f position, char *msg);
+
 #endif

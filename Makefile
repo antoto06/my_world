@@ -8,7 +8,8 @@
 NAME		=	my_world
 
 SRC_DISPLAY	=	src/display/create_vertex.c \
-			src/display/display_vertex.c
+			src/display/display_vertex.c \
+			src/display/display_button.c
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c
@@ -19,7 +20,8 @@ SRC_STRUCT	=	src/structures/create_window.c \
 			src/structures/create_button.c \
 			src/structures/create_map_node.c
 
-SRC_EVENT	=	src/event_handler/event_manager.c
+SRC_EVENT	=	src/event_handler/event_manager.c \
+			src/event_handler/click_button.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c
 
