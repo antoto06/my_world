@@ -9,9 +9,9 @@
 
 sfBool button_is_clicked(button_t button, sfMouseButtonEvent click_pos)
 {
-	sfBool clicked = sfFalse;
 	sfVector2f mouse_click = {(float)click_pos.x, (float)click_pos.y};
 
+	       button.pos.x, button.pos.y);
 	if (mouse_click.x > (button.pos.x - button.size.x)
 	&& mouse_click.x < (button.pos.x + button.size.x)) {
 		if (mouse_click.y > (button.pos.y - button.size.y)

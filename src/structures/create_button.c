@@ -17,6 +17,8 @@ button_t create_button(sfVector2f position, char *msg)
 	sfRectangleShape_setTexture(button.shape, button.txtr, sfFalse);
 	sfRectangleShape_setSize(button.shape, size);
 	sfRectangleShape_setPosition(button.shape, position);
+	button.pos = position;
+	button.size = size;
 	button.font = sfFont_createFromFile(FONT1);
 	button.message = sfText_create();
 	sfText_setPosition(button.message, position);
