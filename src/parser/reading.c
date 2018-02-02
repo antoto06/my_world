@@ -5,7 +5,7 @@
 ** Made by developper
 */
 
-void	my_rd(char *str)
+void my_rd(char *str)
 {
 	FILE fp = fopen(str, O_RDONLY);
 	char *s;

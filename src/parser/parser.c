@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "../../include/my_world.h"
 
-int     nb_word(char const *str)
+int nb_word(char const *str)
 {
 	int i = 0;
 	int nb;
