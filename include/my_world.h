@@ -93,5 +93,6 @@ void analyse_event(window_t *window, map_node_t **map2d);
 void hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **);
 void generate_texture(map_node_t **map2d);
 void display_button_translate(window_t window, button_t *buttons);
+window_t create_window_err(int, char **);
 
 #endif

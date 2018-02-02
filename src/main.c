@@ -11,8 +11,8 @@ int main(int ac, char **av)
 {
 	int map3d[MAP_X][MAP_Y] = {
 		{00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
-		{00, 00, 00, 00, 00, 00, 00, 00, 01, 00, 00},
-		{00, 00, 00, 00, 00, 00, 00, 01, 01, 02, 00},
+		{00, 01, 01, 00, 00, 00, 00, 00, 01, 00, 00},
+		{00, 01, 01, 00, 00, 00, 00, 01, 01, 02, 00},
 		{00, 00, 00, 00, 00, 00, 01, 01, 02, 03, 00},
 		{00, 00, 00, -1, 00, 00, 01, 02, 02, 03, 02},
 		{00, 00, -1, -1, -1, 00, 01, 02, 03, 03, 02},
@@ -23,11 +23,11 @@ int main(int ac, char **av)
 		{00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
 		{00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00}
 	};
-	window_t window = create_window(my_getnbr(av[1]), my_getnbr(av[2]));
-	map_node_t **map2d = create_2d_map(map3d, window);
+	window_t window	= create_window_err(ac, av);
+	map_node_t **map2d;
 
+	map2d = create_2d_map(map3d, window);
 	generate_texture(map2d);
-	(void)ac;
 	while (sfRenderWindow_isOpen(window.m_window)) {
 		while (sfRenderWindow_pollEvent(window.m_window, &window.event)) {
 			analyse_event(&window, map2d);
