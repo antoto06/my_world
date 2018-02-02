@@ -35,6 +35,8 @@
 #define HOVER_SHAPE "ressources/UI/hover_vertex.png"
 #define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
 #define FONT1 "ressources/Font/Font1.otf"
+#define TXTR_GRASS "ressources/UI/grass_texture.jpg"
+#define TXTR_ROCK "ressources/UI/rock_texture.jpg"
 
 typedef struct input_map_s {
 	int **map;
