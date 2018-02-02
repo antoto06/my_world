@@ -9,6 +9,7 @@
 #define MY_H
 
 void my_putchar(char c);
+void my_putstr(char *str);
 int my_strlen(char *str);
 int my_getnbr(char *str);
 

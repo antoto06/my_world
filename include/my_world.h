@@ -82,5 +82,14 @@ sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 sfVector2f quick_projection_iso_point(sfVector2f, int);
 button_t create_button(sfVector2f position, char *msg);
 ui_t create_ui();
+void button_translate(map_node_t **, int, int);
+void display_button_translate(window_t window, button_t *buttons);
+int check_error(int ac, char **av);
+void button_manager(sfMouseButtonEvent mouse_event, window_t *, map_node_t **);
+sfBool button_is_clicked(button_t button, sfMouseButtonEvent click_pos);
+void analyse_event(window_t *window, map_node_t **map2d);
+void hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **);
+void generate_texture(map_node_t **map2d);
+void display_button_translate(window_t window, button_t *buttons);
 
 #endif

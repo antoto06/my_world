@@ -7,8 +7,7 @@
 
 #include "my_world.h"
 
-void hover_manager(sfMouseMoveEvent mouse_evt, window_t *window,
-		map_node_t **map2d)
+void hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **map2d)
 {
 	sfVector2f mouse_pos = {(float)mouse_evt.x, (float)mouse_evt.y};
 	int i = 0;

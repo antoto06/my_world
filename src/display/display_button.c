@@ -17,8 +17,3 @@ void display_button_translate(window_t window, button_t *buttons)
 		i++;
 	}
 }
-
-void display_button(window_t window)
-{
-	display_button_translate(window, window.window_ui.button_translate);
-}

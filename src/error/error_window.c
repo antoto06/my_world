@@ -5,8 +5,11 @@
 ** made by developper
 */
 
+#include "../../include/my_world.h"
+
 int check_error(int ac, char **av)
 {
+	(void)av;
 	if (ac != 3) {
 		my_putstr("Error\n");
 		return -1;

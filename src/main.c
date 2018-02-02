@@ -34,7 +34,7 @@ int main(int ac, char **av)
 		}
 		sfRenderWindow_clear(window.m_window, sfBlack);
 		display_vertex(window.m_window, map2d);
-		display_button(window, window.window_ui.button_translate);
+		display_button_translate(window, window.window_ui.button_translate);
 		sfRenderWindow_display(window.m_window);
 	}
 	return 0;
