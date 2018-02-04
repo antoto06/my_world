@@ -21,12 +21,17 @@ int nb_word(char const *str)
 	return (nb);
 }
 
-int nb_back(char *str, FILE *fp)
+int nb_back(char *str)
 {
 	int nb_back = 0;
+	int fd = open(str, O_RDONLY);
+	char *buffer = get_next_line(fd);
 
-	while (get_next_line(fp) > 0)
+	while (buffer) {
+		free(buffer);
+		buffer = get_next_line(fd);
 		nb_back++;
+	}
 	return nb_back;
 }
 
@@ -36,9 +41,11 @@ input_map_t my_str_to_int_array(char *str, FILE *fp)
 	int i = 0;
 	int j = 0;
 
+	printf("%s\n", str);
+	exit(0);
 	v.map = malloc(sizeof(int *) * (nb_word(str) + 1));
 	while (str) {
-		v.map[j] = malloc(sizeof(int) * nb_back(str, fp));
+		v.map[j] = malloc(sizeof(int) * nb_back(str));
 		while (str[i] != '\0') {
 			v.map[i][j] = my_getnbr(&str[i]);
 			j++;
