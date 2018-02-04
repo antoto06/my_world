@@ -21,11 +21,19 @@ int nb_word(char const *str)
 	return (nb);
 }
 
+<<<<<<< HEAD
 int nb_back(char *str, FILE *fp)
 {
 	int nb_back = 0;
 
 	while (get_next_line(fp) > 0)
+=======
+int nb_back(char *str, int fd)
+{
+	int nb_back = 0;
+
+	while (get_next_line(fd) > 0)
+>>>>>>> cef05de8e4f779453e1bd664e800593925324eaf
 		nb_back++;
 	return nb_back;
 }
