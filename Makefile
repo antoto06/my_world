@@ -26,7 +26,8 @@ SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/button_manager.c \
 			src/event_handler/hover_manager.c
 
-SRC_BUTTON	=	src/button_behaviour/button_translate.c
+SRC_BUTTON	=	src/button_behaviour/button_translate.c \
+			src/button_behaviour/button_application.c
 
 SRC_PARSER	=	src/parser/parser.c \
 			src/parser/reading.c

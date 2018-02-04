@@ -87,7 +87,6 @@ input_map_t my_str_to_int_array(char *path)
 	}
 	input_map.len_x = j;
 	input_map.len_y = nb_line;
-	printf("%d %d\n", input_map.len_x, input_map.len_y);
 	close(fd);
 	return input_map;
 }

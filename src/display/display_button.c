@@ -7,13 +7,23 @@
 
 #include "my_world.h"
 
+void display_simple_button(window_t window, button_t button)
+{
+	sfRenderWindow_drawRectangleShape(window.m_window,
+				button.shape, NULL);
+	sfRenderWindow_drawText(window.m_window,
+				button.message, NULL);
+}
+
 void display_button_translate(window_t window, button_t *buttons)
 {
 	int i = 0;
 
 	while (i < 4) {
-		sfRenderWindow_drawRectangleShape(window.m_window, buttons[i].shape, NULL);
-		sfRenderWindow_drawText(window.m_window, buttons[i].message, NULL);
+		sfRenderWindow_drawRectangleShape(window.m_window,
+				buttons[i].shape, NULL);
+		sfRenderWindow_drawText(window.m_window,
+				buttons[i].message, NULL);
 		i++;
 	}
 }

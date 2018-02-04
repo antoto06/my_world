@@ -13,6 +13,9 @@ int main(int ac, char **av)
 	window_t window	= create_window_err(ac, av);
 	map_node_t **map2d;
 
+	sfVector2f load_pos = {100, 50};
+	button_t load = create_button(load_pos, "load");
+
 	map2d = create_2d_map(map3d, window);
 	generate_texture(map2d);
 	while (sfRenderWindow_isOpen(window.m_window)) {
@@ -22,6 +25,7 @@ int main(int ac, char **av)
 		sfRenderWindow_clear(window.m_window, sfBlack);
 		display_vertex(window.m_window, map2d);
 		display_button_translate(window, window.window_ui.button_translate);
+		display_simple_button(window, load);
 		sfRenderWindow_display(window.m_window);
 	}
 	return 0;

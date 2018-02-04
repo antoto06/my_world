@@ -26,7 +26,7 @@
 #include <fcntl.h>
 
 #define ANGLE_X 35
-#define ANGLE_Y 25
+#define ANGLE_Y 25.264
 #define SCALING_X 64
 #define SCALING_Y 64
 #define SCALING_Z 64
@@ -66,6 +66,7 @@ typedef struct button_s {
 
 typedef struct ui_s {
 	button_t *button_translate;
+	button_t *button_application;
 } ui_t;
 
 typedef struct window_s {
