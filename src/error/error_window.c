@@ -10,7 +10,7 @@
 int check_error(int ac, char **av)
 {
 	(void)av;
-	if (ac != 3) {
+	if (ac != 4) {
 		my_putstr("Error\n");
 		return -1;
 	}

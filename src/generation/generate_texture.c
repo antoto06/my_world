@@ -23,9 +23,10 @@ void generate_texture(map_node_t **map2d)
 	sfVector2f *vector_array;
 	int i = 0;
 	int j = 0;
+	input_map_t tmp3 = map2d[0][0].input_map;
 
-	while (i < MAP_X - 1) {
-		while (j < MAP_Y - 1) {
+	while (i < tmp3.len_x - 1) {
+		while (j < tmp3.len_y - 1) {
 			map2d[i][j].node_shape = sfConvexShape_create();
 			map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
 			vector_array = get_vector_array(map2d, i, j);

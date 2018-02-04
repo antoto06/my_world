@@ -5,13 +5,13 @@
 ** Made by developper
 */
 
-void my_rd(char *str)
+input_map_t my_rd(char *str)
 {
 	FILE fp = fopen(str, O_RDONLY);
 	char *s;
 
 	while (s)
 		fread(s, 1, 1, fp);
-	my_str_to_word_array(s);
+	return(my_str_to_int_array(s));
 }
 
