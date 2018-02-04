@@ -28,7 +28,8 @@ SRC_EVENT	=	src/event_handler/event_manager.c \
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c
 
-SRC_PARSER	=	src/parser/parser.c
+SRC_PARSER	=	src/parser/parser.c \
+			src/parser/reading.c
 
 SRC_ERROR	=	src/error/error_window.c
 

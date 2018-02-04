@@ -5,9 +5,6 @@
 ** made by developper
 */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "my_world.h"
 
 int nb_word(char const *str)

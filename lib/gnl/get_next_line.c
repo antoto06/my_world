@@ -90,17 +90,3 @@ char *get_next_line(int fd)
 	stock = &stock[my_strlen(line) + 1];
 	return (!line) ? NULL : line;
 }
-
-int main(int ac, char **av)
-{
-	int fd = open(av[1], O_RDONLY);
-	char *got = get_next_line(fd);
-
-	(void)ac;
-	while (got) {
-		printf("%s", got);
-		printf("\n");
-		free(got);
-		got = get_next_line(fd);
-	}
-}
