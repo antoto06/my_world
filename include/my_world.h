@@ -96,6 +96,6 @@ void generate_texture(map_node_t **map2d);
 void display_button_translate(window_t window, button_t *buttons);
 window_t create_window_err(int, char **);
 input_map_t my_rd(char *str);
-input_map_t my_str_to_int_array(char *str, FILE *);
+input_map_t my_str_to_int_array(char *str);
 
 #endif

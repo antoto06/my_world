@@ -35,7 +35,7 @@ int nb_back(char *str)
 	return nb_back;
 }
 
-input_map_t my_str_to_int_array(char *str, FILE *fp)
+input_map_t my_str_to_int_array(char *str)
 {
 	input_map_t v;
 	int i = 0;

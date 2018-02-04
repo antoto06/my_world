@@ -9,10 +9,10 @@
 
 input_map_t my_rd(char *str)
 {
-	FILE *fp = fopen(str, "r");
-	char s[1024];
+	int fd = open(str, O_RDONLY);
+	char *s = get_next_line(fd);
 
-	while (fread(s, 1, 1, fp));
-	return (my_str_to_int_array(s, fp));
+	while (s = get_next_line(fd));
+	return (my_str_to_int_array(s));
 }
 
