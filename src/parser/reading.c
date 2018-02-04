@@ -9,12 +9,11 @@
 
 input_map_t my_rd(char *str)
 {
-	FILE *fp = fopen(str, O_RDONLY);
-	char *s;
+	FILE *fp = fopen(str, "r");
+	char s[1024];
 
 	while (s)
 		fread(s, 1, 1, fp);
-	
 	return (my_str_to_int_array(s));
 }
 

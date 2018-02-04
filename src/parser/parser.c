@@ -21,11 +21,11 @@ int nb_word(char const *str)
 	return (nb);
 }
 
-int nb_back(char *str)
+int nb_back(char *str, int fd)
 {
 	int nb_back = 0;
 
-	while (get_next_line(str) > 0)
+	while (get_next_line(fd) > 0)
 		nb_back++;
 	return nb_back;
 }
