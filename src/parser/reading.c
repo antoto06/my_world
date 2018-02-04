@@ -7,12 +7,10 @@
 
 #include "my_world.h"
 
-input_map_t my_rd(char *str)
+input_map_t my_rd(char *path)
 {
-	int fd = open(str, O_RDONLY);
-	char *s = get_next_line(fd);
+	input_map_t input = my_str_to_int_array(path);
 
-	while (s = get_next_line(fd));
-	return (my_str_to_int_array(s));
+	return input;
 }
 

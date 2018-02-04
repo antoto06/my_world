@@ -13,6 +13,7 @@ int main(int ac, char **av)
 	window_t window	= create_window_err(ac, av);
 	map_node_t **map2d;
 
+	/* printf("parsing done !\n"); */
 	map2d = create_2d_map(map3d, window);
 	generate_texture(map2d);
 	while (sfRenderWindow_isOpen(window.m_window)) {

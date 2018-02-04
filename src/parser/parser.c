@@ -7,6 +7,17 @@
 
 #include "my_world.h"
 
+int digit_len(char *line)
+{
+	int i = 0;
+
+	while (line && line[i]) {
+		if (line[i] == ' ')
+			return i;
+		i++;
+	}
+}
+
 int nb_word(char const *str)
 {
 	int i = 0;
@@ -21,10 +32,9 @@ int nb_word(char const *str)
 	return (nb);
 }
 
-int nb_back(char *str)
+int nb_back(int fd)
 {
 	int nb_back = 0;
-	int fd = open(str, O_RDONLY);
 	char *buffer = get_next_line(fd);
 
 	while (buffer) {
@@ -35,25 +45,39 @@ int nb_back(char *str)
 	return nb_back;
 }
 
-input_map_t my_str_to_int_array(char *str)
+int *parse_line(char *line)
 {
-	input_map_t v;
 	int i = 0;
-	int j = 0;
+	int map_offset = 0;
+	int *map = malloc(sizeof(int) * nb_word(line));
 
-	printf("%s\n", str);
-	exit(0);
-	v.map = malloc(sizeof(int *) * (nb_word(str) + 1));
-	while (str) {
-		v.map[j] = malloc(sizeof(int) * nb_back(str));
-		while (str[i] != '\0') {
-			v.map[i][j] = my_getnbr(&str[i]);
-			j++;
+	while (line && line[i]) {
+		if (line[i] >= '0' && line[i] <= '9') {
+			map[map_offset] = my_getnbr(&line[i]);
+			i = i + digit_len(&line[i]);
+			map_offset++;
 		}
-		v.len_x = j;
-		j = 0;
 		i++;
 	}
-	v.len_y = i;
-	return v;
+	return map;
+}
+
+input_map_t my_str_to_int_array(char *path)
+{
+	int fd = open(path, O_RDONLY);
+	input_map_t input_map;
+	int j = 0;
+	char *buffer = get_next_line(fd);
+
+	printf("%s\n", buffer);
+	input_map.map = malloc(sizeof(int *) * 12);
+	while (buffer) {
+		input_map.map[j] = parse_line(buffer);
+		j++;
+		free(buffer);
+		buffer = get_next_line(fd);
+	}
+	input_map.len_x = j;
+	input_map.len_y = nb_back(fd);
+	return input_map;
 }
