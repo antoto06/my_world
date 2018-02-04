@@ -22,8 +22,8 @@ ui_t create_ui(window_t window)
 	ui_t ui;
 	sfVector2f button_left = get_position_by_percent(window, 0, 25);
 	sfVector2f button_right = get_position_by_percent(window, 6, 25);
-	sfVector2f button_down = get_position_by_percent(window, 3, 20);
-	sfVector2f button_top = get_position_by_percent(window, 3, 30);
+	sfVector2f button_down = get_position_by_percent(window, 3, 30);
+	sfVector2f button_top = get_position_by_percent(window, 3, 20);
 	button_t *translate = malloc(sizeof(button_t) * 4);
 
 	translate[0] = create_button(button_left, "left");

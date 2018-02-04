@@ -23,4 +23,5 @@ void button_translate(map_node_t **map2d, int x_offset, int y_offset)
 		i++;
 		j = 0;
 	}
+	generate_texture(map2d);
 }
