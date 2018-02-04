@@ -42,18 +42,21 @@ CFLAGS	+=	-Wall -Wextra
 
 CFLAGS	+=	-I./include -g3
 
-LDFLAG	=	-L./lib/my -lmy
+LDFLAG	=	-L./lib/my -lmy -L./lib/gnl -lgnl
 
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 		make -C lib/my
+		make -C lib/gnl
 		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog -g3
 clean	:
 		make -C lib/my clean
+		make -C lib/gnl clean
 		rm -f $(NAME)
 
 fclean	:	clean
+		make -C lib/gnl fclean
 		make -C lib/my fclean
 		rm -f $(OBJ)
 
