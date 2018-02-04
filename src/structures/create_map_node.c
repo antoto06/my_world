@@ -14,8 +14,8 @@ map_node_t create_map_node(int x, int y, int z, window_t window)
 
 	node.iso_point = project_iso_point(y * SCALING_X, x * SCALING_Y,
 					z * SCALING_Z);
-	node.iso_point.x += window.size.x;
-	node.iso_point.y += window.size.y - 2 * SCALING_Y;
+	node.iso_point.x += (window.size.x / 2);
+	node.iso_point.y += (window.size.y / 2) - 2 * SCALING_Y;
 	hover_pos.x = node.iso_point.x - 10;
 	hover_pos.y = node.iso_point.y - 10;
 	node.hover_shape = sfCircleShape_create();

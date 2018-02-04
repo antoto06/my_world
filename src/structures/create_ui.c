@@ -7,13 +7,23 @@
 
 #include "my_world.h"
 
-ui_t create_ui()
+sfVector2f get_position_by_percent(window_t window,
+		int perc_x, int perc_y)
+{
+	sfVector2f position;
+
+	position.x = (perc_x * window.size.x) / 100;
+	position.y = (perc_y * window.size.y) / 100;
+	return position;
+}
+
+ui_t create_ui(window_t window)
 {
 	ui_t ui;
-	sfVector2f button_left = {500, 500};
-	sfVector2f button_right = {600, 500};
-	sfVector2f button_down = {700, 500};
-	sfVector2f button_top = {800, 500};
+	sfVector2f button_left = get_position_by_percent(window, 0, 25);
+	sfVector2f button_right = get_position_by_percent(window, 6, 25);
+	sfVector2f button_down = get_position_by_percent(window, 3, 20);
+	sfVector2f button_top = get_position_by_percent(window, 3, 30);
 	button_t *translate = malloc(sizeof(button_t) * 4);
 
 	translate[0] = create_button(button_left, "left");

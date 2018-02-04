@@ -10,6 +10,7 @@
 button_t create_button(sfVector2f position, char *msg)
 {
 	button_t button;
+	sfVector2f message_pos;
 	sfVector2f size = {100, 50};
 
 	button.shape = sfRectangleShape_create();
@@ -18,10 +19,12 @@ button_t create_button(sfVector2f position, char *msg)
 	sfRectangleShape_setSize(button.shape, size);
 	sfRectangleShape_setPosition(button.shape, position);
 	button.pos = position;
+	message_pos.x = position.x + (size.x / 8);
+	message_pos.y = position.y + (size.y / 8);
 	button.size = size;
 	button.font = sfFont_createFromFile(FONT1);
 	button.message = sfText_create();
-	sfText_setPosition(button.message, position);
+	sfText_setPosition(button.message, message_pos);
 	sfText_setColor(button.message, sfBlue);
 	sfText_setString(button.message, msg);
 	sfText_setFont(button.message, button.font);
