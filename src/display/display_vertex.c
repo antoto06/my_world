@@ -42,6 +42,7 @@ int display_vertex(sfRenderWindow *window, map_node_t **map2d)
 	int j = 0;
 	input_map_t tmp = map2d[0][0].input_map;
 
+	printf("%d %d\n", tmp.len_x, tmp.len_y);
 	while (i < tmp.len_x) {
 		while (j < tmp.len_y) {
 			display_point(j, i, window, map2d);

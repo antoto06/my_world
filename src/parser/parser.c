@@ -32,17 +32,25 @@ int nb_word(char const *str)
 	return (nb);
 }
 
-int nb_back(int fd)
+int get_nblines(char *av)
 {
-	int nb_back = 0;
-	char *buffer = get_next_line(fd);
+        FILE *file;
+        char *str = NULL;
+        int read = 1;
+        size_t lines_nb = 0;
+        size_t len;
 
-	while (buffer) {
-		free(buffer);
-		buffer = get_next_line(fd);
-		nb_back++;
-	}
-	return nb_back;
+        file = fopen(av, "r");
+        if (!file)
+                exit(84);
+        while (read != -1) {
+                read = getline(&str, &len, file);
+                lines_nb++;
+        }
+        if (str)
+                free(str);
+        fclose(file);
+        return lines_nb - 1;
 }
 
 int *parse_line(char *line)
@@ -64,13 +72,13 @@ int *parse_line(char *line)
 
 input_map_t my_str_to_int_array(char *path)
 {
+	int nb_line = get_nblines(path);
 	int fd = open(path, O_RDONLY);
 	input_map_t input_map;
 	int j = 0;
 	char *buffer = get_next_line(fd);
 
-	printf("%s\n", buffer);
-	input_map.map = malloc(sizeof(int *) * 12);
+	input_map.map = malloc(sizeof(int *) * nb_line);
 	while (buffer) {
 		input_map.map[j] = parse_line(buffer);
 		j++;
@@ -78,6 +86,8 @@ input_map_t my_str_to_int_array(char *path)
 		buffer = get_next_line(fd);
 	}
 	input_map.len_x = j;
-	input_map.len_y = nb_back(fd);
+	input_map.len_y = nb_line;
+	printf("%d %d\n", input_map.len_x, input_map.len_y);
+	close(fd);
 	return input_map;
 }
