@@ -28,7 +28,12 @@ void generate_texture(map_node_t **map2d)
 	while (i < tmp.len_x - 1) {
 		while (j < tmp.len_y - 1) {
 			map2d[i][j].node_shape = sfConvexShape_create();
-			map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
+			if (tmp.map[i][j] == 00 && tmp.map[i + 1][j + 1] < 01 && tmp.map[i][j + 1] < 01 && tmp.map[i + 1][j] < 01)
+				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_GRASS, NULL);
+			else if (tmp.map[i][j] >= 01)
+				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
+			else
+				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
 			vector_array = get_vector_array(map2d, i, j);
 			map2d[i][j].convex_points = vector_array;
 			sfConvexShape_setPointCount(map2d[i][j].node_shape, 4);
