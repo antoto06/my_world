@@ -9,5 +9,10 @@
 
 void button_load(map_node_t **map2d)
 {
-	printf("LOAD !\n");
+	
+}
+
+void button_quit(map_node_t **map2d)
+{
+	exit(0);
 }

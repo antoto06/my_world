@@ -34,12 +34,14 @@ void application_button_manager(sfMouseButtonEvent mouse_event, window_t *window
 	if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue) {
 		button_load(map2d);
 	}
+	if (button_is_clicked(buttons_tmp[1], mouse_event) == sfTrue) {
+		button_quit(map2d);
+	}
 }
 
 void button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 		map_node_t **map2d)
 {
-	printf("BUTTON MANAGER\n");
 	translate_button_manager(mouse_event, window, map2d);
 	application_button_manager(mouse_event, window, map2d);
 }

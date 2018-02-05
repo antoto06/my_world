@@ -15,6 +15,19 @@ void display_simple_button(window_t window, button_t button)
 				button.message, NULL);
 }
 
+void display_button_application(window_t window, button_t *buttons)
+{
+	int i = 0;
+
+	while (i < 2) {
+		sfRenderWindow_drawRectangleShape(window.m_window,
+				buttons[i].shape, NULL);
+		sfRenderWindow_drawText(window.m_window,
+				buttons[i].message, NULL);
+		i++;
+	}
+}
+
 void display_button_translate(window_t window, button_t *buttons)
 {
 	int i = 0;
