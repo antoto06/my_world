@@ -74,13 +74,15 @@ typedef struct window_s {
 	sfRenderWindow *m_window;
 	sfEvent event;
 	ui_t window_ui;
+	sfBool map_visible;
+	map_node_t **stock_map2d;
 } window_t;
 
 sfVector2f project_iso_point(int x, int y, int z);
 window_t create_window(int, int);
 map_node_t create_map_node(int, int, int, window_t);
 map_node_t **create_2d_map(input_map_t map3d, window_t);
-int display_vertex(sfRenderWindow *, map_node_t **);
+int display_vertex(window_t *, map_node_t **);
 void display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 sfVector2f quick_projection_iso_point(sfVector2f, int);

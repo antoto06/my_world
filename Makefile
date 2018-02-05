@@ -12,7 +12,8 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 			src/display/display_button.c
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
-			src/generation/generate_texture.c
+			src/generation/generate_texture.c \
+			src/generation/update_map.c
 
 SRC_MATHS	=	src/maths/iso_projection.c
 

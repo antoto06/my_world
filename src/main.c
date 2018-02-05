@@ -15,12 +15,13 @@ int main(int ac, char **av)
 
 	map2d = create_2d_map(map3d, window);
 	generate_texture(map2d);
+	window.stock_map2d = map2d;
 	while (sfRenderWindow_isOpen(window.m_window)) {
 		while (sfRenderWindow_pollEvent(window.m_window, &window.event)) {
 			analyse_event(&window, map2d);
 		}
 		sfRenderWindow_clear(window.m_window, sfBlack);
-		display_vertex(window.m_window, map2d);
+		display_vertex(&window, window.stock_map2d);
 		display_button_translate(window, window.window_ui.button_translate);
 		display_button_application(window, window.window_ui.button_application);
 		sfRenderWindow_display(window.m_window);

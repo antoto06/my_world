@@ -73,20 +73,22 @@ int *parse_line(char *line)
 input_map_t my_str_to_int_array(char *path)
 {
 	int nb_line = get_nblines(path);
-	int fd = open(path, O_RDONLY);
+	/* int fd = open(path, O_RDONLY); */
+	FILE *fd = fopen(path, "r");
 	input_map_t input_map;
 	int j = 0;
-	char *buffer = get_next_line(fd);
+	char *buffer = NULL;
+	size_t len = 0;
+	int read = 1;
 
 	input_map.map = malloc(sizeof(int *) * nb_line);
-	while (buffer) {
+	while (j < nb_line && read != -1) {
+		read = getline(&buffer, &len, fd);
 		input_map.map[j] = parse_line(buffer);
 		j++;
-		free(buffer);
-		buffer = get_next_line(fd);
 	}
 	input_map.len_x = j;
 	input_map.len_y = nb_line;
-	close(fd);
+	fclose(fd);
 	return input_map;
 }

@@ -36,15 +36,17 @@ void display_point(int j, int i, sfRenderWindow *window, map_node_t **map2d)
 		sfRenderWindow_drawConvexShape(window, map2d[i][j].node_shape, NULL);
 }
 
-int display_vertex(sfRenderWindow *window, map_node_t **map2d)
+int display_vertex(window_t *window, map_node_t **map2d)
 {
 	int i = 0;
 	int j = 0;
-	input_map_t tmp = map2d[0][0].input_map;
+	input_map_t tmp = window->stock_map2d[0][0].input_map;
 
+	if (window->map_visible == sfFalse)
+		return 0;
 	while (i < tmp.len_x) {
 		while (j < tmp.len_y) {
-			display_point(j, i, window, map2d);
+			display_point(j, i, window->m_window, window->stock_map2d);
 			j++;
 		}
 		j = 0;

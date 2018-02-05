@@ -7,9 +7,9 @@
 
 #include "my_world.h"
 
-void button_load(map_node_t **map2d)
+void button_load(map_node_t **map2d, window_t *window)
 {
-	
+	update_map("data2", window);
 }
 
 void button_quit(map_node_t **map2d)

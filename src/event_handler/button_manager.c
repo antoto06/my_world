@@ -32,7 +32,7 @@ void application_button_manager(sfMouseButtonEvent mouse_event, window_t *window
 	button_t *buttons_tmp = window->window_ui.button_application;
 
 	if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue) {
-		button_load(map2d);
+		button_load(map2d, window);
 	}
 	if (button_is_clicked(buttons_tmp[1], mouse_event) == sfTrue) {
 		button_quit(map2d);

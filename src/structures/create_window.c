@@ -20,6 +20,7 @@ window_t create_window(int m_x, int m_y)
 	window.size.x = m_size.x;
 	window.size.y = m_size.y;
 	window.window_ui = create_ui(window);
+	window.map_visible = sfTrue;
 	return window;
 }
 
