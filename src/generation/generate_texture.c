@@ -33,7 +33,7 @@ void generate_texture(map_node_t **map2d)
 			else if (tmp.map[i][j] >= 01)
 				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
 			else
-				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
+				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK_BURN, NULL);
 			vector_array = get_vector_array(map2d, i, j);
 			map2d[i][j].convex_points = vector_array;
 			sfConvexShape_setPointCount(map2d[i][j].node_shape, 4);
