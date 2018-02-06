@@ -33,7 +33,6 @@ sfBool is_hovered(map_node_t **map2d)
 	input_map_t tmp = map2d[0][0].input_map;
 	int i = 0;
 	int j = 0;
-	sfVector2f hovered;
 
 	while (i < tmp.len_x) {
 		while (j < tmp.len_y) {
