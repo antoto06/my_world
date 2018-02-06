@@ -39,6 +39,16 @@ void application_button_manager(sfMouseButtonEvent mouse_event, window_t *window
 	}
 }
 
+void tools_button_manager(sfMouseButtonEvent mouse_event, window_t *window,
+		map_node_t **map2d)
+{
+	button_t *buttons_tmp = window->window_ui.button_tools;
+
+	if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue) {
+		button_load(map2d, window);
+	}
+}
+
 void button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 		map_node_t **map2d)
 {

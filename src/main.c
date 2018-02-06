@@ -24,6 +24,7 @@ int main(int ac, char **av)
 		display_vertex(&window, window.stock_map2d);
 		display_button_translate(window, window.window_ui.button_translate);
 		display_button_application(window, window.window_ui.button_application);
+		display_button_tools(window, window.window_ui.button_tools);
 		sfRenderWindow_display(window.m_window);
 	}
 	return 0;

@@ -69,6 +69,7 @@ typedef struct button_s {
 typedef struct ui_s {
 	button_t *button_translate;
 	button_t *button_application;
+	button_t *button_tools;
 } ui_t;
 
 typedef struct window_s {

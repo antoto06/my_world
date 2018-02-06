@@ -43,11 +43,21 @@ button_t *create_application_buttons(window_t window)
 	return application;
 }
 
+button_t *create_tools_button(window_t window)
+{
+	sfVector2f button_elevate = get_position_by_percent(window, 1, 1);
+	button_t *tools = malloc(sizeof(button_t) * 1);
+
+	tools[0] = create_button(button_elevate, "elevate");
+	return tools;
+}
+
 ui_t create_ui(window_t window)
 {
 	ui_t ui;
 
 	ui.button_translate = create_translate_buttons(window);
 	ui.button_application = create_application_buttons(window);
+	ui.button_tools = create_tools_button(window);
 	return ui;
 }

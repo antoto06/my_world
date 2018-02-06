@@ -40,3 +40,16 @@ void display_button_translate(window_t window, button_t *buttons)
 		i++;
 	}
 }
+
+void display_button_tools(window_t window, button_t *buttons)
+{
+	int i = 0;
+
+	while (i < 1) {
+		sfRenderWindow_drawRectangleShape(window.m_window,
+				buttons[i].shape, NULL);
+		sfRenderWindow_drawText(window.m_window,
+				buttons[i].message, NULL);
+		i++;
+	}
+}
