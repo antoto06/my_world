@@ -69,6 +69,7 @@ typedef struct button_s {
 
 typedef struct tools_state_s {
 	sfBool elevate;
+	sfBool dig;
 } tools_state_t;
 
 typedef struct ui_s {

@@ -14,7 +14,8 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c \
 			src/generation/update_map.c \
-			src/generation/teraformation/tool_elevation.c
+			src/generation/teraformation/tool_elevation.c \
+			src/generation/teraformation/tool_dig.c
 
 SRC_MATHS	=	src/maths/iso_projection.c
 
@@ -29,7 +30,8 @@ SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/hover_manager.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c \
-			src/button_behaviour/button_application.c
+			src/button_behaviour/button_application.c \
+			src/button_behaviour/button_tools.c
 
 SRC_PARSER	=	src/parser/parser.c \
 			src/parser/reading.c

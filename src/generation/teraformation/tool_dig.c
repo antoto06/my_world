@@ -1,0 +1,20 @@
+/*
+** EPITECH PROJECT, 2018
+** dig
+** File description:
+** tool
+*/
+
+#include "my_world.h"
+
+void tool_dig(window_t *window, int x, int y)
+{
+	input_map_t new_input = window->stock_map2d[0][0].input_map;
+	map_node_t **new_map;
+
+	new_input.map[x][y] -= 01;
+	new_map = create_2d_map(new_input, *window);
+	generate_texture(new_map);
+	window->stock_map2d = NULL;
+	window->stock_map2d = new_map;
+}

@@ -46,9 +46,11 @@ button_t *create_application_buttons(window_t window)
 button_t *create_tools_button(window_t window)
 {
 	sfVector2f button_elevate = get_position_by_percent(window, 1, 1);
-	button_t *tools = malloc(sizeof(button_t) * 1);
+	sfVector2f button_dig = get_position_by_percent(window, 7, 1);
+	button_t *tools = malloc(sizeof(button_t) * 2);
 
 	tools[0] = create_button(button_elevate, "elevate");
+	tools[1] = create_button(button_dig, "dig");
 	return tools;
 }
 
@@ -60,5 +62,6 @@ ui_t create_ui(window_t window)
 	ui.button_application = create_application_buttons(window);
 	ui.button_tools = create_tools_button(window);
 	ui.tools_state.elevate = sfFalse;
+	ui.tools_state.dig = sfFalse;
 	return ui;
 }
