@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	window.stock_map2d = map2d;
 	while (sfRenderWindow_isOpen(window.m_window)) {
 		while (sfRenderWindow_pollEvent(window.m_window, &window.event)) {
-			analyse_event(&window, map2d);
+			analyse_event(&window, window.stock_map2d);
 		}
 		sfRenderWindow_clear(window.m_window, sfBlack);
 		display_vertex(&window, window.stock_map2d);

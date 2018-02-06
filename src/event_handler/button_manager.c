@@ -43,7 +43,13 @@ void tools_button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 		map_node_t **map2d)
 {
 	button_t *buttons_tmp = window->window_ui.button_tools;
+	sfVector2u tmp;
 
+	if (is_hovered(map2d) == sfTrue
+	    && window->window_ui.tools_state.elevate == sfTrue) {
+		tmp = get_hovered_point(map2d);
+		tool_elevate(window, tmp.x, tmp.y);
+	}
 	if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue
 	&& window->window_ui.tools_state.elevate == sfFalse) {
 		change_button_texture(buttons_tmp[0], BUTTON_GREEN_BURN);
