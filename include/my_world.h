@@ -32,6 +32,7 @@
 #define SCALING_Z 64
 
 #define BUTTON_GREEN "ressources/UI/button_green.png"
+#define BUTTON_GREEN_BURN "ressources/UI/button_green_burn.png"
 #define HOVER_SHAPE "ressources/UI/hover_vertex.png"
 #define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
 #define FONT1 "ressources/Font/Font1.otf"
@@ -66,10 +67,15 @@ typedef struct button_s {
 	sfFont *font;
 } button_t;
 
+typedef struct tools_state_s {
+	sfBool elevate;
+} tools_state_t;
+
 typedef struct ui_s {
 	button_t *button_translate;
 	button_t *button_application;
 	button_t *button_tools;
+	tools_state_t tools_state;
 } ui_t;
 
 typedef struct window_s {

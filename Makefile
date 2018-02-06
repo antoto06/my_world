@@ -13,7 +13,8 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c \
-			src/generation/update_map.c
+			src/generation/update_map.c \
+			src/generation/teraformation/tool_elevation.c
 
 SRC_MATHS	=	src/maths/iso_projection.c
 

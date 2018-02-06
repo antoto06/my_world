@@ -7,6 +7,12 @@
 
 #include "my_world.h"
 
+void change_button_texture(button_t button, char *new_txtr)
+{
+	button.txtr = sfTexture_createFromFile(new_txtr, NULL);
+	sfRectangleShape_setTexture(button.shape, button.txtr, sfFalse);
+}
+
 button_t create_button(sfVector2f position, char *msg)
 {
 	button_t button;

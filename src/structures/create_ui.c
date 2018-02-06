@@ -59,5 +59,6 @@ ui_t create_ui(window_t window)
 	ui.button_translate = create_translate_buttons(window);
 	ui.button_application = create_application_buttons(window);
 	ui.button_tools = create_tools_button(window);
+	ui.tools_state.elevate = sfFalse;
 	return ui;
 }

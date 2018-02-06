@@ -44,8 +44,14 @@ void tools_button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 {
 	button_t *buttons_tmp = window->window_ui.button_tools;
 
-	if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue) {
-		button_load(map2d, window);
+	if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue
+	&& window->window_ui.tools_state.elevate == sfFalse) {
+		change_button_texture(buttons_tmp[0], BUTTON_GREEN_BURN);
+		window->window_ui.tools_state.elevate = sfTrue;
+	} else if (button_is_clicked(buttons_tmp[0], mouse_event) == sfTrue
+	&& window->window_ui.tools_state.elevate == sfTrue) {
+		change_button_texture(buttons_tmp[0], BUTTON_GREEN);
+		window->window_ui.tools_state.elevate = sfFalse;
 	}
 }
 
@@ -54,4 +60,5 @@ void button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 {
 	translate_button_manager(mouse_event, window, map2d);
 	application_button_manager(mouse_event, window, map2d);
+	tools_button_manager(mouse_event, window, map2d);
 }
