@@ -57,14 +57,12 @@ void hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **map2d)
 
 	while (i < tmp.len_x) {
 		while (j < tmp.len_y) {
-			map2d[i][j].hover_visible = sfFalse; 
+			map2d[i][j].hover_visible = sfFalse;
 			if (mouse_pos.x > (map2d[i][j].iso_point.x - 10)
 			    && mouse_pos.x < (map2d[i][j].iso_point.x + 10)
 			    && mouse_pos.y > (map2d[i][j].iso_point.y - 10)
-			    && mouse_pos.y < (map2d[i][j].iso_point.y + 10)) {
+			    && mouse_pos.y < (map2d[i][j].iso_point.y + 10))
 				map2d[i][j].hover_visible = sfTrue;
-				printf("Hover: %d %d: true\n", i, j);
-			}
 			j++;
 		}
 		j = 0;
