@@ -32,6 +32,10 @@ void generate_texture(map_node_t **map2d)
 				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_GRASS, NULL);
 			else if (tmp.map[i][j] >= 01)
 				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK, NULL);
+			else if (tmp.map[i][j] >= 05)
+				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_GELE, NULL);
+			else if (tmp.map[i][j] <= -1)
+				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_WATER, NULL);
 			else
 				map2d[i][j].node_txtr = sfTexture_createFromFile(TXTR_ROCK_BURN, NULL);
 			vector_array = get_vector_array(map2d, i, j);

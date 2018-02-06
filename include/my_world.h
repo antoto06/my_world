@@ -40,6 +40,8 @@
 #define TXTR_DIRT "ressources/UI/brown.png"
 #define TXTR_ROCK_BURN "ressources/UI/rock_texture_burn.png"
 #define TXTR_ROCK "ressources/UI/rock_texture.jpg"
+#define TXTR_WATER "ressources/UI/water_texture.jpg"
+#define TXTR_GELE "ressources/UI/gele_texture.jpg"
 
 typedef struct input_map_s {
 	int **map;
