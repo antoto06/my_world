@@ -7,12 +7,16 @@
 
 #include "my_world.h"
 
-void selection_button_manager(window_t *window)
+void selection_button_manager(window_t *window, button_t button)
 {
-	if (window->window_ui.tools_state.corner == sfTrue)
+	if (window->window_ui.tools_state.corner == sfTrue) {
 		window->window_ui.tools_state.corner = sfFalse;
-	else
+		change_button_message(button, "tiles");
+	}
+	else {
 		window->window_ui.tools_state.corner = sfTrue;
+		change_button_message(button, "corner");
+	}
 }
 
 void button_load(map_node_t **map2d, window_t *window)

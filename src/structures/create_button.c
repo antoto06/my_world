@@ -7,6 +7,11 @@
 
 #include "my_world.h"
 
+void change_button_message(button_t button, char *new_msg)
+{
+	sfText_setString(button.message, new_msg);
+}
+
 void change_button_texture(button_t button, char *new_txtr)
 {
 	button.txtr = sfTexture_createFromFile(new_txtr, NULL);

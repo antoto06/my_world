@@ -34,7 +34,7 @@ void application_button_manager(sfMouseButtonEvent mouse_event, window_t *window
 		button_quit(map2d);
 	}
 	if (button_is_clicked(buttons_tmp[2], mouse_event) == sfTrue) {
-		selection_button_manager(window);
+		selection_button_manager(window, buttons_tmp[2]);
 	}
 }
 
