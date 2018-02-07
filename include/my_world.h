@@ -33,9 +33,13 @@
 
 #define BUTTON_GREEN "ressources/UI/button_green.png"
 #define BUTTON_GREEN_BURN "ressources/UI/button_green_burn.png"
+#define BUTTON_GREEN_HOVER "ressources/UI/button_green_hover.png"
+
 #define HOVER_SHAPE "ressources/UI/hover_vertex.png"
 #define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
+
 #define FONT1 "ressources/Font/Font1.otf"
+
 #define TXTR_GRASS "ressources/UI/grass-texture.jpg"
 #define TXTR_DIRT "ressources/UI/brown.png"
 #define TXTR_ROCK_BURN "ressources/UI/rock_texture_burn.png"
