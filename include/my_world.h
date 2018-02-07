@@ -47,6 +47,9 @@
 #define TXTR_WATER "ressources/UI/water_texture.jpg"
 #define TXTR_GELE "ressources/UI/gele_texture.jpg"
 
+#define SONG_BUILD "ressources/sound/build.ogg"
+#define SONG_DUG "ressources/sound/dug.ogg"
+
 typedef struct input_map_s {
 	int **map;
 	int len_x;

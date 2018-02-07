@@ -7,6 +7,14 @@
 
 #include "my_world.h"
 
+void sound_manager()
+{
+	sfMusic* music;
+
+	music = sfMusic_createFromFile(SONG_DUG);
+	sfMusic_play(music);
+}
+
 void elevate_button_manager(button_t *buttons_tmp, window_t *window,
 	map_node_t **map2d, sfMouseButtonEvent mouse_event)
 {
@@ -35,6 +43,7 @@ void dig_button_manager(button_t *buttons_tmp, window_t *window,
 
 	if (is_hovered(map2d) == sfTrue
 	    && window->window_ui.tools_state.dig == sfTrue) {
+		sound_manager();
 		tmp = get_hovered_point(map2d);
 		tool_dig(window, tmp.x, tmp.y);
 	}
