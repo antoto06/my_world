@@ -19,7 +19,9 @@ SRC	=	my_put_nbr.c \
 		my_strcmp.c \
 		my_array_size.c \
 		clear_str.c \
-		my_memset.c
+		my_memset.c \
+		my_int_to_str.c \
+		my_revstr.c
 
 OBJ	=	$(SRC:.c=.o)
 

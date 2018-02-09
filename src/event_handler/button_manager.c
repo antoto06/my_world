@@ -36,6 +36,9 @@ void application_button_manager(sfMouseButtonEvent mouse_event, window_t *window
 	if (button_is_clicked(buttons_tmp[2], mouse_event) == sfTrue) {
 		selection_button_manager(window, buttons_tmp[2]);
 	}
+	if (button_is_clicked(buttons_tmp[3], mouse_event) == sfTrue) {
+		save_map("saved", *window);
+	}
 }
 
 void button_manager(sfMouseButtonEvent mouse_event, window_t *window,

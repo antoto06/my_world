@@ -35,13 +35,15 @@ button_t *create_translate_buttons(window_t window)
 button_t *create_application_buttons(window_t window)
 {
 	sfVector2f button_load = get_position_by_percent(window, 87, 1);
+	sfVector2f button_save = get_position_by_percent(window, 87, 7);
 	sfVector2f button_quit = get_position_by_percent(window, 94, 1);
 	sfVector2f button_selection = get_position_by_percent(window, 80, 1);
-	button_t *application = malloc(sizeof(button_t) * 3);
+	button_t *application = malloc(sizeof(button_t) * 4);
 
 	application[0] = create_button(button_load, "load");
 	application[1] = create_button(button_quit, "quit");
 	application[2] = create_button(button_selection, "corner");
+	application[3] = create_button(button_save, "save");
 	return application;
 }
 

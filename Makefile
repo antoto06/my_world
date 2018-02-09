@@ -38,11 +38,14 @@ SRC_PARSER	=	src/parser/parser.c \
 
 SRC_ERROR	=	src/error/error_window.c
 
+SRC_SAVE	=	src/save_load/save.c
+
 SRC		=	src/main.c
 
 OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
 		$(SRC_MATHS:.c=.o) $(SRC_STRUCT:.c=.o) $(SRC_EVENT:.c=.o) \
-		$(SRC_BUTTON:.c=.o) $(SRC_PARSER:.c=.o) $(SRC_ERROR:.c=.o)
+		$(SRC_BUTTON:.c=.o) $(SRC_PARSER:.c=.o) $(SRC_ERROR:.c=.o) \
+		$(SRC_SAVE:.c=.o)
 
 CFLAGS	+=	-Wall -Wextra
 
