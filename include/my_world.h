@@ -76,6 +76,16 @@ typedef struct button_s {
 	sfFont *font;
 } button_t;
 
+typedef struct text_box_s {
+	sfVector2f panel_pos;
+	sfVector2f text_pos;
+	sfVector2f size;
+	sfTexture *panel_txtr;
+	sfSprite *panel_sprt;
+	sfText *dynamic_txt;
+	sfFont *font;
+} text_box_t;
+
 typedef struct tools_state_s {
 	sfBool elevate;
 	sfBool dig;

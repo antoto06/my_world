@@ -24,7 +24,8 @@ void button_load(map_node_t **map2d, window_t *window)
 	load_new_map("data2", window);
 }
 
-void button_quit(map_node_t **map2d)
+void button_quit(map_node_t **map2d, window_t *window)
 {
+	save_map("auto_save", *window);
 	exit(0);
 }
