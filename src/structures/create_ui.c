@@ -67,5 +67,6 @@ ui_t create_ui(window_t window)
 	ui.button_tools = create_tools_button(window);
 	ui.tools_state.elevate = sfFalse;
 	ui.tools_state.dig = sfFalse;
+	ui.tools_state.corner = sfTrue;
 	return ui;
 }
