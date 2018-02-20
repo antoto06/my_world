@@ -24,7 +24,7 @@ int nb_word(char const *str)
 	int i = 0;
 	int nb;
 
-        nb = 1;
+	nb = 1;
 	while (str[i] != '\0') {
 		if (str[i] <= '0' || str[i] >= '9')
 			nb++;
@@ -35,23 +35,23 @@ int nb_word(char const *str)
 
 int get_nblines(char *av)
 {
-        FILE *file;
-        char *str = NULL;
-        int read = 1;
-        size_t lines_nb = 0;
-        size_t len;
+	FILE *file;
+	char *str = NULL;
+	int read = 1;
+	size_t lines_nb = 0;
+	size_t len;
 
-        file = fopen(av, "r");
-        if (!file)
-                exit(84);
-        while (read != -1) {
-                read = getline(&str, &len, file);
-                lines_nb++;
-        }
-        if (str)
-                free(str);
-        fclose(file);
-        return lines_nb - 1;
+	file = fopen(av, "r");
+	if (!file)
+		exit(84);
+	while (read != -1) {
+		read = getline(&str, &len, file);
+		lines_nb++;
+	}
+	if (str)
+		free(str);
+	fclose(file);
+	return lines_nb - 1;
 }
 
 int *parse_line(char *line)
@@ -74,7 +74,6 @@ int *parse_line(char *line)
 input_map_t my_str_to_int_array(char *path)
 {
 	int nb_line = get_nblines(path);
-	/* int fd = open(path, O_RDONLY); */
 	FILE *fd = fopen(path, "r");
 	input_map_t input_map;
 	int j = 0;
