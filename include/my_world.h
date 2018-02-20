@@ -50,6 +50,8 @@
 #define SONG_BUILD "ressources/sound/build.ogg"
 #define SONG_DUG "ressources/sound/dug.ogg"
 
+#define HOVER_MOUSE "ressources/hover/01.jpg"
+
 typedef struct input_map_s {
 	int **map;
 	int len_x;
@@ -125,6 +127,7 @@ void button_manager(sfMouseButtonEvent mouse_event, window_t *, map_node_t **);
 sfBool button_is_clicked(button_t button, sfMouseButtonEvent click_pos);
 void analyse_event(window_t *window, map_node_t **map2d);
 void hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **, window_t);
+void second_hover_manager(sfMouseMoveEvent mouse_evt, window_t *);
 void generate_texture(map_node_t **map2d);
 void display_button_translate(window_t window, button_t *buttons);
 window_t create_window_err(int, char **);
