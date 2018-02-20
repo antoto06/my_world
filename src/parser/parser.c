@@ -16,6 +16,7 @@ int digit_len(char *line)
 			return i;
 		i++;
 	}
+	return 0;
 }
 
 int nb_word(char const *str)

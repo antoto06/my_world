@@ -5,6 +5,8 @@
 ** my
 */
 
+#include "my.h"
+
 int digit_len_str(int nb)
 {
 	int i = 0;
