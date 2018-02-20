@@ -16,6 +16,6 @@ void analyse_event(window_t *window, map_node_t **map2d)
 	}
 	if (window->event.type == sfEvtMouseMoved) {
 		hover_manager(window->event.mouseMove, map2d, *window);
-		second_hover_manager(window->event.mouseMove, *window);
+		second_hover_manager(window->event.mouseMove, window);
 	}
 }
