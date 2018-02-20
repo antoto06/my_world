@@ -7,6 +7,13 @@
 
 #include "my_world.h"
 
+void set_box_pos(sfMouseMoveEvent mouse, buble_box_t box)
+{
+	sfVector2f pos = {(float)mouse.x, (float)mouse.y};
+
+	sfRectangleShape_setPosition(box.shape, pos);
+}
+
 sfVector2f get_optimized_size(window_t window)
 {
 	sfVector2f size = {100, 50};
@@ -36,5 +43,6 @@ buble_box_t create_buble_box(window_t window)
 	sfText_setString(box.message, "empty");
 	sfText_setFont(box.message, box.font);
 	sfText_setCharacterSize(box.message, 30);
+	box.display = sfTrue;
 	return box;
 }

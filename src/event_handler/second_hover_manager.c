@@ -30,6 +30,7 @@ void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t window)
 			window.window_ui.ui_size.app_size,
 			window.window_ui.ui_size.tools_size};
 
+	set_box_pos(mouse_evt, window.buble_box);
 	for (int i = 0; i < 3; i++) {
 		hovered = button_checker(button_array[i], mouse_evt, size_array[i]);
 		if (hovered >= 0)
