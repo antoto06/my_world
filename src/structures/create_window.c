@@ -21,12 +21,13 @@ window_t create_window(int m_x, int m_y)
 	window.size.y = m_size.y;
 	window.window_ui = create_ui(window);
 	window.map_visible = sfTrue;
+	window.buble_box = create_buble_box(window);
 	return window;
 }
 
 window_t create_window_err(int ac, char **av)
 {
-	if (ac == 3)
+	if (ac == 4)
 		return create_window(my_getnbr(av[1]), my_getnbr(av[2]));
 	return create_window(1920, 1080);
 }

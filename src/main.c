@@ -25,6 +25,7 @@ int main(int ac, char **av)
 		display_button_translate(window, window.window_ui.button_translate);
 		display_button_application(window, window.window_ui.button_application);
 		display_button_tools(window, window.window_ui.button_tools);
+		display_buble_box(window.buble_box, window);
 		sfRenderWindow_display(window.m_window);
 	}
 	return 0;

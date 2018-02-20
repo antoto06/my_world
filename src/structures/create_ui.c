@@ -58,10 +58,21 @@ button_t *create_tools_button(window_t window)
 	return tools;
 }
 
+ui_size_t get_ui_size(void)
+{
+	ui_size_t ui_size;
+
+	ui_size.tr_size = 4;
+	ui_size.app_size = 4;
+	ui_size.tools_size = 2;
+	return ui_size;
+}
+
 ui_t create_ui(window_t window)
 {
 	ui_t ui;
 
+	ui.ui_size = get_ui_size();
 	ui.button_translate = create_translate_buttons(window);
 	ui.button_application = create_application_buttons(window);
 	ui.button_tools = create_tools_button(window);

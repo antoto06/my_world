@@ -7,12 +7,33 @@
 
 #include "my_world.h"
 
-void second_hover_manager(sfMouseMoveEvent mouse_evt, window_t *window)
+int button_checker(button_t *button,
+	sfMouseMoveEvent mouse_pos, int nb_button)
 {
-	sfVector2f mouse_pos = {(float)mouse_evt.x, (float)mouse_evt.y};
-	button_t *button_tmp = window->window_ui.button_translate;
+	int i = 0;
 
-	while (mouse_pos.x > button_tmp->pos.x
-	&& (mouse_pos.y < button_tmp->pos.y))
-		sfRenderWindow_drawText(window->m_window, HOVER_MOUSE, NULL);
+	while (i < nb_button) {
+		if (button_is_hovered(button[i], mouse_pos) == sfTrue)
+			return i;
+		i++;
+	}
+	return -1;
+}
+
+void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t window)
+{
+	int hovered = 0;
+	button_t *button_array[] = {window.window_ui.button_translate,
+				window.window_ui.button_application,
+				window.window_ui.button_tools};
+	int size_array[] = {window.window_ui.ui_size.tr_size,
+			window.window_ui.ui_size.app_size,
+			window.window_ui.ui_size.tools_size};
+
+	for (int i = 0; i < 3; i++) {
+		hovered = button_checker(button_array[i], mouse_evt, size_array[i]);
+		if (hovered >= 0)
+			printf("hit %d\n", hovered);
+		hovered = -1;
+	}
 }

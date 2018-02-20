@@ -69,6 +69,15 @@ typedef struct map_node_s {
 	sfBool hover_visible;
 } map_node_t;
 
+typedef struct buble_box_s {
+	sfRectangleShape *shape;
+	sfTexture *txtr;
+	sfVector2f pos;
+	sfText *message;
+	sfFont *font;
+	sfBool display;
+} buble_box_t;
+
 typedef struct button_s {
 	sfRectangleShape *shape;
 	sfTexture *txtr;
@@ -94,7 +103,14 @@ typedef struct tools_state_s {
 	sfBool corner;
 } tools_state_t;
 
+typedef struct ui_size_s {
+	int tr_size;
+	int app_size;
+	int tools_size;
+} ui_size_t;
+
 typedef struct ui_s {
+	ui_size_t ui_size;
 	button_t *button_translate;
 	button_t *button_application;
 	button_t *button_tools;
@@ -108,6 +124,7 @@ typedef struct window_s {
 	ui_t window_ui;
 	sfBool map_visible;
 	map_node_t **stock_map2d;
+	buble_box_t buble_box;
 } window_t;
 
 sfVector2f project_iso_point(int x, int y, int z);
@@ -119,7 +136,7 @@ void display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray *create_line(sfVector2f *, sfVector2f *);
 sfVector2f quick_projection_iso_point(sfVector2f, int);
 button_t create_button(sfVector2f position, char *msg);
-ui_t create_ui();
+ui_t create_ui(window_t);
 void button_translate(map_node_t **, int, int);
 void display_button_translate(window_t window, button_t *buttons);
 int check_error(int ac, char **av);
@@ -134,5 +151,5 @@ window_t create_window_err(int, char **);
 input_map_t my_rd(char *str);
 input_map_t my_str_to_int_array(char *);
 sfVector2u get_hovered_point(map_node_t **map2d);
-
+buble_box_t create_buble_box(window_t);
 #endif

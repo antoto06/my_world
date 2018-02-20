@@ -20,3 +20,17 @@ sfBool button_is_clicked(button_t button, sfMouseButtonEvent click_pos)
 	}
 	return sfFalse;
 }
+
+sfBool button_is_hovered(button_t button, sfMouseMoveEvent mouse_evt)
+{
+	sfVector2f mouse_pos = {(float)mouse_evt.x, (float)mouse_evt.y};
+
+	if (mouse_pos.x > (button.pos.x)
+	&& mouse_pos.x < (button.pos.x + button.size.x)) {
+		if (mouse_pos.y > (button.pos.y)
+		&& mouse_pos.y < (button.pos.y + button.size.y)) {
+			return sfTrue;
+		}
+	}
+	return sfFalse;
+}
