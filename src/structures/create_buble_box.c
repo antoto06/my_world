@@ -9,9 +9,10 @@
 
 void set_box_pos(sfMouseMoveEvent mouse, buble_box_t box)
 {
-	sfVector2f pos = {(float)mouse.x, (float)mouse.y};
+	sfVector2f pos = {(float)mouse.x + 10, (float)mouse.y + 20};
 
 	sfRectangleShape_setPosition(box.shape, pos);
+	sfText_setPosition(box.message, pos);
 }
 
 sfVector2f get_optimized_size(window_t window)

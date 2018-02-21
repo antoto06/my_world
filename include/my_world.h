@@ -85,6 +85,7 @@ typedef struct button_s {
 	sfVector2f pos;
 	sfText *message;
 	sfFont *font;
+	char *buble_str;
 } button_t;
 
 typedef struct text_box_s {
@@ -135,7 +136,7 @@ int			display_vertex(window_t *, map_node_t **);
 void			display_point(int, int, sfRenderWindow *, map_node_t **);
 sfVertexArray		*create_line(sfVector2f *, sfVector2f *);
 sfVector2f		quick_projection_iso_point(sfVector2f, int);
-button_t		create_button(sfVector2f position, char *msg);
+button_t		create_button(sfVector2f position, char *msg, char *buble_str);
 ui_t			create_ui(window_t);
 void			button_translate(map_node_t **, int, int);
 void			display_button_translate(window_t window, button_t *buttons);
@@ -154,7 +155,7 @@ input_map_t		my_str_to_int_array(char *);
 sfVector2u		get_hovered_point(map_node_t **map2d);
 buble_box_t		create_buble_box(window_t);
 void			display_button_application(window_t, button_t *);
-void			buble_hover_manager(sfMouseMoveEvent, window_t);
+void			buble_hover_manager(sfMouseMoveEvent, window_t *);
 int			button_checker(button_t *, sfMouseMoveEvent mouse_pos, int);
 void			display_button_tools(window_t window, button_t *buttons);
 void			display_buble_box(buble_box_t box, window_t window);

@@ -25,10 +25,10 @@ button_t *create_translate_buttons(window_t window)
 	sfVector2f button_top = get_position_by_percent(window, 3, 20);
 	button_t *translate = malloc(sizeof(button_t) * 4);
 
-	translate[0] = create_button(button_left, "left");
-	translate[1] = create_button(button_right, "right");
-	translate[2] = create_button(button_down, "down");
-	translate[3] = create_button(button_top, "up");
+	translate[0] = create_button(button_left, "left", "move left");
+	translate[1] = create_button(button_right, "right", "move right");
+	translate[2] = create_button(button_down, "down", "move up");
+	translate[3] = create_button(button_top, "up", "move down");
 	return translate;
 }
 
@@ -40,10 +40,10 @@ button_t *create_application_buttons(window_t window)
 	sfVector2f button_selection = get_position_by_percent(window, 80, 1);
 	button_t *application = malloc(sizeof(button_t) * 4);
 
-	application[0] = create_button(button_load, "load");
-	application[1] = create_button(button_quit, "quit");
-	application[2] = create_button(button_selection, "corner");
-	application[3] = create_button(button_save, "save");
+	application[0] = create_button(button_load, "load", "load a new map");
+	application[1] = create_button(button_quit, "quit", "quit application");
+	application[2] = create_button(button_selection, "corner", "select system");
+	application[3] = create_button(button_save, "save", "save your work");
 	return application;
 }
 
@@ -53,8 +53,8 @@ button_t *create_tools_button(window_t window)
 	sfVector2f button_dig = get_position_by_percent(window, 7, 1);
 	button_t *tools = malloc(sizeof(button_t) * 2);
 
-	tools[0] = create_button(button_elevate, "elevate");
-	tools[1] = create_button(button_dig, "dig");
+	tools[0] = create_button(button_elevate, "elevate", "create mountains");
+	tools[1] = create_button(button_dig, "dig", "create holes");
 	return tools;
 }
 

@@ -18,7 +18,7 @@ void change_button_texture(button_t button, char *new_txtr)
 	sfRectangleShape_setTexture(button.shape, button.txtr, sfFalse);
 }
 
-button_t create_button(sfVector2f position, char *msg)
+button_t create_button(sfVector2f position, char *msg, char *buble_str)
 {
 	button_t button;
 	sfVector2f message_pos;
@@ -40,5 +40,6 @@ button_t create_button(sfVector2f position, char *msg)
 	sfText_setString(button.message, msg);
 	sfText_setFont(button.message, button.font);
 	sfText_setCharacterSize(button.message, 30);
+	button.buble_str = my_strcat_malloc(NULL, buble_str);
 	return button;
 }
