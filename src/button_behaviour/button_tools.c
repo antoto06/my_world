@@ -7,9 +7,9 @@
 
 #include "my_world.h"
 
-void sound_manager()
+void sound_manager(void)
 {
-	sfMusic* music;
+	sfMusic *music;
 
 	music = sfMusic_createFromFile(SONG_DUG);
 	sfMusic_play(music);

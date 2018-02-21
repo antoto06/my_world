@@ -22,6 +22,15 @@ sfVector2f get_optimized_size(window_t window)
 	return size;
 }
 
+void create_display(window_t window, sfVector2f message_pos, buble_box_t box)
+{
+	sfText_setPosition(box.message, message_pos);
+	sfText_setColor(box.message, sfBlue);
+	sfText_setString(box.message, "empty");
+	sfText_setFont(box.message, box.font);
+	sfText_setCharacterSize(box.message, 30);
+}
+
 buble_box_t create_buble_box(window_t window)
 {
 	buble_box_t box;
@@ -39,11 +48,7 @@ buble_box_t create_buble_box(window_t window)
 	message_pos.y = def_pos.y + (size.y / 8);
 	box.font = sfFont_createFromFile(FONT1);
 	box.message = sfText_create();
-	sfText_setPosition(box.message, message_pos);
-	sfText_setColor(box.message, sfBlue);
-	sfText_setString(box.message, "empty");
-	sfText_setFont(box.message, box.font);
-	sfText_setCharacterSize(box.message, 30);
+	create_display(window, message_pos, box);
 	box.display = sfTrue;
 	return box;
 }

@@ -13,7 +13,6 @@ int check_error(int ac, char **av)
 	if (ac != 4) {
 		my_putstr("Error\n");
 		return -1;
-	}
-	else
+	} else
 		return 0;
 }

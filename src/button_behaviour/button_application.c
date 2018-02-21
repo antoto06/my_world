@@ -12,8 +12,7 @@ void selection_button_manager(window_t *window, button_t button)
 	if (window->window_ui.tools_state.corner == sfTrue) {
 		window->window_ui.tools_state.corner = sfFalse;
 		change_button_message(button, "tiles");
-	}
-	else {
+	} else {
 		window->window_ui.tools_state.corner = sfTrue;
 		change_button_message(button, "corner");
 	}

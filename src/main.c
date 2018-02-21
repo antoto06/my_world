@@ -17,13 +17,16 @@ int main(int ac, char **av)
 	generate_texture(map2d);
 	window.stock_map2d = map2d;
 	while (sfRenderWindow_isOpen(window.m_window)) {
-		while (sfRenderWindow_pollEvent(window.m_window, &window.event)) {
+		while (sfRenderWindow_pollEvent(window.m_window,
+					&window.event)) {
 			analyse_event(&window, window.stock_map2d);
 		}
 		sfRenderWindow_clear(window.m_window, sfBlack);
 		display_vertex(&window, window.stock_map2d);
-		display_button_translate(window, window.window_ui.button_translate);
-		display_button_application(window, window.window_ui.button_application);
+		display_button_translate(window,
+				window.window_ui.button_translate);
+		display_button_application(window,
+				window.window_ui.button_application);
 		display_button_tools(window, window.window_ui.button_tools);
 		display_buble_box(window.buble_box, window);
 		sfRenderWindow_display(window.m_window);

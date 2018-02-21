@@ -42,7 +42,8 @@ button_t *create_application_buttons(window_t window)
 
 	application[0] = create_button(button_load, "load", "load a new map");
 	application[1] = create_button(button_quit, "quit", "quit application");
-	application[2] = create_button(button_selection, "corner", "select system");
+	application[2] = create_button(button_selection, "corner",
+			"select system");
 	application[3] = create_button(button_save, "save", "save your work");
 	return application;
 }

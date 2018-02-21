@@ -7,9 +7,9 @@
 
 #include "my_world.h"
 
-void sound_background()
+void sound_background(void)
 {
-	sfMusic* music_back;
+	sfMusic *music_back;
 
 	music_back = sfMusic_createFromFile(SONG_BACK);
 	sfMusic_play(music_back);

@@ -18,6 +18,15 @@ void change_button_texture(button_t button, char *new_txtr)
 	sfRectangleShape_setTexture(button.shape, button.txtr, sfFalse);
 }
 
+void create_button_map(button_t button, sfVector2f message_pos, char *msg)
+{
+	sfText_setPosition(button.message, message_pos);
+	sfText_setColor(button.message, sfBlue);
+	sfText_setString(button.message, msg);
+	sfText_setFont(button.message, button.font);
+	sfText_setCharacterSize(button.message, 30);
+}
+
 button_t create_button(sfVector2f position, char *msg, char *buble_str)
 {
 	button_t button;
@@ -35,11 +44,7 @@ button_t create_button(sfVector2f position, char *msg, char *buble_str)
 	button.size = size;
 	button.font = sfFont_createFromFile(FONT1);
 	button.message = sfText_create();
-	sfText_setPosition(button.message, message_pos);
-	sfText_setColor(button.message, sfBlue);
-	sfText_setString(button.message, msg);
-	sfText_setFont(button.message, button.font);
-	sfText_setCharacterSize(button.message, 30);
+	create_button_map(button, message_pos, msg);
 	button.buble_str = my_strcat_malloc(NULL, buble_str);
 	return button;
 }
