@@ -18,4 +18,7 @@ void analyse_event(window_t *window, map_node_t **map2d)
 		hover_manager(window->event.mouseMove, map2d, *window);
 		buble_hover_manager(window->event.mouseMove, window);
 	}
+	if (window->event.type == sfEvtTextEntered) {
+		manage_text_box(window, window->event.text);
+	}
 }

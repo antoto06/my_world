@@ -52,6 +52,8 @@
 
 #define HOVER_MOUSE "ressources/hover/01.jpg"
 
+#define PANEL_SAVE "ressources/UI/panel_save.png"
+
 typedef struct input_map_s {
 	int **map;
 	int len_x;
@@ -70,8 +72,6 @@ typedef struct map_node_s {
 } map_node_t;
 
 typedef struct buble_box_s {
-	sfRectangleShape *shape;
-	sfTexture *txtr;
 	sfVector2f pos;
 	sfText *message;
 	sfFont *font;
@@ -94,14 +94,17 @@ typedef struct text_box_s {
 	sfVector2f size;
 	sfTexture *panel_txtr;
 	sfSprite *panel_sprt;
+	char *stock_str;
 	sfText *dynamic_txt;
 	sfFont *font;
+	button_t *buttons;
 } text_box_t;
 
 typedef struct tools_state_s {
 	sfBool elevate;
 	sfBool dig;
 	sfBool corner;
+	sfBool save;
 } tools_state_t;
 
 typedef struct ui_size_s {
@@ -116,6 +119,7 @@ typedef struct ui_s {
 	button_t *button_application;
 	button_t *button_tools;
 	tools_state_t tools_state;
+	text_box_t input_box;
 } ui_t;
 
 typedef struct window_s {
@@ -174,5 +178,7 @@ void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
 void			load_new_map(char *new_map_path, window_t *window);
 void			tool_elevate(window_t *window, int x, int y);
 void			tool_dig(window_t *window, int x, int y);
+text_box_t		create_text_box(window_t);
+sfVector2f		get_position_by_percent(window_t, int, int);
 
 #endif

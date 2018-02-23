@@ -10,7 +10,8 @@ NAME		=	my_world
 SRC_DISPLAY	=	src/display/create_vertex.c \
 			src/display/display_vertex.c \
 			src/display/display_button.c \
-			src/display/display_hover.c
+			src/display/display_hover.c \
+			src/display/display_text_box.c
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c \
@@ -24,13 +25,15 @@ SRC_STRUCT	=	src/structures/create_window.c \
 			src/structures/create_button.c \
 			src/structures/create_map_node.c \
 			src/structures/create_ui.c \
-			src/structures/create_buble_box.c
+			src/structures/create_buble_box.c \
+			src/structures/create_text_box.c
 
 SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/click_button.c \
 			src/event_handler/button_manager.c \
 			src/event_handler/hover_manager.c \
-			src/event_handler/second_hover_manager.c
+			src/event_handler/second_hover_manager.c \
+			src/event_handler/text_box_manager.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c \
 			src/button_behaviour/button_application.c \

@@ -29,6 +29,7 @@ int main(int ac, char **av)
 				window.window_ui.button_application);
 		display_button_tools(window, window.window_ui.button_tools);
 		display_buble_box(window.buble_box, window);
+		display_text_box(window.window_ui.input_box, window);
 		sfRenderWindow_display(window.m_window);
 	}
 	return 0;
