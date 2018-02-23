@@ -95,6 +95,7 @@ typedef struct text_box_s {
 	sfTexture *panel_txtr;
 	sfSprite *panel_sprt;
 	char *stock_str;
+	sfText *panel_txt;
 	sfText *dynamic_txt;
 	sfFont *font;
 	button_t *buttons;
