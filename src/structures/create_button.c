@@ -38,6 +38,13 @@ button_t create_button(sfVector2f position, char *msg, char *buble_str)
 	sfRectangleShape_setTexture(button.shape, button.txtr, sfFalse);
 	sfRectangleShape_setSize(button.shape, size);
 	sfRectangleShape_setPosition(button.shape, position);
+
+	button.shape_hover = sfRectangleShape_create();
+	button.txtr = sfTexture_createFromFile(BUTTON_GREEN_HOVER, NULL);
+	sfRectangleShape_setTexture(button.shape_hover, button.txtr, sfFalse);
+	sfRectangleShape_setSize(button.shape_hover, size);
+	sfRectangleShape_setPosition(button.shape_hover, position);
+
 	button.pos = position;
 	message_pos.x = position.x + (size.x / 8);
 	message_pos.y = position.y + (size.y / 8);
@@ -46,5 +53,6 @@ button_t create_button(sfVector2f position, char *msg, char *buble_str)
 	button.message = sfText_create();
 	create_button_map(button, message_pos, msg);
 	button.buble_str = my_strcat_malloc(NULL, buble_str);
+	button.hovered = sfFalse;
 	return button;
 }

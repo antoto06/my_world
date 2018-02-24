@@ -80,12 +80,14 @@ typedef struct buble_box_s {
 
 typedef struct button_s {
 	sfRectangleShape *shape;
+	sfRectangleShape *shape_hover;
 	sfTexture *txtr;
 	sfVector2f size;
 	sfVector2f pos;
 	sfText *message;
 	sfFont *font;
 	char *buble_str;
+	sfBool hovered;
 } button_t;
 
 typedef struct text_box_s {

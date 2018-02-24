@@ -35,9 +35,16 @@ int button_checker(button_t *button,
 	return -1;
 }
 
-void set_box_value(button_t button, window_t *window)
+void set_box_value(button_t *button, window_t *window)
 {
-	sfText_setString(window->buble_box.message, button.buble_str);
+	sfText_setString(window->buble_box.message, button->buble_str);
+	button->hovered = sfTrue;
+}
+
+void unset_hovered_button(button_t *button, int size)
+{
+	for (int i = 0; i < size; i++)
+		button[i].hovered = sfFalse;
 }
 
 void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t *window)
@@ -55,6 +62,8 @@ void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t *window)
 	for (int i = 0; i < 3; i++) {
 		hovered = button_checker(button_array[i], mouse_evt, size_array[i]);
 		if (hovered >= 0)
-			set_box_value(button_array[i][hovered], window);
+			set_box_value(&button_array[i][hovered], window);
+		else
+			unset_hovered_button(button_array[i], size_array[i]);
 	}
 }

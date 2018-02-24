@@ -20,8 +20,13 @@ void display_button_application(window_t window, button_t *buttons)
 	int i = 0;
 
 	while (i < 4) {
-		sfRenderWindow_drawRectangleShape(window.m_window,
+		if (buttons[i].hovered == sfFalse) {
+			sfRenderWindow_drawRectangleShape(window.m_window,
 				buttons[i].shape, NULL);
+		} else {
+			sfRenderWindow_drawRectangleShape(window.m_window,
+				buttons[i].shape_hover, NULL);
+		}
 		sfRenderWindow_drawText(window.m_window,
 				buttons[i].message, NULL);
 		i++;
@@ -33,8 +38,13 @@ void display_button_translate(window_t window, button_t *buttons)
 	int i = 0;
 
 	while (i < 4) {
-		sfRenderWindow_drawRectangleShape(window.m_window,
+		if (buttons[i].hovered == sfFalse) {
+			sfRenderWindow_drawRectangleShape(window.m_window,
 				buttons[i].shape, NULL);
+		} else {
+			sfRenderWindow_drawRectangleShape(window.m_window,
+				buttons[i].shape_hover, NULL);
+		}
 		sfRenderWindow_drawText(window.m_window,
 				buttons[i].message, NULL);
 		i++;
@@ -46,8 +56,13 @@ void display_button_tools(window_t window, button_t *buttons)
 	int i = 0;
 
 	while (i < 2) {
-		sfRenderWindow_drawRectangleShape(window.m_window,
+		if (buttons[i].hovered == sfFalse) {
+			sfRenderWindow_drawRectangleShape(window.m_window,
 				buttons[i].shape, NULL);
+		} else {
+			sfRenderWindow_drawRectangleShape(window.m_window,
+				buttons[i].shape_hover, NULL);
+		}
 		sfRenderWindow_drawText(window.m_window,
 				buttons[i].message, NULL);
 		i++;
