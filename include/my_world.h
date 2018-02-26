@@ -66,6 +66,7 @@ typedef struct map_node_s {
 	sfVector2f iso_point;
 	sfConvexShape *node_shape;
 	sfTexture *node_txtr;
+	sfTexture *hover_txtr;
 	sfVector2f *convex_points;
 	sfCircleShape *hover_shape;
 	sfTexture *hover_shape_txtr;
@@ -141,7 +142,7 @@ window_t		create_window(int, int);
 map_node_t		create_map_node(int, int, int, window_t);
 map_node_t		**create_2d_map(input_map_t map3d, window_t);
 int			display_vertex(window_t *, map_node_t **);
-void			display_point(int, int, sfRenderWindow *, map_node_t **);
+void			display_point(int, int, window_t *, map_node_t **);
 sfVertexArray		*create_line(sfVector2f *, sfVector2f *);
 sfVector2f		quick_projection_iso_point(sfVector2f, int);
 button_t		create_button(sfVector2f position, char *msg, char *buble_str);

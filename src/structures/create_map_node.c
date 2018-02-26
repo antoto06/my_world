@@ -20,6 +20,7 @@ map_node_t create_map_node(int x, int y, int z, window_t window)
 	hover_pos.y = node.iso_point.y - 10;
 	node.hover_shape = sfCircleShape_create();
 	node.hover_shape_txtr = sfTexture_createFromFile(HOVER_SHAPE, NULL);
+	node.hover_txtr = sfTexture_createFromFile(TXTR_GRASS_HOVER, NULL);
 	sfCircleShape_setTexture(node.hover_shape,
 			node.hover_shape_txtr, sfFalse);
 	sfCircleShape_setRadius(node.hover_shape, 10.0);

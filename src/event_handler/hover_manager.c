@@ -47,6 +47,23 @@ sfBool is_hovered(map_node_t **map2d)
 	return sfFalse;
 }
 
+sfBool get_hovered_type(sfVector2f mouse_pos, map_node_t node, window_t window)
+{
+	if (mouse_pos.x > (node.iso_point.x - 10)
+	&& mouse_pos.x < (node.iso_point.x + 10)
+	&& mouse_pos.y > (node.iso_point.y - 10)
+	&& mouse_pos.y < (node.iso_point.y + 10)
+	&& window.window_ui.tools_state.corner == sfTrue)
+		return sfTrue;
+	if (mouse_pos.x > (node.iso_point.x - 35)
+	&& mouse_pos.x < (node.iso_point.x + 35)
+	&& mouse_pos.y > (node.iso_point.y)
+	&& mouse_pos.y < (node.iso_point.y + 45)
+	&& window.window_ui.tools_state.corner == sfFalse)
+		return sfTrue;
+	return sfFalse;
+}
+
 void hover_manager(sfMouseMoveEvent mouse_evt,
 		map_node_t **map2d, window_t window)
 {
@@ -55,16 +72,10 @@ void hover_manager(sfMouseMoveEvent mouse_evt,
 	int j = 0;
 	input_map_t tmp = map2d[0][0].input_map;
 
-	if (window.window_ui.tools_state.corner == sfFalse)
-		return;
 	while (i < tmp.len_x) {
 		while (j < tmp.len_y) {
-			map2d[i][j].hover_visible = sfFalse;
-			if (mouse_pos.x > (map2d[i][j].iso_point.x - 10)
-			    && mouse_pos.x < (map2d[i][j].iso_point.x + 10)
-			    && mouse_pos.y > (map2d[i][j].iso_point.y - 10)
-			    && mouse_pos.y < (map2d[i][j].iso_point.y + 10))
-				map2d[i][j].hover_visible = sfTrue;
+			map2d[i][j].hover_visible = \
+			get_hovered_type(mouse_pos, map2d[i][j], window);
 			j++;
 		}
 		j = 0;
