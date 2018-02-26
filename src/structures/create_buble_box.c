@@ -18,11 +18,13 @@ sfVector2f get_optimized_size(window_t window)
 {
 	sfVector2f size = {100, 50};
 
+	(void)window;
 	return size;
 }
 
 void create_display(window_t window, sfVector2f message_pos, buble_box_t box)
 {
+	(void)window;
 	sfText_setPosition(box.message, message_pos);
 	sfText_setColor(box.message, sfBlue);
 	sfText_setString(box.message, "empty");

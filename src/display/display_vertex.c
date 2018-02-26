@@ -70,5 +70,6 @@ int display_vertex(window_t *window, map_node_t **map2d)
 		j = 0;
 		i++;
 	}
+	(void)map2d;
 	return 0;
 }

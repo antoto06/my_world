@@ -22,14 +22,7 @@ int main(int ac, char **av)
 			analyse_event(&window, window.stock_map2d);
 		}
 		sfRenderWindow_clear(window.m_window, sfBlack);
-		display_vertex(&window, window.stock_map2d);
-		display_button_translate(window,
-				window.window_ui.button_translate);
-		display_button_application(window,
-				window.window_ui.button_application);
-		display_button_tools(window, window.window_ui.button_tools);
-		display_buble_box(window.buble_box, window);
-		display_text_box(window.window_ui.input_box, window);
+		display_tree(&window);
 		sfRenderWindow_display(window.m_window);
 	}
 	return 0;

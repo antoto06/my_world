@@ -69,4 +69,5 @@ void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t *window)
 		else
 			unset_hovered_button(button_array[i], size_array[i]);
 	}
+	(void)one_hovered;
 }

@@ -26,6 +26,9 @@ sfVector2u get_hovered_point(map_node_t **map2d)
 		j = 0;
 		i++;
 	}
+	hovered.x = 0;
+	hovered.y = 0;
+	return hovered;
 }
 
 sfBool is_hovered(map_node_t **map2d)

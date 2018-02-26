@@ -54,6 +54,7 @@
 #define HOVER_MOUSE "ressources/hover/01.jpg"
 
 #define PANEL_SAVE "ressources/UI/panel_save.png"
+#define PANEL_BKGRD "ressources/UI/background.jpg"
 
 typedef struct input_map_s {
 	int **map;
@@ -129,6 +130,8 @@ typedef struct ui_s {
 
 typedef struct window_s {
 	sfVector2u size;
+	sfRectangleShape *background;
+	sfTexture *background_txtr;
 	sfRenderWindow *m_window;
 	sfEvent event;
 	ui_t window_ui;
@@ -185,5 +188,12 @@ void			tool_elevate(window_t *window, int x, int y);
 void			tool_dig(window_t *window, int x, int y);
 text_box_t		create_text_box(window_t);
 sfVector2f		get_position_by_percent(window_t, int, int);
-
+void			display_tree(window_t *);
+void			handle_special_case(window_t *window, map_node_t **map2d);
+void			handle_convex_texture(map_node_t node, window_t *window);
+void			display_simple_button(window_t window, button_t button);
+void			display_text_box(text_box_t box, window_t window);
+int			manage_text_box(window_t *window, sfTextEvent input_txt);
+void			manage_save_system(window_t *window);
+void			button_text_box(window_t *window, sfMouseButtonEvent mouse_evt);
 #endif
