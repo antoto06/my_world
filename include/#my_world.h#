@@ -46,7 +46,7 @@
 #define TXTR_ROCK "ressources/UI/rock_texture.jpg"
 #define TXTR_WATER "ressources/UI/water_texture.jpg"
 #define TXTR_GELE "ressources/UI/gele_texture.jpg"
-#define TXTR_GRASS_HOVER "ressources/UI/grass-texture-hover.jpg"
+
 
 #define SONG_BUILD "ressources/sound/build.ogg"
 #define SONG_DUG "ressources/sound/dug.ogg"
