@@ -11,7 +11,8 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 			src/display/display_vertex.c \
 			src/display/display_button.c \
 			src/display/display_hover.c \
-			src/display/display_text_box.c
+			src/display/display_text_box.c \
+			src/display/texture_handler.c
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c \
