@@ -47,7 +47,8 @@ sfBool is_hovered(map_node_t **map2d)
 	return sfFalse;
 }
 
-void hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **map2d, window_t window)
+void hover_manager(sfMouseMoveEvent mouse_evt,
+		map_node_t **map2d, window_t window)
 {
 	sfVector2f mouse_pos = {(float)mouse_evt.x, (float)mouse_evt.y};
 	int i = 0;

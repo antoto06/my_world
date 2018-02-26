@@ -13,8 +13,8 @@ button_t *create_save_buttons(window_t window)
 	sfVector2f pos1 = get_position_by_percent(window, 40, 65);
 	sfVector2f pos2 = get_position_by_percent(window, 60, 65);
 
-        buttons[0] = create_button(pos1, "save", "save your map!");
-        buttons[1] = create_button(pos2, "Cancel", "Back to the map");
+	buttons[0] = create_button(pos1, "save", "save your map!");
+	buttons[1] = create_button(pos2, "Cancel", "Back to the map");
 	return buttons;
 }
 
