@@ -56,6 +56,15 @@
 #define PANEL_SAVE "ressources/UI/panel_save.png"
 #define PANEL_BKGRD "ressources/UI/background.jpg"
 
+#define ELEMENT_H1 "ressources/elements/house_1.png"
+
+typedef struct element_s {
+	sfSprite *sprt;
+	sfTexture *txtr;
+	sfVector2f pos;
+	sfVector2f size;
+} element_t;
+
 typedef struct input_map_s {
 	int **map;
 	int len_x;

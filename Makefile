@@ -35,7 +35,9 @@ SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/button_manager.c \
 			src/event_handler/hover_manager.c \
 			src/event_handler/second_hover_manager.c \
-			src/event_handler/text_box_manager.c
+			src/event_handler/text_box_manager.c \
+			src/event_handler/key_manager.c \
+			src/event_handler/mouse_translation.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c \
 			src/button_behaviour/button_application.c \

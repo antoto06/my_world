@@ -15,8 +15,8 @@ void button_translate(map_node_t **map2d, int x_offset, int y_offset)
 
 	while (i < tmp5.len_x) {
 		while (j < tmp5.len_y) {
-			map2d[i][j].iso_point.x += (x_offset * 10);
-			map2d[i][j].iso_point.y += (y_offset * 10);
+			map2d[i][j].iso_point.x += (x_offset * 10) / 2;
+			map2d[i][j].iso_point.y += (y_offset * 10) / 2;
 			sfCircleShape_setPosition(map2d[i][j].hover_shape,
 					map2d[i][j].iso_point);
 			j++;
