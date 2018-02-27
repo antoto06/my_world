@@ -7,14 +7,35 @@
 
 #include "my_world.h"
 
+void tool_dig_zone(window_t *window, int x, int y)
+{
+	input_map_t new_input = window->stock_map2d[0][0].input_map;
+	map_node_t **new_map;
+
+	if (x + 2 > new_input.len_x || y + 2 > new_input.len_y)
+		return;
+	new_input.map[x][y] -= 1;
+        new_input.map[x + 1][y] -= 1;
+        new_input.map[x][y + 1] -= 1;
+        new_input.map[x + 1][y + 1] -= 1;
+	new_map = create_2d_map(new_input, *window);
+	generate_texture(new_map);
+	window->stock_map2d = NULL;
+	window->stock_map2d = new_map;
+}
+
 void tool_dig(window_t *window, int x, int y)
 {
 	input_map_t new_input = window->stock_map2d[0][0].input_map;
 	map_node_t **new_map;
 
-	new_input.map[x][y] -= 01;
-	new_map = create_2d_map(new_input, *window);
-	generate_texture(new_map);
-	window->stock_map2d = NULL;
-	window->stock_map2d = new_map;
+	if (window->window_ui.tools_state.corner == sfFalse) {
+		tool_dig_zone(window, x, y);
+	} else {
+		new_input.map[x][y] -= 01;
+		new_map = create_2d_map(new_input, *window);
+		generate_texture(new_map);
+		window->stock_map2d = NULL;
+		window->stock_map2d = new_map;window->stock_map2d = new_map;
+	}
 }
