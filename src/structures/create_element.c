@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-element_t	create_element(sfVector2f m_pos, char *path)
+element_t create_element(sfVector2f m_pos, char *path)
 {
 	element_t element;
 	sfVector2f m_size = {20, 20};

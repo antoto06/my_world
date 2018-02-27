@@ -23,12 +23,16 @@ button_t *create_translate_buttons(window_t window)
 	sfVector2f button_right = get_position_by_percent(window, 6, 25);
 	sfVector2f button_down = get_position_by_percent(window, 3, 30);
 	sfVector2f button_top = get_position_by_percent(window, 3, 20);
-	button_t *translate = malloc(sizeof(button_t) * 4);
+	sfVector2f button_zoomi = get_position_by_percent(window, 3, 40);
+	sfVector2f button_zoomo = get_position_by_percent(window, 3, 45);
+	button_t *translate = malloc(sizeof(button_t) * 6);
 
 	translate[0] = create_button(button_left, "left", "move left");
 	translate[1] = create_button(button_right, "right", "move right");
 	translate[2] = create_button(button_down, "down", "move up");
 	translate[3] = create_button(button_top, "up", "move down");
+	translate[4] = create_button(button_zoomi, "in", "zoom in");
+	translate[5] = create_button(button_zoomo, "out", "zoom out");
 	return translate;
 }
 
@@ -52,10 +56,12 @@ button_t *create_tools_button(window_t window)
 {
 	sfVector2f button_elevate = get_position_by_percent(window, 1, 1);
 	sfVector2f button_dig = get_position_by_percent(window, 7, 1);
-	button_t *tools = malloc(sizeof(button_t) * 2);
+	sfVector2f button_elem = get_position_by_percent(window, 14, 1);
+	button_t *tools = malloc(sizeof(button_t) * 3);
 
 	tools[0] = create_button(button_elevate, "elevate", "create mountains");
 	tools[1] = create_button(button_dig, "dig", "create holes");
+	tools[2] = create_button(button_elem, "add", "add elements");
 	return tools;
 }
 

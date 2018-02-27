@@ -7,10 +7,8 @@
 
 #include "my_world.h"
 
-void my_world(int ac, char **av)
+void my_world(input_map_t map3d, window_t window)
 {
-	input_map_t map3d = my_rd(av[3]);
-	window_t window	= create_window_err(ac, av);
 	map_node_t **map2d;
 
 	map2d = create_2d_map(map3d, window);
@@ -27,12 +25,32 @@ void my_world(int ac, char **av)
 	}
 
 }
+
+void launcher(int ac, char **av)
+{
+	input_map_t map3d;
+	window_t window;
+
+	if (ac == 1) {
+		map3d = my_rd(DEF_3DMAP);
+		window = create_window_err(ac, av);
+		my_world(map3d, window);
+	} else if (ac == 4) {
+		map3d = my_rd(av[3]);
+		window = create_window_err(ac, av);
+		my_world(map3d, window);
+	} else {
+		print_help();
+	}
+}
+
 int main(int ac, char **av)
 {
 	if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
 		print_help();
 		return 0;
-	} else
-		my_world(ac, av);
+	} else {
+		launcher(ac, av);
+	}
 	return 0;
 }

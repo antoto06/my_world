@@ -22,4 +22,5 @@ void key_translate(map_node_t **map2d, sfKeyEvent key)
 void key_manager(window_t *window, sfKeyEvent key ,map_node_t **map2d)
 {
 	key_translate(map2d, key);
+	(void)window;
 }

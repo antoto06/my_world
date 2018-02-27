@@ -30,6 +30,7 @@
 #define SCALING_X 64
 #define SCALING_Y 64
 #define SCALING_Z 64
+#define DEF_3DMAP "ressources/default/default_map3D.legend"
 
 #define BUTTON_GREEN "ressources/UI/button_green.png"
 #define BUTTON_GREEN_BURN "ressources/UI/button_green_burn.png"
@@ -206,5 +207,6 @@ int			manage_text_box(window_t *window, sfTextEvent input_txt);
 void			manage_save_system(window_t *window);
 void			button_text_box(window_t *window, sfMouseButtonEvent mouse_evt);
 void			print_help(void);
+void			key_manager(window_t *, sfKeyEvent, map_node_t **);
 
 #endif
