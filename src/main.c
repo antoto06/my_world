@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-int main(int ac, char **av)
+void my_world(int ac, char **av)
 {
 	input_map_t map3d = my_rd(av[3]);
 	window_t window	= create_window_err(ac, av);
@@ -25,5 +25,14 @@ int main(int ac, char **av)
 		display_tree(&window);
 		sfRenderWindow_display(window.m_window);
 	}
+
+}
+int main(int ac, char **av)
+{
+	if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
+		print_help();
+		return 0;
+	} else
+		my_world(ac, av);
 	return 0;
 }

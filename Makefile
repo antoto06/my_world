@@ -48,7 +48,8 @@ SRC_ERROR	=	src/error/error_window.c
 
 SRC_SAVE	=	src/save_load/save.c
 
-SRC		=	src/main.c
+SRC		=	src/main.c \
+			src/help.c
 
 OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
 		$(SRC_MATHS:.c=.o) $(SRC_STRUCT:.c=.o) $(SRC_EVENT:.c=.o) \

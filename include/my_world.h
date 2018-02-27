@@ -196,4 +196,6 @@ void			display_text_box(text_box_t box, window_t window);
 int			manage_text_box(window_t *window, sfTextEvent input_txt);
 void			manage_save_system(window_t *window);
 void			button_text_box(window_t *window, sfMouseButtonEvent mouse_evt);
+void			print_help(void);
+
 #endif
