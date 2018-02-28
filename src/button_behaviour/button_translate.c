@@ -13,6 +13,8 @@ void button_translate(map_node_t **map2d, int x_offset, int y_offset)
 	int j = 0;
 	input_map_t tmp5 = map2d[0][0].input_map;
 
+	map2d[0][0].stock_translation.x += (x_offset * 10) / 2;
+	map2d[0][0].stock_translation.y += (y_offset * 10) / 2;
 	while (i < tmp5.len_x) {
 		while (j < tmp5.len_y) {
 			map2d[i][j].iso_point.x += (x_offset * 10) / 2;

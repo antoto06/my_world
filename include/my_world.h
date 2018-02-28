@@ -82,6 +82,7 @@ typedef struct map_node_s {
 	sfCircleShape *hover_shape;
 	sfTexture *hover_shape_txtr;
 	sfBool hover_visible;
+	sfVector2f stock_translation;
 } map_node_t;
 
 typedef struct buble_box_s {
