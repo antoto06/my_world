@@ -196,7 +196,7 @@ void			change_button_texture(button_t button, char *new_txtr);
 void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
 void			load_new_map(char *new_map_path, window_t *window);
 void			tool_elevate(window_t *window, int x, int y, map_node_t **map2d);
-void			tool_dig(window_t *window, int x, int y);
+void			tool_dig(window_t *window, int x, int y, map_node_t **map2d);
 text_box_t		create_text_box(window_t);
 sfVector2f		get_position_by_percent(window_t, int, int);
 void			display_tree(window_t *);

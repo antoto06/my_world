@@ -45,7 +45,7 @@ void dig_button_manager(button_t *buttons_tmp, window_t *window,
 	    && window->window_ui.tools_state.dig == sfTrue) {
 		sound_manager();
 		tmp = get_hovered_point(map2d);
-		tool_dig(window, tmp.x, tmp.y);
+		tool_dig(window, tmp.x, tmp.y, map2d);
 	}
 	if (button_is_clicked(buttons_tmp[1], mouse_event) == sfTrue
 	&& window->window_ui.tools_state.dig == sfFalse) {
