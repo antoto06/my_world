@@ -20,6 +20,10 @@ void translate_button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 		button_translate(map2d, 0, 1);
 	if (button_is_clicked(buttons_tmp[3], mouse_event) == sfTrue)
 		button_translate(map2d, 0, -1);
+	if (button_is_clicked(buttons_tmp[4], mouse_event) == sfTrue)
+		button_zoom(map2d, 2, window);
+	if (button_is_clicked(buttons_tmp[5], mouse_event) == sfTrue)
+		button_zoom(map2d, -2, window);
 }
 
 void application_button_manager(sfMouseButtonEvent mouse_event, window_t *window,

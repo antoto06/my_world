@@ -194,7 +194,7 @@ void			change_button_message(button_t button, char *new_msg);
 void			change_button_texture(button_t button, char *new_txtr);
 void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
 void			load_new_map(char *new_map_path, window_t *window);
-void			tool_elevate(window_t *window, int x, int y);
+void			tool_elevate(window_t *window, int x, int y, map_node_t **map2d);
 void			tool_dig(window_t *window, int x, int y);
 text_box_t		create_text_box(window_t);
 sfVector2f		get_position_by_percent(window_t, int, int);
@@ -208,5 +208,6 @@ void			manage_save_system(window_t *window);
 void			button_text_box(window_t *window, sfMouseButtonEvent mouse_evt);
 void			print_help(void);
 void			key_manager(window_t *, sfKeyEvent, map_node_t **);
+void			shortcut_tools(sfKeyEvent key, window_t *window);
 
 #endif
