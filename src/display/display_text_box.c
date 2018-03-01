@@ -9,8 +9,6 @@
 
 void display_text_box(text_box_t box, window_t window)
 {
-	if (window.window_ui.tools_state.save == sfFalse)
-		return;
 	sfRenderWindow_drawSprite(window.m_window, box.panel_sprt, NULL);
 	sfRenderWindow_drawText(window.m_window, box.dynamic_txt, NULL);
 	sfRenderWindow_drawText(window.m_window, box.panel_txt, NULL);

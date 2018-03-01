@@ -23,5 +23,8 @@ void display_tree(window_t *window)
 		window->window_ui.button_application);
 	display_button_tools(*window, window->window_ui.button_tools);
 	display_buble_box(window->buble_box, *window);
-	display_text_box(window->window_ui.input_box, *window);
+	if (window->window_ui.tools_state.save == sfTrue)
+		display_text_box(window->window_ui.input_box, *window);
+	if (window->window_ui.tools_state.load == sfTrue)
+		display_text_box(window->window_ui.input_box_load, *window);
 }

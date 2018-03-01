@@ -83,10 +83,12 @@ ui_t create_ui(window_t window)
 	ui.button_translate = create_translate_buttons(window);
 	ui.button_application = create_application_buttons(window);
 	ui.button_tools = create_tools_button(window);
-	ui.input_box = create_text_box(window);
+	ui.input_box = create_text_box(window, "Save your map!", "Save");
+	ui.input_box_load = create_text_box(window, "Load a new map", "Load");
 	ui.tools_state.elevate = sfFalse;
 	ui.tools_state.dig = sfFalse;
 	ui.tools_state.corner = sfTrue;
 	ui.tools_state.save = sfFalse;
+	ui.tools_state.load = sfFalse;
 	return ui;
 }

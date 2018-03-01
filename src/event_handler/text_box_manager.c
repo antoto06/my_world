@@ -7,10 +7,21 @@
 
 #include "my_world.h"
 
-void manage_save_system(window_t *window)
+void handle_textbox_action(window_t *window, char *stock_tmp)
 {
-	if (window->window_ui.tools_state.save == sfFalse)
-		window->window_ui.tools_state.save = sfTrue;
+	if (window->window_ui.tools_state.save == sfTrue) {
+		save_map(stock_tmp, *window);
+		free(window->window_ui.input_box.stock_str);
+		window->window_ui.input_box.stock_str = NULL;
+		window->window_ui.tools_state.save = sfFalse;
+		return;
+	} else if (window->window_ui.tools_state.load == sfTrue) {
+		load_new_map(stock_tmp, window);
+		free(window->window_ui.input_box_load.stock_str);
+		window->window_ui.input_box_load.stock_str = NULL;
+		window->window_ui.tools_state.load = sfFalse;
+		return;
+	}
 }
 
 void button_text_box(window_t *window, sfMouseButtonEvent mouse_evt)
@@ -20,14 +31,14 @@ void button_text_box(window_t *window, sfMouseButtonEvent mouse_evt)
 
 	if (button_is_clicked(buttons_tmp[0], mouse_evt) == sfTrue) {
 		if (stock_tmp) {
-			save_map(stock_tmp, *window);
-			free(window->window_ui.input_box.stock_str);
-			window->window_ui.input_box.stock_str = NULL;
-			window->window_ui.tools_state.save = sfFalse;
+			handle_textbox_action(window, stock_tmp);
 		}
 	}
 	if (button_is_clicked(buttons_tmp[1], mouse_evt) == sfTrue) {
-		window->window_ui.tools_state.save = sfFalse;
+		if (window->window_ui.tools_state.save == sfTrue)
+			window->window_ui.tools_state.save = sfFalse;
+		else if (window->window_ui.tools_state.load == sfTrue)
+			window->window_ui.tools_state.load = sfFalse;
 		free(window->window_ui.input_box.stock_str);
 		window->window_ui.input_box.stock_str = NULL;
 	}
@@ -38,11 +49,36 @@ void handle_del_input(window_t *window)
 	char *tmp;
 	int pos_del = 0;
 
-	tmp = window->window_ui.input_box.stock_str;
-	pos_del = my_strlen(tmp) - 1;
-	window->window_ui.input_box.stock_str[pos_del] = '\0';
-	sfText_setString(window->window_ui.input_box.dynamic_txt,
-		window->window_ui.input_box.stock_str);
+	if (window->window_ui.tools_state.save == sfTrue) {
+		tmp = window->window_ui.input_box.stock_str;
+		pos_del = my_strlen(tmp) - 1;
+		window->window_ui.input_box.stock_str[pos_del] = '\0';
+		sfText_setString(window->window_ui.input_box.dynamic_txt,
+			window->window_ui.input_box.stock_str);
+	} else if (window->window_ui.tools_state.load == sfTrue) {
+		tmp = window->window_ui.input_box_load.stock_str;
+		pos_del = my_strlen(tmp) - 1;
+		window->window_ui.input_box_load.stock_str[pos_del] = '\0';
+		sfText_setString(window->window_ui.input_box_load.dynamic_txt,
+			window->window_ui.input_box_load.stock_str);
+	}
+}
+
+void handle_input(window_t *window, char *input_str)
+{
+	if (window->window_ui.tools_state.save == sfTrue) {
+		window->window_ui.input_box.stock_str =\
+			my_strcat_malloc(window->window_ui.input_box.stock_str,
+			input_str);
+		sfText_setString(window->window_ui.input_box.dynamic_txt,
+			window->window_ui.input_box.stock_str);
+	} else if (window->window_ui.tools_state.load == sfTrue) {
+		window->window_ui.input_box_load.stock_str =\
+			my_strcat_malloc(window->window_ui.input_box_load.stock_str,
+			input_str);
+		sfText_setString(window->window_ui.input_box_load.dynamic_txt,
+			window->window_ui.input_box_load.stock_str);
+	}
 }
 
 int manage_text_box(window_t *window, sfTextEvent input_txt)
@@ -58,11 +94,7 @@ int manage_text_box(window_t *window, sfTextEvent input_txt)
 	input_str = malloc(sizeof(char) * 2);
 	input_str[0] = input_txt.unicode;
 	input_str[1] = '\0';
-	window->window_ui.input_box.stock_str = \
-	my_strcat_malloc(window->window_ui.input_box.stock_str,
-				input_str);
-	sfText_setString(window->window_ui.input_box.dynamic_txt,
-		window->window_ui.input_box.stock_str);
+	handle_input(window, input_str);
 	free(input_str);
 	return 0;
 }

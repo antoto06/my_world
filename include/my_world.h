@@ -122,6 +122,7 @@ typedef struct tools_state_s {
 	sfBool dig;
 	sfBool corner;
 	sfBool save;
+	sfBool load;
 } tools_state_t;
 
 typedef struct ui_size_s {
@@ -137,6 +138,7 @@ typedef struct ui_s {
 	button_t *button_tools;
 	tools_state_t tools_state;
 	text_box_t input_box;
+	text_box_t input_box_load;
 } ui_t;
 
 typedef struct window_s {
@@ -197,7 +199,7 @@ void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
 void			load_new_map(char *new_map_path, window_t *window);
 void			tool_elevate(window_t *window, int x, int y, map_node_t **map2d);
 void			tool_dig(window_t *window, int x, int y, map_node_t **map2d);
-text_box_t		create_text_box(window_t);
+text_box_t		create_text_box(window_t, char *, char *);
 sfVector2f		get_position_by_percent(window_t, int, int);
 void			display_tree(window_t *);
 void			handle_special_case(window_t *window, map_node_t **map2d);
