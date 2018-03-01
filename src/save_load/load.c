@@ -14,5 +14,5 @@ void load_new_map(char *new_map_path, window_t *window)
 
 	generate_texture(new_map);
 	window->stock_map2d = NULL;
-        window->stock_map2d = new_map;
+	window->stock_map2d = new_map;
 }
