@@ -7,8 +7,11 @@
 
 #include "my_world.h"
 
-void handle_textbox_action(window_t *window, char *stock_tmp)
+void handle_textbox_action(window_t *window,
+		char *stock_tmp_save, char *stock_tmp_load)
 {
+	char *stock_tmp = (stock_tmp_save) ?
+		stock_tmp_save : stock_tmp_load;
 	if (window->window_ui.tools_state.save == sfTrue) {
 		save_map(stock_tmp, *window);
 		free(window->window_ui.input_box.stock_str);
@@ -26,15 +29,17 @@ void handle_textbox_action(window_t *window, char *stock_tmp)
 
 void button_text_box(window_t *window, sfMouseButtonEvent mouse_evt)
 {
-	button_t *buttons_tmp = window->window_ui.input_box.buttons;
-	char *stock_tmp = window->window_ui.input_box.stock_str;
+	button_t *buttons_save = window->window_ui.input_box.buttons;
+	button_t *buttons_load = window->window_ui.input_box_load.buttons;
+	char *stock_tmp_save = window->window_ui.input_box.stock_str;
+	char *stock_tmp_load = window->window_ui.input_box_load.stock_str;
 
-	if (button_is_clicked(buttons_tmp[0], mouse_evt) == sfTrue) {
-		if (stock_tmp) {
-			handle_textbox_action(window, stock_tmp);
-		}
+	if (button_is_clicked(buttons_save[0], mouse_evt) == sfTrue
+	|| button_is_clicked(buttons_load[0], mouse_evt) == sfTrue) {
+		handle_textbox_action(window, stock_tmp_save, stock_tmp_load);
 	}
-	if (button_is_clicked(buttons_tmp[1], mouse_evt) == sfTrue) {
+	if (button_is_clicked(buttons_save[1], mouse_evt) == sfTrue
+	|| button_is_clicked(buttons_load[1], mouse_evt) == sfTrue) {
 		if (window->window_ui.tools_state.save == sfTrue)
 			window->window_ui.tools_state.save = sfFalse;
 		else if (window->window_ui.tools_state.load == sfTrue)
