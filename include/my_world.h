@@ -212,5 +212,7 @@ void			button_text_box(window_t *window, sfMouseButtonEvent mouse_evt);
 void			print_help(void);
 void			key_manager(window_t *, sfKeyEvent, map_node_t **);
 void			shortcut_tools(sfKeyEvent key, window_t *window);
+sfVector2f		get_iso_point(int current_zoom,
+				input_map_t tmp5, int i, int j);
 
 #endif

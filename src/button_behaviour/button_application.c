@@ -21,9 +21,9 @@ void selection_button_manager(window_t *window, button_t button)
 void button_save(map_node_t **map2d, window_t *window)
 {
 	if (window->window_ui.tools_state.save == sfFalse) {
-                window->window_ui.tools_state.save = sfTrue;
+		window->window_ui.tools_state.save = sfTrue;
 		window->window_ui.tools_state.load = sfFalse;
-        }
+	}
 }
 
 void button_load(map_node_t **map2d, window_t *window)
