@@ -161,19 +161,25 @@ int			display_vertex(window_t *, map_node_t **);
 void			display_point(int, int, window_t *, map_node_t **);
 sfVertexArray		*create_line(sfVector2f *, sfVector2f *);
 sfVector2f		quick_projection_iso_point(sfVector2f, int);
-button_t		create_button(sfVector2f position, char *msg, char *buble_str);
+button_t		create_button(sfVector2f position, char *msg,
+				char *buble_str);
 ui_t			create_ui(window_t);
 void			button_translate(map_node_t **, int, int);
-void			display_button_translate(window_t window, button_t *buttons);
+void			display_button_translate(window_t window,
+					button_t *buttons);
 int			check_error(int ac, char **av);
 void			button_manager(sfMouseButtonEvent mouse_event,
 				window_t *, map_node_t **);
-sfBool			button_is_clicked(button_t button, sfMouseButtonEvent click_pos);
+sfBool			button_is_clicked(button_t button,
+					sfMouseButtonEvent click_pos);
 void			analyse_event(window_t *window, map_node_t **map2d);
-void			hover_manager(sfMouseMoveEvent mouse_evt, map_node_t **, window_t);
-void			second_hover_manager(sfMouseMoveEvent mouse_evt, window_t *);
+void			hover_manager(sfMouseMoveEvent mouse_evt,
+				map_node_t **, window_t);
+void			second_hover_manager(sfMouseMoveEvent mouse_evt,
+					window_t *);
 void			generate_texture(map_node_t **map2d);
-void			display_button_translate(window_t window, button_t *buttons);
+void			display_button_translate(window_t window,
+						button_t *buttons);
 window_t		create_window_err(int, char **);
 input_map_t		my_rd(char *str);
 input_map_t		my_str_to_int_array(char *);
@@ -181,38 +187,55 @@ sfVector2u		get_hovered_point(map_node_t **map2d);
 buble_box_t		create_buble_box(window_t);
 void			display_button_application(window_t, button_t *);
 void			buble_hover_manager(sfMouseMoveEvent, window_t *);
-int			button_checker(button_t *, sfMouseMoveEvent mouse_pos, int);
-void			display_button_tools(window_t window, button_t *buttons);
+int			button_checker(button_t *,
+				sfMouseMoveEvent mouse_pos, int);
+void			display_button_tools(window_t window,
+					button_t *buttons);
 void			display_buble_box(buble_box_t box, window_t window);
-void			tools_button_manager(sfMouseButtonEvent, window_t *, map_node_t **);
+void			tools_button_manager(sfMouseButtonEvent,
+				window_t *, map_node_t **);
 void			button_load(map_node_t **map2d, window_t *window);
 void			button_quit(map_node_t **map2d, window_t *window);
-void			selection_button_manager(window_t *window, button_t button);
+void			selection_button_manager(window_t *window,
+						button_t button);
 void			save_map(char *file_name, window_t window);
-void			write_file(int **map_z, int len_x, int len_y, FILE *fp);
-sfBool			button_is_hovered(button_t button, sfMouseMoveEvent mouse_evt);
-sfBool			button_is_clicked(button_t button, sfMouseButtonEvent click_pos);
+void			write_file(int **map_z, int len_x,
+				int len_y, FILE *fp);
+sfBool			button_is_hovered(button_t button,
+				sfMouseMoveEvent mouse_evt);
+sfBool			button_is_clicked(button_t button,
+					sfMouseButtonEvent click_pos);
 sfBool			is_hovered(map_node_t **map2d);
 void			change_button_message(button_t button, char *new_msg);
 void			change_button_texture(button_t button, char *new_txtr);
 void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
 void			load_new_map(char *new_map_path, window_t *window);
-void			tool_elevate(window_t *window, int x, int y, map_node_t **map2d);
-void			tool_dig(window_t *window, int x, int y, map_node_t **map2d);
+void			tool_elevate(window_t *window,
+				int x, int y, map_node_t **map2d);
+void			tool_dig(window_t *window,
+				int x, int y, map_node_t **map2d);
 text_box_t		create_text_box(window_t, char *, char *);
 sfVector2f		get_position_by_percent(window_t, int, int);
 void			display_tree(window_t *);
-void			handle_special_case(window_t *window, map_node_t **map2d);
-void			handle_convex_texture(map_node_t node, window_t *window);
-void			display_simple_button(window_t window, button_t button);
+void			handle_special_case(window_t *window,
+					map_node_t **map2d);
+void			handle_convex_texture(map_node_t node,
+					window_t *window);
+void			display_simple_button(window_t window,
+					button_t button);
 void			display_text_box(text_box_t box, window_t window);
-int			manage_text_box(window_t *window, sfTextEvent input_txt);
+int			manage_text_box(window_t *window,
+					sfTextEvent input_txt);
 void			manage_save_system(window_t *window);
-void			button_text_box(window_t *window, sfMouseButtonEvent mouse_evt);
+void			button_text_box(window_t *window,
+					sfMouseButtonEvent mouse_evt);
 void			print_help(void);
 void			key_manager(window_t *, sfKeyEvent, map_node_t **);
 void			shortcut_tools(sfKeyEvent key, window_t *window);
 sfVector2f		get_iso_point(int current_zoom,
 				input_map_t tmp5, int i, int j);
+void			button_zoom(map_node_t **map2d,
+				int offset, window_t *window);
+void			button_save(map_node_t **map2d, window_t *window);
 
 #endif

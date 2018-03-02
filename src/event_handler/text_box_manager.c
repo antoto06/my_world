@@ -72,15 +72,15 @@ void handle_del_input(window_t *window)
 void handle_input(window_t *window, char *input_str)
 {
 	if (window->window_ui.tools_state.save == sfTrue) {
-		window->window_ui.input_box.stock_str =\
+		window->window_ui.input_box.stock_str =
 			my_strcat_malloc(window->window_ui.input_box.stock_str,
 			input_str);
 		sfText_setString(window->window_ui.input_box.dynamic_txt,
 			window->window_ui.input_box.stock_str);
 	} else if (window->window_ui.tools_state.load == sfTrue) {
-		window->window_ui.input_box_load.stock_str =\
-			my_strcat_malloc(window->window_ui.input_box_load.stock_str,
-			input_str);
+		window->window_ui.input_box_load.stock_str =
+			my_strcat_malloc(
+			window->window_ui.input_box_load.stock_str, input_str);
 		sfText_setString(window->window_ui.input_box_load.dynamic_txt,
 			window->window_ui.input_box_load.stock_str);
 	}

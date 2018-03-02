@@ -46,11 +46,9 @@ void launcher(int ac, char **av)
 
 int main(int ac, char **av)
 {
-	if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
+	if (ac == 2 && my_strcmp(av[1], "-h") == 0)
 		print_help();
-		return 0;
-	} else {
+	else
 		launcher(ac, av);
-	}
 	return 0;
 }
