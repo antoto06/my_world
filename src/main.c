@@ -33,10 +33,14 @@ void launcher(int ac, char **av)
 
 	if (ac == 1) {
 		map3d = my_rd(DEF_3DMAP);
+		if (map3d.error == -1)
+			return;
 		window = create_window_err(ac, av);
 		my_world(map3d, window);
 	} else if (ac == 4) {
 		map3d = my_rd(av[3]);
+		if (map3d.error == -1)
+			return;
 		window = create_window_err(ac, av);
 		my_world(map3d, window);
 	} else {

@@ -70,6 +70,7 @@ typedef struct input_map_s {
 	int **map;
 	int len_x;
 	int len_y;
+	int error;
 } input_map_t;
 
 typedef struct map_node_s {

@@ -38,5 +38,4 @@ void button_quit(map_node_t **map2d, window_t *window)
 {
 	(void)map2d;
 	save_map("auto_save", *window);
-	exit(0);
 }

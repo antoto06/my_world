@@ -42,8 +42,6 @@ int get_nblines(char *av)
 	size_t len;
 
 	file = fopen(av, "r");
-	if (!file)
-		exit(84);
 	while (read != -1) {
 		read = getline(&str, &len, file);
 		lines_nb++;
