@@ -242,5 +242,13 @@ sfVector2f		get_iso_point(int current_zoom,
 void			button_zoom(map_node_t **map2d,
 				int offset, window_t *window);
 void			button_save(map_node_t **map2d, window_t *window);
+void			free_all(window_t window, map_node_t **map2d);
+void			free_ui(ui_t ui);
+void			free_text_box(text_box_t item);
+void			free_button_array(button_t *button, int size);
+void			free_buble_box(buble_box_t item);
+void			free_button(button_t button);
+void			free_map2d(map_node_t **map2d);
+void			free_line(sfVertexArray *array);
 
 #endif

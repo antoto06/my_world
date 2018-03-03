@@ -20,6 +20,7 @@ void selection_button_manager(window_t *window, button_t button)
 
 void button_save(map_node_t **map2d, window_t *window)
 {
+	(void)map2d;
 	if (window->window_ui.tools_state.save == sfFalse) {
 		window->window_ui.tools_state.save = sfTrue;
 		window->window_ui.tools_state.load = sfFalse;
@@ -28,6 +29,7 @@ void button_save(map_node_t **map2d, window_t *window)
 
 void button_load(map_node_t **map2d, window_t *window)
 {
+	(void)map2d;
 	if (window->window_ui.tools_state.load == sfFalse) {
 		window->window_ui.tools_state.load = sfTrue;
 		window->window_ui.tools_state.save = sfFalse;
@@ -36,6 +38,7 @@ void button_load(map_node_t **map2d, window_t *window)
 
 void button_quit(map_node_t **map2d, window_t *window)
 {
+	(void)map2d;
 	save_map("auto_save", *window);
 	window->quit = sfTrue;
 }
