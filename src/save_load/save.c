@@ -27,7 +27,8 @@ void write_file(int **map_z, int len_x, int len_y, FILE *fp)
 void save_map(char *file_name, window_t window)
 {
 	FILE *fp;
-	char *file_name_ext = my_strcat_malloc(file_name, ".legend");
+	char *path = my_strcat_malloc("./save/", file_name);
+	char *file_name_ext = my_strcat_malloc(path, ".legend");
 	int **map_z = window.stock_map2d[0][0].input_map.map;
 	int len_x = window.stock_map2d[0][0].input_map.len_x;
 	int len_y = window.stock_map2d[0][0].input_map.len_y;
@@ -36,4 +37,7 @@ void save_map(char *file_name, window_t window)
 	if (!fp)
 		fp = fopen(file_name_ext, "wb");
 	write_file(map_z, len_x, len_y, fp);
+	free(path);
+	free(file_name_ext);
+	fclose(fp);
 }

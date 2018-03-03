@@ -7,6 +7,13 @@
 
 #include "my_world.h"
 
+void free_line(sfVertexArray *array)
+{
+	if (!array)
+		return;
+	sfVertexArray_destroy(array);
+}
+
 sfVertexArray *create_line(sfVector2f *point1, sfVector2f *point2)
 {
 	sfVertexArray *vertex_array = sfVertexArray_create();

@@ -17,7 +17,6 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c \
-			src/generation/update_map.c \
 			src/generation/teraformation/tool_elevation.c \
 			src/generation/teraformation/tool_dig.c
 
@@ -49,7 +48,15 @@ SRC_PARSER	=	src/parser/parser.c \
 
 SRC_ERROR	=	src/error/error_window.c
 
-SRC_SAVE	=	src/save_load/save.c
+SRC_SAVE	=	src/save_load/save.c \
+			src/save_load/load.c
+
+SRC_FREE	=	src/free/free_buble_box.c \
+			src/free/free_button.c \
+			src/free/free_text_box.c \
+			src/free/free_ui.c \
+			src/free/free_window.c \
+			src/generation/free_map.c
 
 SRC		=	src/main.c \
 			src/help.c
@@ -57,9 +64,9 @@ SRC		=	src/main.c \
 OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
 		$(SRC_MATHS:.c=.o) $(SRC_STRUCT:.c=.o) $(SRC_EVENT:.c=.o) \
 		$(SRC_BUTTON:.c=.o) $(SRC_PARSER:.c=.o) $(SRC_ERROR:.c=.o) \
-		$(SRC_SAVE:.c=.o)
+		$(SRC_SAVE:.c=.o) $(SRC_FREE:.c=.o)
 
-CFLAGS	+=	-Wall -Wextra
+CFLAGS	+=	-Wall -Wextra -g3
 
 CFLAGS	+=	-I./include
 
@@ -70,7 +77,7 @@ all	:	$(NAME)
 $(NAME)	:	$(OBJ)
 		make -C lib/my
 		make -C lib/gnl
-		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog
+		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog -g3
 clean	:
 		make -C lib/my clean
 		make -C lib/gnl clean

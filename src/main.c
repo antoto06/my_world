@@ -10,11 +10,15 @@
 void my_world(input_map_t map3d, window_t window)
 {
 	map_node_t **map2d;
+	sfMusic *music = sfMusic_createFromFile(SONG_BACK);
 
+	sfMusic_play(music);
+	sfMusic_setLoop(music, sfTrue);
 	map2d = create_2d_map(map3d, window);
 	generate_texture(map2d);
 	window.stock_map2d = map2d;
-	while (sfRenderWindow_isOpen(window.m_window)) {
+	while (sfRenderWindow_isOpen(window.m_window)
+	&& window.quit == sfFalse) {
 		while (sfRenderWindow_pollEvent(window.m_window,
 					&window.event)) {
 			analyse_event(&window, window.stock_map2d);
@@ -23,7 +27,7 @@ void my_world(input_map_t map3d, window_t window)
 		display_tree(&window);
 		sfRenderWindow_display(window.m_window);
 	}
-
+	free_all(window, map2d);
 }
 
 void launcher(int ac, char **av)
@@ -48,8 +52,10 @@ void launcher(int ac, char **av)
 	}
 }
 
-int main(int ac, char **av)
+int main(int ac, char **av, char **env)
 {
+	if (env == NULL)
+		return 84;
 	if (ac == 2 && my_strcmp(av[1], "-h") == 0)
 		print_help();
 	else

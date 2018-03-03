@@ -10,7 +10,7 @@
 void display_point_two(int i, int j, sfRenderWindow *window,
 	map_node_t **map2d)
 {
-	sfVertexArray *tmp;
+	sfVertexArray *tmp = NULL;
 
 	if (j != 0) {
 		tmp = create_line(&map2d[i][j].iso_point,
@@ -20,7 +20,8 @@ void display_point_two(int i, int j, sfRenderWindow *window,
 			sfRenderWindow_drawCircleShape(window,
 					map2d[i][j].hover_shape, NULL);
 	}
-
+	if (tmp)
+		free_line(tmp);
 }
 
 sfTexture *get_convex_txtr(map_node_t node, window_t *window)
@@ -33,7 +34,7 @@ sfTexture *get_convex_txtr(map_node_t node, window_t *window)
 
 void display_point(int j, int i, window_t *window, map_node_t **map2d)
 {
-	sfVertexArray *tmp_inv;
+	sfVertexArray *tmp_inv = NULL;
 	input_map_t tmp2 = map2d[0][0].input_map;
 
 	handle_special_case(window, map2d);
@@ -51,6 +52,8 @@ void display_point(int j, int i, window_t *window, map_node_t **map2d)
 		sfRenderWindow_drawConvexShape(window->m_window,
 					map2d[i][j].node_shape, NULL);
 	}
+	if (tmp_inv)
+		free_line(tmp_inv);
 }
 
 int display_vertex(window_t *window, map_node_t **map2d)

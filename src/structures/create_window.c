@@ -23,11 +23,11 @@ window_t create_window(int m_x, int m_y)
 	sfRectangleShape_setTexture(window.background, window.background_txtr,
 			sfFalse);
 	m_size = sfRenderWindow_getSize(window.m_window);
-	window.size.x = m_size.x;
-	window.size.y = m_size.y;
+	window.size = m_size;
 	window.window_ui = create_ui(window);
 	window.map_visible = sfTrue;
 	window.buble_box = create_buble_box(window);
+	window.quit = sfFalse;
 	return window;
 }
 

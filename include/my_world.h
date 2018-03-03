@@ -4,7 +4,6 @@
 ** File description:
 ** header
 */
-
 #ifndef MY_WORLD_H
 #define MY_WORLD_H
 
@@ -24,6 +23,9 @@
 #include <stdio.h>
 #include "my.h"
 #include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <dirent.h>
 
 #define ANGLE_X 35
 #define ANGLE_Y 25.264
@@ -51,6 +53,7 @@
 
 #define SONG_BUILD "ressources/sound/build.ogg"
 #define SONG_DUG "ressources/sound/dug.ogg"
+#define SONG_BACK "ressources/sound/background.ogg"
 
 #define HOVER_MOUSE "ressources/hover/01.jpg"
 
@@ -152,6 +155,7 @@ typedef struct window_s {
 	sfBool map_visible;
 	map_node_t **stock_map2d;
 	buble_box_t buble_box;
+	sfBool quit;
 } window_t;
 
 sfVector2f		project_iso_point(int x, int y, int z);

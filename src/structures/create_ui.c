@@ -69,9 +69,9 @@ ui_size_t get_ui_size(void)
 {
 	ui_size_t ui_size;
 
-	ui_size.tr_size = 4;
+	ui_size.tr_size = 6;
 	ui_size.app_size = 4;
-	ui_size.tools_size = 2;
+	ui_size.tools_size = 3;
 	return ui_size;
 }
 

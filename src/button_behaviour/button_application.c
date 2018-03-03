@@ -36,6 +36,6 @@ void button_load(map_node_t **map2d, window_t *window)
 
 void button_quit(map_node_t **map2d, window_t *window)
 {
-	(void)map2d;
 	save_map("auto_save", *window);
+	window->quit = sfTrue;
 }
