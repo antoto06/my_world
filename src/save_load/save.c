@@ -7,22 +7,38 @@
 
 #include "my_world.h"
 
+int check_save_dir(void)
+{
+	DIR *dir;
+
+	dir = opendir("./save/");
+	if (!dir) {
+		closedir(dir);
+		return -1;
+	} else {
+		closedir(dir);
+		return 1;
+	}
+}
+
 void write_file(int **map_z, int len_x, int len_y, FILE *fp)
 {
 	int i = 0;
 	int j = 0;
 	char *buff = NULL;
 	char nb;
+	char space = ' ';
+	char ret = '\n';
 
 	while (i < len_y) {
 		while (j < len_x) {
 			buff = int_to_str(map_z[i][j]);
 			nb = buff[0];
 			fwrite(&nb, sizeof(char), 1, fp);
-			fwrite(" ", sizeof(char), 1, fp);
+			fwrite(&space,  sizeof(char), 1, fp);
 			j++;
 		}
-		fwrite("\n", sizeof(char), 1, fp);
+		fwrite(&ret, sizeof(char), 1, fp);
 		j = 0;
 		i++;
 	}
@@ -37,6 +53,10 @@ void save_map(char *file_name, window_t window)
 	int len_x = window.stock_map2d[0][0].input_map.len_x;
 	int len_y = window.stock_map2d[0][0].input_map.len_y;
 
+	if (check_save_dir() < 0) {
+		my_putstr("Error: cannot find save directory\n");
+		return;
+	}
 	fp = fopen(file_name_ext, "rb+");
 	if (!fp)
 		fp = fopen(file_name_ext, "wb");

@@ -14,3 +14,8 @@ void display_elements(window_t *window, map_node_t node)
 			node.element.sprt, NULL);
 	}
 }
+
+void display_analizer(window_t window, visualizer_t visu)
+{
+	sfRenderWindow_drawSprite(window.m_window, visu.sprt, NULL);
+}

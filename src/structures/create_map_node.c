@@ -33,6 +33,6 @@ map_node_t create_map_node(int x, int y, int z, window_t window)
 	hover_pos.y = node.iso_point.y - 10;
 	node.hover_visible = sfFalse;
 	set_sub_node(&node, hover_pos);
-	node.element = create_element(hover_pos, ELEMENT_H1);
+	node.element = create_element(hover_pos);
 	return node;
 }

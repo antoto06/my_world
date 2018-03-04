@@ -31,6 +31,7 @@ SRC_STRUCT	=	src/structures/create_window.c \
 			src/structures/create_buble_box.c \
 			src/structures/create_text_box.c \
 			src/structures/create_element.c \
+			src/structures/create_visualizer.c \
 			src/structures/get_percent_position.c
 
 SRC_EVENT	=	src/event_handler/event_manager.c \
@@ -46,7 +47,8 @@ SRC_EVENT	=	src/event_handler/event_manager.c \
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c \
 			src/button_behaviour/button_application.c \
-			src/button_behaviour/button_tools.c
+			src/button_behaviour/button_tools.c \
+			src/button_behaviour/button_elem.c
 
 SRC_PARSER	=	src/parser/parser.c \
 			src/parser/reading.c

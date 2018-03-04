@@ -7,6 +7,14 @@
 
 #include "my_world.h"
 
+void set_window_objects(window_t *window)
+{
+	window->window_ui = create_ui(*window);
+	window->map_visible = sfTrue;
+	window->buble_box = create_buble_box(*window);
+	window->elem_visu = create_visualizer(*window);
+}
+
 window_t create_window(int m_x, int m_y)
 {
 	window_t window;
@@ -24,9 +32,7 @@ window_t create_window(int m_x, int m_y)
 			sfFalse);
 	m_size = sfRenderWindow_getSize(window.m_window);
 	window.size = m_size;
-	window.window_ui = create_ui(window);
-	window.map_visible = sfTrue;
-	window.buble_box = create_buble_box(window);
+	set_window_objects(&window);
 	window.quit = sfFalse;
 	return window;
 }

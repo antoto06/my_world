@@ -47,11 +47,13 @@ button_t *create_tools_button(window_t window)
 	sfVector2f button_elevate = get_position_by_percent(window, 1, 1);
 	sfVector2f button_dig = get_position_by_percent(window, 7, 1);
 	sfVector2f button_elem = get_position_by_percent(window, 14, 1);
-	button_t *tools = malloc(sizeof(button_t) * 3);
+	sfVector2f button_next = get_position_by_percent(window, 23, 12);
+	button_t *tools = malloc(sizeof(button_t) * 4);
 
 	tools[0] = create_button(button_elevate, "elevate", "create mountains");
 	tools[1] = create_button(button_dig, "dig", "create holes");
 	tools[2] = create_button(button_elem, "add", "add elements");
+	tools[3] = create_button(button_next, "next", "change element");
 	return tools;
 }
 
@@ -61,7 +63,7 @@ ui_size_t get_ui_size(void)
 
 	ui_size.tr_size = 6;
 	ui_size.app_size = 4;
-	ui_size.tools_size = 3;
+	ui_size.tools_size = 4;
 	return ui_size;
 }
 

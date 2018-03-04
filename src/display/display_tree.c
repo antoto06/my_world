@@ -27,4 +27,5 @@ void display_tree(window_t *window)
 		display_text_box(window->window_ui.input_box, *window);
 	if (window->window_ui.tools_state.load == sfTrue)
 		display_text_box(window->window_ui.input_box_load, *window);
+	display_analizer(*window, window->elem_visu);
 }

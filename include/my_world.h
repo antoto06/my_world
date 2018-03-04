@@ -61,14 +61,19 @@
 #define PANEL_BKGRD "ressources/UI/background.jpg"
 
 #define ELEMENT_H1 "ressources/elements/house_1.png"
+#define ELEMENT_T1 "ressources/elements/tree_1.png"
+#define ELEMENT_H2 "ressources/elements/house_2.png"
+#define ELEMENT_O1 "ressources/elements/bench_1.png"
+#define ELEMENT_O2 "ressources/elements/object1.png"
 
 typedef struct element_s {
 	sfSprite *sprt;
-	sfTexture *txtr;
+	sfTexture **txtr;
 	sfVector2f pos;
 	sfVector2f size;
 	sfBool active;
 	sfBool rendered;
+	int id;
 } element_t;
 
 typedef struct input_map_s {
@@ -149,6 +154,12 @@ typedef struct ui_s {
 	text_box_t input_box_load;
 } ui_t;
 
+typedef struct visualizer_s {
+	sfSprite *sprt;
+	sfTexture *txtr;
+	sfVector2f pos;
+} visualizer_t;
+
 typedef struct window_s {
 	sfVector2u size;
 	sfRectangleShape *background;
@@ -160,6 +171,7 @@ typedef struct window_s {
 	map_node_t **stock_map2d;
 	buble_box_t buble_box;
 	sfBool quit;
+	visualizer_t elem_visu;
 } window_t;
 
 sfVector2f		project_iso_point(int x, int y, int z);
@@ -254,7 +266,7 @@ void			free_buble_box(buble_box_t item);
 void			free_button(button_t button);
 void			free_map2d(map_node_t **map2d);
 void			free_line(sfVertexArray *array);
-element_t		create_element(sfVector2f m_pos, char *path);
+element_t		create_element(sfVector2f m_pos);
 void			manage_elem_display(window_t window,
 				map_node_t *node);
 void			display_elements(window_t *window, map_node_t node);
@@ -264,5 +276,6 @@ void			handle_exit_click(window_t *window,
 				sfMouseButtonEvent mouse_evt);
 void			handle_textbox_action(window_t *window,
 				char *stock_tmp_save, char *stock_tmp_load);
+visualizer_t		create_visualizer(window_t window);
 
 #endif

@@ -10,5 +10,6 @@
 void free_element(element_t item)
 {
 	sfSprite_destroy(item.sprt);
-	sfTexture_destroy(item.txtr);
+	for (int i = 0; i < 2; i++)
+		sfTexture_destroy(item.txtr[i]);
 }

@@ -55,7 +55,7 @@ void display_button_tools(window_t window, button_t *buttons)
 {
 	int i = 0;
 
-	while (i < 3) {
+	while (i < 4) {
 		if (buttons[i].hovered == sfFalse) {
 			sfRenderWindow_drawRectangleShape(window.m_window,
 				buttons[i].shape, NULL);

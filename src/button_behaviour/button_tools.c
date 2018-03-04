@@ -84,8 +84,10 @@ void tools_button_manager(sfMouseButtonEvent mouse_event, window_t *window,
 {
 	button_t *buttons_tmp = window->window_ui.button_tools;
 	button_t add_button = window->window_ui.button_tools[2];
+	button_t next_button = window->window_ui.button_tools[3];
 
 	elevate_button_manager(buttons_tmp, window, map2d, mouse_event);
 	dig_button_manager(buttons_tmp, window, map2d, mouse_event);
 	add_button_manager(add_button, window, map2d, mouse_event);
+	manage_elem(window, map2d, next_button, mouse_event);
 }
