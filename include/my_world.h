@@ -34,22 +34,22 @@
 #define SCALING_Z 64
 #define DEF_3DMAP "ressources/default/default_map3D.legend"
 
-#define BUTTON_GREEN "ressources/UI/button_green.png"
-#define BUTTON_GREEN_BURN "ressources/UI/button_green_burn.png"
-#define BUTTON_GREEN_HOVER "ressources/UI/button_green_hover.png"
+#define BUTTON_GREEN "ressources/ui/button_green.png"
+#define BUTTON_GREEN_BURN "ressources/ui/button_green_burn.png"
+#define BUTTON_GREEN_HOVER "ressources/ui/button_green_hover.png"
 
-#define HOVER_SHAPE "ressources/UI/hover_vertex.png"
-#define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
+#define HOVER_SHAPE "ressources/ui/hover_vertex.png"
+#define CONVEX_SHAPE "ressources/ui/convex_txtr_base.png"
 
-#define FONT1 "ressources/Font/font01.otf"
+#define FONT1 "ressources/font/font01.otf"
 
-#define TXTR_GRASS "ressources/UI/grass_texture.jpg"
-#define TXTR_DIRT "ressources/UI/brown.png"
-#define TXTR_ROCK_BURN "ressources/UI/rock_texture_burn.png"
-#define TXTR_ROCK "ressources/UI/rock_texture.jpg"
-#define TXTR_WATER "ressources/UI/water_texture.jpg"
-#define TXTR_GELE "ressources/UI/gele_texture.jpg"
-#define TXTR_GRASS_HOVER "ressources/UI/grass_texture_hover.jpg"
+#define TXTR_GRASS "ressources/ui/grass_texture.jpg"
+#define TXTR_DIRT "ressources/ui/brown.png"
+#define TXTR_ROCK_BURN "ressources/ui/rock_texture_burn.png"
+#define TXTR_ROCK "ressources/ui/rock_texture.jpg"
+#define TXTR_WATER "ressources/ui/water_texture.jpg"
+#define TXTR_GELE "ressources/ui/gele_texture.jpg"
+#define TXTR_GRASS_HOVER "ressources/ui/grass_texture_hover.jpg"
 
 #define SONG_BUILD "ressources/sound/build.ogg"
 #define SONG_DUG "ressources/sound/dug.ogg"
@@ -57,8 +57,8 @@
 
 #define HOVER_MOUSE "ressources/hover/01.jpg"
 
-#define PANEL_SAVE "ressources/UI/panel_save.png"
-#define PANEL_BKGRD "ressources/UI/background.jpg"
+#define PANEL_SAVE "ressources/ui/panel_save.png"
+#define PANEL_BKGRD "ressources/ui/background.jpg"
 
 #define ELEMENT_H1 "ressources/elements/house_1.png"
 #define ELEMENT_T1 "ressources/elements/tree_1.png"
@@ -227,10 +227,14 @@ sfBool			button_is_hovered(button_t button,
 sfBool			button_is_clicked(button_t button,
 					sfMouseButtonEvent click_pos);
 sfBool			is_hovered(map_node_t **map2d);
-void			change_button_message(button_t button, char *new_msg);
-void			change_button_texture(button_t button, char *new_txtr);
-void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
-int			load_new_map(char *new_map_path, window_t *window);
+void			change_button_message(button_t button,
+				char *new_msg);
+void			change_button_texture(button_t button,
+				char *new_txtr);
+void			set_box_pos(sfMouseMoveEvent mouse,
+				buble_box_t box);
+int			load_new_map(char *new_map_path,
+				window_t *window);
 void			tool_elevate(window_t *window,
 				int x, int y, map_node_t **map2d);
 void			tool_dig(window_t *window,
@@ -269,15 +273,19 @@ void			free_line(sfVertexArray *array);
 element_t		create_element(sfVector2f m_pos);
 void			manage_elem_display(window_t window,
 				map_node_t *node);
-void			display_elements(window_t *window, map_node_t **map2d);
+void			display_elements(window_t *window,
+				map_node_t **map2d);
 void			free_element(element_t item);
 void			set_elem_hight(sfVector2f iso, element_t *item);
 void			handle_exit_click(window_t *window,
 				sfMouseButtonEvent mouse_evt);
 void			handle_textbox_action(window_t *window,
-				char *stock_tmp_save, char *stock_tmp_load);
+			char *stock_tmp_save, char *stock_tmp_load);
 visualizer_t		create_visualizer(window_t window);
 void			manage_elem(window_t *window, map_node_t **map2d,
-				button_t button, sfMouseButtonEvent mouse_event);
+			button_t button, sfMouseButtonEvent mouse_event);
+void			display_analizer(window_t window,
+				visualizer_t visu);
+void			free_visu(visualizer_t);
 
 #endif

@@ -27,6 +27,7 @@ void my_world(input_map_t map3d, window_t window)
 		display_tree(&window);
 		sfRenderWindow_display(window.m_window);
 	}
+	sfMusic_destroy(music);
 	free_all(window, map2d);
 }
 

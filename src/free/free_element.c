@@ -13,3 +13,9 @@ void free_element(element_t item)
 	for (int i = 0; i < 2; i++)
 		sfTexture_destroy(item.txtr[i]);
 }
+
+void free_visu(visualizer_t item)
+{
+	sfTexture_destroy(item.txtr);
+	sfSprite_destroy(item.sprt);
+}

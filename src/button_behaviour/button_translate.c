@@ -47,6 +47,14 @@ sfVector2f get_iso_point(int current_zoom,
 		tmp5.map[i][j] * (SCALING_Z + current_zoom));
 }
 
+void set_zoom_position(map_node_t *node, window_t *window)
+{
+	sfCircleShape_setPosition(node->hover_shape,
+		node->iso_point);
+	set_elements_position(*node);
+	(void)window;
+}
+
 void button_zoom(map_node_t **map2d, int offset, window_t *window)
 {
 	int i = 0;
@@ -62,9 +70,7 @@ void button_zoom(map_node_t **map2d, int offset, window_t *window)
 			map2d[i][j].iso_point.x += (window->size.x / 2);
 			map2d[i][j].iso_point.y += (window->size.y / 2) - 2
 				* (SCALING_Y + current_zoom);
-			sfCircleShape_setPosition(map2d[i][j].hover_shape,
-					map2d[i][j].iso_point);
-			set_elements_position(map2d[i][j]);
+			set_zoom_position(&map2d[i][j], window);
 			j++;
 		}
 		i++;

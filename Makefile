@@ -18,7 +18,7 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 			src/display/display_tree.c \
 			src/display/display_elements.c
 
-SRC_GENE	=	src/generation/generate_2D_map.c \
+SRC_GENE	=	src/generation/generate_2d_map.c \
 			src/generation/generate_texture.c \
 			src/generation/teraformation/tool_elevation.c \
 			src/generation/teraformation/tool_dig.c \
@@ -85,7 +85,7 @@ SRC_UT		=	src/maths/iso_projection.c \
 			src/help.c \
 			src/parser/parser.c \
 			src/parser/reading.c \
-			src/generation/generate_2D_map.c \
+			src/generation/generate_2d_map.c \
 			src/generation/generate_texture.c \
 			src/generation/teraformation/tool_elevation.c \
 			src/generation/teraformation/tool_dig.c \
@@ -107,13 +107,12 @@ CFLAGS	+=	-Wall -Wextra
 
 CFLAGS	+=	-I./include
 
-LDFLAG	=	-L./lib/my -lmy -L./lib/gnl -lgnl
+LDFLAG	=	-L./lib/my -lmy
 
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 		make -C lib/my
-		make -C lib/gnl
 		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog
 
 tests_run:
@@ -126,11 +125,9 @@ tests_run:
 
 clean	:
 		make -C lib/my clean
-		make -C lib/gnl clean
 		rm -f $(NAME)
 
 fclean	:	clean
-		make -C lib/gnl fclean
 		make -C lib/my fclean
 		rm -f $(OBJ)
 
