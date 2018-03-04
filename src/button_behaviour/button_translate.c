@@ -7,6 +7,15 @@
 
 #include "my_world.h"
 
+void set_elements_position(map_node_t node)
+{
+	sfVector2f tmp;
+
+	tmp.x = node.iso_point.x - 40;
+	tmp.y = node.iso_point.y - 40;
+	sfSprite_setPosition(node.element.sprt, tmp);
+}
+
 void button_translate(map_node_t **map2d, int x_offset, int y_offset)
 {
 	int i = 0;
@@ -21,6 +30,7 @@ void button_translate(map_node_t **map2d, int x_offset, int y_offset)
 			map2d[i][j].iso_point.y += (y_offset * 10) / 2;
 			sfCircleShape_setPosition(map2d[i][j].hover_shape,
 					map2d[i][j].iso_point);
+			set_elements_position(map2d[i][j]);
 			j++;
 		}
 		i++;
@@ -54,6 +64,7 @@ void button_zoom(map_node_t **map2d, int offset, window_t *window)
 				* (SCALING_Y + current_zoom);
 			sfCircleShape_setPosition(map2d[i][j].hover_shape,
 					map2d[i][j].iso_point);
+			set_elements_position(map2d[i][j]);
 			j++;
 		}
 		i++;

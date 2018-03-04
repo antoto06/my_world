@@ -68,11 +68,11 @@ int display_vertex(window_t *window, map_node_t **map2d)
 		while (j < tmp.len_y) {
 			display_point(j, i, window,
 				window->stock_map2d);
-			display_elements(window, map2d[i][j]);
 			j++;
 		}
 		j = 0;
 		i++;
 	}
+	display_elements(window, map2d);
 	return 0;
 }

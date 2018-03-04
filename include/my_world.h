@@ -269,7 +269,7 @@ void			free_line(sfVertexArray *array);
 element_t		create_element(sfVector2f m_pos);
 void			manage_elem_display(window_t window,
 				map_node_t *node);
-void			display_elements(window_t *window, map_node_t node);
+void			display_elements(window_t *window, map_node_t **node);
 void			free_element(element_t item);
 void			set_elem_hight(sfVector2f iso, element_t *item);
 void			handle_exit_click(window_t *window,
