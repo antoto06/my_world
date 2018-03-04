@@ -55,7 +55,7 @@ int load_new_map(char *new_map_path, window_t *window)
 
 	if (!file_extented) {
 		my_putstr("Incorrect file\n");
-		return - 1;
+		return -1;
 	}
 	map3d = my_rd(file_extented);
 	new_map = create_2d_map(map3d, *window);

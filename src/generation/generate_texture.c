@@ -18,19 +18,9 @@ sfVector2f *get_vector_array(map_node_t **map2d, int i, int j)
 	return vector_array;
 }
 
-void set_texture_map(map_node_t **map2d, int i, int j)
+void set_heighmap(map_node_t **map2d, input_map_t tmp, int i, int j)
 {
-	input_map_t tmp = map2d[0][0].input_map;
-
-	map2d[i][j].node_shape = sfConvexShape_create();
-	if (tmp.map[i][j] == 00 && tmp.map[i + 1][j + 1] < 01
-	&& tmp.map[i][j + 1] < 01 && tmp.map[i + 1][j] < 01)
-		map2d[i][j].node_txtr =
-			sfTexture_createFromFile(TXTR_GRASS, NULL);
-	else if (tmp.map[i][j] >= 01 && tmp.map[i][j] < 5)
-		map2d[i][j].node_txtr =
-			sfTexture_createFromFile(TXTR_ROCK, NULL);
-	else if (tmp.map[i][j] >= 05)
+	if (tmp.map[i][j] >= 05)
 		map2d[i][j].node_txtr =
 			sfTexture_createFromFile(TXTR_GELE, NULL);
 	else if (tmp.map[i][j] <= -1)
@@ -39,6 +29,24 @@ void set_texture_map(map_node_t **map2d, int i, int j)
 	else
 		map2d[i][j].node_txtr =
 			sfTexture_createFromFile(TXTR_ROCK_BURN, NULL);
+}
+
+void set_texture_map(map_node_t **map2d, int i, int j)
+{
+	input_map_t tmp = map2d[0][0].input_map;
+
+	map2d[i][j].node_shape = sfConvexShape_create();
+	if (tmp.map[i][j] == 00 && tmp.map[i + 1][j + 1] < 01
+	    && tmp.map[i][j + 1] < 01 && tmp.map[i + 1][j] < 01) {
+		map2d[i][j].node_txtr =
+			sfTexture_createFromFile(TXTR_GRASS, NULL);
+		return;
+	} else if (tmp.map[i][j] >= 01 && tmp.map[i][j] < 5) {
+		map2d[i][j].node_txtr =
+			sfTexture_createFromFile(TXTR_ROCK, NULL);
+		return;
+	}
+	set_heighmap(map2d, tmp, i, j);
 }
 
 void generate_convex_shape(map_node_t node, sfVector2f *vector_array)

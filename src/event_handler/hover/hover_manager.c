@@ -39,9 +39,8 @@ sfBool is_hovered(map_node_t **map2d)
 
 	while (i < tmp.len_x) {
 		while (j < tmp.len_y) {
-			if (map2d[i][j].hover_visible == sfTrue) {
+			if (map2d[i][j].hover_visible == sfTrue)
 				return sfTrue;
-			}
 			j++;
 		}
 		j = 0;
