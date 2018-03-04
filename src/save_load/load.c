@@ -47,7 +47,7 @@ char *get_file_extend(char *path)
 	return NULL;
 }
 
-void load_new_map(char *new_map_path, window_t *window)
+int load_new_map(char *new_map_path, window_t *window)
 {
 	input_map_t map3d;
 	map_node_t **new_map;
@@ -55,7 +55,7 @@ void load_new_map(char *new_map_path, window_t *window)
 
 	if (!file_extented) {
 		my_putstr("Incorrect file\n");
-		return;
+		return - 1;
 	}
 	map3d = my_rd(file_extented);
 	new_map = create_2d_map(map3d, *window);
@@ -63,4 +63,5 @@ void load_new_map(char *new_map_path, window_t *window)
 	window->stock_map2d = NULL;
 	window->stock_map2d = new_map;
 	free(file_extented);
+	return 0;
 }

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** error
 ** File description:
-** made by developper
+** world
 */
 
 #include "../../include/my_world.h"

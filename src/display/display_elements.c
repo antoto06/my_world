@@ -20,7 +20,6 @@ void display_node_elements(map_node_t *map2d,
 		j++;
 	}
 }
-
 void display_elements(window_t *window, map_node_t **map2d)
 {
 	input_map_t tmp = window->stock_map2d[0][0].input_map;

@@ -230,7 +230,7 @@ sfBool			is_hovered(map_node_t **map2d);
 void			change_button_message(button_t button, char *new_msg);
 void			change_button_texture(button_t button, char *new_txtr);
 void			set_box_pos(sfMouseMoveEvent mouse, buble_box_t box);
-void			load_new_map(char *new_map_path, window_t *window);
+int			load_new_map(char *new_map_path, window_t *window);
 void			tool_elevate(window_t *window,
 				int x, int y, map_node_t **map2d);
 void			tool_dig(window_t *window,
@@ -269,7 +269,7 @@ void			free_line(sfVertexArray *array);
 element_t		create_element(sfVector2f m_pos);
 void			manage_elem_display(window_t window,
 				map_node_t *node);
-void			display_elements(window_t *window, map_node_t **node);
+void			display_elements(window_t *window, map_node_t **map2d);
 void			free_element(element_t item);
 void			set_elem_hight(sfVector2f iso, element_t *item);
 void			handle_exit_click(window_t *window,

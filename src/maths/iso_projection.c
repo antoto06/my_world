@@ -9,7 +9,6 @@
 
 sfVector2f project_iso_point(int x, int y, int z)
 {
-	printf("");
 	sfVector2f projection;
 	float angle_x_rad = ANGLE_X * M_PI / 180;
 	float angle_y_rad = ANGLE_Y * M_PI / 180;
