@@ -28,5 +28,6 @@ map_node_t create_map_node(int x, int y, int z, window_t window)
 	sfCircleShape_setRadius(node.hover_shape, 10.0);
 	sfCircleShape_setPosition(node.hover_shape, hover_pos);
 	node.hover_visible = sfFalse;
+	node.element = create_element(hover_pos, ELEMENT_H1);
 	return node;
 }

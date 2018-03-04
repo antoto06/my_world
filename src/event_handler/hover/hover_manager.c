@@ -68,17 +68,18 @@ sfBool get_hovered_type(sfVector2f mouse_pos, map_node_t node, window_t window)
 }
 
 void hover_manager(sfMouseMoveEvent mouse_evt,
-		map_node_t **map2d, window_t window)
+		map_node_t **map2d, window_t *window)
 {
 	sfVector2f mouse_pos = {(float)mouse_evt.x, (float)mouse_evt.y};
 	int i = 0;
 	int j = 0;
 	input_map_t tmp = map2d[0][0].input_map;
 
-	while (i < tmp.len_x) {
-		while (j < tmp.len_y) {
+	while (i < tmp.len_x - 1) {
+		while (j < tmp.len_y - 1) {
 			map2d[i][j].hover_visible = \
-			get_hovered_type(mouse_pos, map2d[i][j], window);
+			get_hovered_type(mouse_pos, map2d[i][j], *window);
+			manage_elem_display(*window, &map2d[i][j], tmp);
 			j++;
 		}
 		j = 0;

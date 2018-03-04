@@ -90,5 +90,6 @@ ui_t create_ui(window_t window)
 	ui.tools_state.corner = sfTrue;
 	ui.tools_state.save = sfFalse;
 	ui.tools_state.load = sfFalse;
+	ui.tools_state.element = sfTrue;
 	return ui;
 }

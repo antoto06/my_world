@@ -15,7 +15,11 @@ element_t create_element(sfVector2f m_pos, char *path)
 	element.sprt = sfSprite_create();
 	element.txtr = sfTexture_createFromFile(path, NULL);
 	sfSprite_setTexture(element.sprt, element.txtr, sfFalse);
-	element.pos = pos;
+	element.pos.x = m_pos.x - 40;
+	element.pos.y = m_pos.y - 40;
+	sfSprite_setPosition(element.sprt, element.pos);
+	element.active = sfFalse;
+	element.rendered = sfFalse;
 	element.size = m_size;
 	return element;
 }

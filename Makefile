@@ -13,12 +13,14 @@ SRC_DISPLAY	=	src/display/create_vertex.c \
 			src/display/display_hover.c \
 			src/display/display_text_box.c \
 			src/display/texture_handler.c \
-			src/display/display_tree.c
+			src/display/display_tree.c \
+			src/display/display_elements.c
 
 SRC_GENE	=	src/generation/generate_2D_map.c \
 			src/generation/generate_texture.c \
 			src/generation/teraformation/tool_elevation.c \
-			src/generation/teraformation/tool_dig.c
+			src/generation/teraformation/tool_dig.c \
+			src/generation/teraformation/tool_elem.c
 
 SRC_MATHS	=	src/maths/iso_projection.c
 
@@ -27,7 +29,8 @@ SRC_STRUCT	=	src/structures/create_window.c \
 			src/structures/create_map_node.c \
 			src/structures/create_ui.c \
 			src/structures/create_buble_box.c \
-			src/structures/create_text_box.c
+			src/structures/create_text_box.c \
+			src/structures/create_element.c
 
 SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/click_button.c \

@@ -57,17 +57,15 @@ void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t *window)
 	int size_array[] = {window->window_ui.ui_size.tr_size,
 			window->window_ui.ui_size.app_size,
 			window->window_ui.ui_size.tools_size};
-	int one_hovered = one_is_hovered(button_array, window,
-					 mouse_evt, size_array);
 
 	set_box_pos(mouse_evt, window->buble_box);
 	for (int i = 0; i < 3; i++) {
 		hovered = button_checker(button_array[i],
 					mouse_evt, size_array[i]);
-		if (hovered >= 0)
+		if (hovered >= 0) {
 			set_box_value(&button_array[i][hovered], window);
+		}
 		else
 			unset_hovered_button(button_array[i], size_array[i]);
 	}
-	(void)one_hovered;
 }
