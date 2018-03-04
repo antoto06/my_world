@@ -287,5 +287,8 @@ void			manage_elem(window_t *window, map_node_t **map2d,
 void			display_analizer(window_t window,
 				visualizer_t visu);
 void			free_visu(visualizer_t);
-
+int			check_valid_file(char *path);
+int			check_directory(char *file);
+void			tool_elem(window_t *window, int x,
+			int y, map_node_t **map2d);
 #endif

@@ -19,6 +19,7 @@ Test(error, test0)
 	cr_assert_eq(res, -1);
 	cr_assert_eq(res2, 0);
 	print_help();
+	ac = ac;
 }
 
 Test(error, test1)
@@ -29,6 +30,7 @@ Test(error, test1)
 
 	cr_assert_eq(res, -1);
 	cr_assert_eq(map.error, -1);
+	ac = ac;
 }
 
 Test(error, test2)

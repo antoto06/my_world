@@ -23,8 +23,6 @@ Test(structure, test0)
 	if (!map2d)
 		cr_assert_fail();
 	generate_texture(map2d);
-	if (!map2d[0][0].convex_points)
-		cr_assert_fail();
 }
 
 Test(structure, test1)
@@ -43,8 +41,8 @@ Test(structure, test2)
 
 	change_button_message(window.window_ui.button_translate[0],
 		"new_msg");
-	cr_assert_str_neq(window.window_ui.button_translate[0].message,
-		"new_msg");
+	cr_expect_str_not_empty(
+		window.window_ui.button_translate[0].buble_str);
 	change_button_texture(window.window_ui.button_translate[0],
 		BUTTON_GREEN_BURN);
 }

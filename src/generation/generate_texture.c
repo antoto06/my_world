@@ -37,7 +37,7 @@ void set_texture_map(map_node_t **map2d, int i, int j)
 
 	map2d[i][j].node_shape = sfConvexShape_create();
 	if (tmp.map[i][j] == 00 && tmp.map[i + 1][j + 1] < 01
-	    && tmp.map[i][j + 1] < 01 && tmp.map[i + 1][j] < 01) {
+	&& tmp.map[i][j + 1] < 01 && tmp.map[i + 1][j] < 01) {
 		map2d[i][j].node_txtr =
 			sfTexture_createFromFile(TXTR_GRASS, NULL);
 		return;
