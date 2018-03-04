@@ -23,6 +23,8 @@ char *int_to_str(int nb)
 	char *str = malloc(sizeof(char *) * digit_len_str(nb) + 1);
 	int i = 0;
 
+	if (nb < 0)
+		nb *= -1;
 	if (nb == 0) {
 		str[i] = '0';
 		i++;

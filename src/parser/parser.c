@@ -55,17 +55,17 @@ int get_nblines(char *av)
 int *parse_line(char *line)
 {
 	int i = 0;
-	int map_offset = 0;
 	int *map = malloc(sizeof(int) * nb_word(line));
+	char **line_tab = my_str_to_word_array(line);
 
-	while (line && line[i]) {
-		if (line[i] >= '0' && line[i] <= '9') {
-			map[map_offset] = my_getnbr(&line[i]);
-			i = i + digit_len(&line[i]);
-			map_offset++;
-		}
+	while (line_tab && line_tab[i]) {
+		map[i] = my_getnbr(line_tab[i]);
 		i++;
 	}
+	map[i] = 0;
+	for (int k = 0; line_tab && line_tab[k]; k++)
+		free(line_tab[k]);
+	free(line_tab);
 	return map;
 }
 

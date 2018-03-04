@@ -21,21 +21,30 @@ int check_save_dir(void)
 	}
 }
 
+void do_write(int mapnb, FILE *fp)
+{
+	char nb;
+	char space = ' ';
+	char neg = '-';
+	char *buff = NULL;
+
+	if (mapnb < 0)
+		fwrite(&neg, sizeof(char), 1, fp);
+	buff = int_to_str(mapnb);
+	nb = buff[0];
+	fwrite(&nb, sizeof(char), 1, fp);
+	fwrite(&space,  sizeof(char), 1, fp);
+}
+
 void write_file(int **map_z, int len_x, int len_y, FILE *fp)
 {
 	int i = 0;
 	int j = 0;
-	char *buff = NULL;
-	char nb;
-	char space = ' ';
 	char ret = '\n';
 
 	while (i < len_y) {
 		while (j < len_x) {
-			buff = int_to_str(map_z[i][j]);
-			nb = buff[0];
-			fwrite(&nb, sizeof(char), 1, fp);
-			fwrite(&space,  sizeof(char), 1, fp);
+			do_write(map_z[i][j], fp);
 			j++;
 		}
 		fwrite(&ret, sizeof(char), 1, fp);
