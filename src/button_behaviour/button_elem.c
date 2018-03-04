@@ -23,15 +23,17 @@ void set_map_id(map_node_t **map2d, int m_id)
 	}
 }
 
-void get_txtr_id(map_node_t node)
+void get_txtr_id(map_node_t node, window_t *window)
 {
 	if (node.element.active == sfTrue)
 		return;
 	sfSprite_setTexture(node.element.sprt,
 		node.element.txtr[node.element.id], sfFalse);
+	sfSprite_setTexture(window->elem_visu.sprt,
+		node.element.txtr[node.element.id], sfFalse);
 }
 
-void set_texture_id(map_node_t **map2d)
+void set_texture_id(map_node_t **map2d, window_t *window)
 {
 	input_map_t tmp = map2d[0][0].input_map;
 	int i = 0;
@@ -39,7 +41,7 @@ void set_texture_id(map_node_t **map2d)
 
 	while (i < tmp.len_x - 1) {
 		while (j < tmp.len_y - 1) {
-			get_txtr_id(map2d[i][j]);
+			get_txtr_id(map2d[i][j], window);
 			j++;
 		}
 		j = 0;
@@ -59,5 +61,5 @@ void manage_elem(window_t *window, map_node_t **map2d,
 	&& tmp.id == 4) {
 		set_map_id(map2d, 0);
 	}
-	set_texture_id(map2d);
+	set_texture_id(map2d, window);
 }

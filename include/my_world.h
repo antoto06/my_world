@@ -277,5 +277,7 @@ void			handle_exit_click(window_t *window,
 void			handle_textbox_action(window_t *window,
 				char *stock_tmp_save, char *stock_tmp_load);
 visualizer_t		create_visualizer(window_t window);
+void			manage_elem(window_t *window, map_node_t **map2d,
+				button_t button, sfMouseButtonEvent mouse_event);
 
 #endif
