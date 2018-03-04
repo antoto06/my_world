@@ -30,6 +30,7 @@ void free_map2d(map_node_t **map2d)
 			sfCircleShape_destroy(map2d[i][j].hover_shape);
 			sfTexture_destroy(map2d[i][j].hover_shape_txtr);
 			free(map2d[i][j].convex_points);
+			free_element(map2d[i][j].element);
 			j++;
 		}
 		j = 0;

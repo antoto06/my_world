@@ -255,5 +255,9 @@ void			free_button(button_t button);
 void			free_map2d(map_node_t **map2d);
 void			free_line(sfVertexArray *array);
 element_t		create_element(sfVector2f m_pos, char *path);
+void			manage_elem_display(window_t window,
+				map_node_t *node);
+void			display_elements(window_t *window, map_node_t node);
+void			free_element(element_t item);
 
 #endif

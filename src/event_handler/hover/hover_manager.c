@@ -79,7 +79,7 @@ void hover_manager(sfMouseMoveEvent mouse_evt,
 		while (j < tmp.len_y - 1) {
 			map2d[i][j].hover_visible = \
 			get_hovered_type(mouse_pos, map2d[i][j], *window);
-			manage_elem_display(*window, &map2d[i][j], tmp);
+			manage_elem_display(*window, &map2d[i][j]);
 			j++;
 		}
 		j = 0;

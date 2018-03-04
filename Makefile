@@ -59,7 +59,8 @@ SRC_FREE	=	src/free/free_buble_box.c \
 			src/free/free_text_box.c \
 			src/free/free_ui.c \
 			src/free/free_window.c \
-			src/generation/free_map.c
+			src/generation/free_map.c \
+			src/free/free_element.c
 
 SRC		=	src/main.c \
 			src/help.c
