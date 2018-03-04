@@ -7,6 +7,13 @@
 
 #include "my_world.h"
 
+void set_elem_hight(sfVector2f iso, element_t *item)
+{
+	item->pos.x = iso.x - 40;
+	item->pos.y = iso.y - 40;
+	sfSprite_setPosition(item->sprt, item->pos);
+}
+
 element_t create_element(sfVector2f m_pos, char *path)
 {
 	element_t element;

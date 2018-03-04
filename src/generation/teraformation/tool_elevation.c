@@ -22,7 +22,7 @@ void change_iso_point_up(window_t *window, int x, int y, map_node_t **map2d)
 			- (2 * SCALING_Y) + stock_y;
 	sfCircleShape_setPosition(map2d[x][y].hover_shape,
 			map2d[x][y].iso_point);
-
+	set_elem_hight(map2d[x][y].iso_point, &map2d[x][y].element);
 }
 
 void tool_elevate_zone(window_t *window, int x, int y, map_node_t **map2d)

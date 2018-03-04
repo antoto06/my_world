@@ -25,5 +25,4 @@ void tool_elem(window_t *window, int x, int y, map_node_t **map2d)
 	if (x + 1 > tmp.len_x || y + 1 > tmp.len_y)
 		return;
 	map2d[x][y].element.active = sfTrue;
-	(void)window;
 }

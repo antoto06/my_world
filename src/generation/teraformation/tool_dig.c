@@ -22,7 +22,6 @@ void change_iso_point_down(window_t *window, int x, int y, map_node_t **map2d)
 			- (2 * SCALING_Y) + stock_y;
 	sfCircleShape_setPosition(map2d[x][y].hover_shape,
 			map2d[x][y].iso_point);
-
 }
 
 void tool_dig_zone(window_t *window, int x, int y, map_node_t **map2d)
