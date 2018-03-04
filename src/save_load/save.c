@@ -11,10 +11,14 @@ void write_file(int **map_z, int len_x, int len_y, FILE *fp)
 {
 	int i = 0;
 	int j = 0;
+	char *buff = NULL;
+	char nb;
 
 	while (i < len_y) {
 		while (j < len_x) {
-			fwrite(int_to_str(map_z[i][j]), sizeof(char), 1, fp);
+			buff = int_to_str(map_z[i][j]);
+			nb = buff[0];
+			fwrite(&nb, sizeof(char), 1, fp);
 			fwrite(" ", sizeof(char), 1, fp);
 			j++;
 		}

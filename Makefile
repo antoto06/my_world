@@ -66,7 +66,7 @@ OBJ	=	$(SRC:.c=.o) $(SRC_DISPLAY:.c=.o) $(SRC_GENE:.c=.o) \
 		$(SRC_BUTTON:.c=.o) $(SRC_PARSER:.c=.o) $(SRC_ERROR:.c=.o) \
 		$(SRC_SAVE:.c=.o) $(SRC_FREE:.c=.o)
 
-CFLAGS	+=	-Wall -Wextra -g3
+CFLAGS	+=	-Wall -Wextra
 
 CFLAGS	+=	-I./include
 
@@ -77,7 +77,7 @@ all	:	$(NAME)
 $(NAME)	:	$(OBJ)
 		make -C lib/my
 		make -C lib/gnl
-		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog -g3
+		cc -o $(NAME) $(OBJ) $(LDFLAG) -lm -lc_graph_prog
 clean	:
 		make -C lib/my clean
 		make -C lib/gnl clean

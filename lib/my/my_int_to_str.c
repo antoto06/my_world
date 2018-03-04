@@ -15,7 +15,7 @@ int digit_len_str(int nb)
 		nb /= 10;
 		i++;
 	}
-	return i;
+	return i + 1;
 }
 
 char *int_to_str(int nb)
