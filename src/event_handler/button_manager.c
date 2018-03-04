@@ -20,10 +20,14 @@ void translate_button_manager(sfMouseButtonEvent mouse_event,
 		button_translate(map2d, 0, 1);
 	if (button_is_clicked(buttons_tmp[3], mouse_event) == sfTrue)
 		button_translate(map2d, 0, -1);
-	if (button_is_clicked(buttons_tmp[4], mouse_event) == sfTrue)
+	if (button_is_clicked(buttons_tmp[4], mouse_event) == sfTrue) {
 		button_zoom(map2d, 2, window);
-	if (button_is_clicked(buttons_tmp[5], mouse_event) == sfTrue)
+		generate_texture(map2d);
+	}
+	if (button_is_clicked(buttons_tmp[5], mouse_event) == sfTrue) {
 		button_zoom(map2d, -2, window);
+		generate_texture(map2d);
+	}
 }
 
 void application_button_manager(sfMouseButtonEvent mouse_event,

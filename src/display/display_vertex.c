@@ -14,7 +14,7 @@ void display_point_two(int i, int j, sfRenderWindow *window,
 
 	if (j != 0) {
 		tmp = create_line(&map2d[i][j].iso_point,
-				  &map2d[i][j - 1].iso_point);
+				&map2d[i][j - 1].iso_point);
 		sfRenderWindow_drawVertexArray(window, tmp, sfFalse);
 		if (map2d[i][j].hover_visible == sfTrue)
 			sfRenderWindow_drawCircleShape(window,

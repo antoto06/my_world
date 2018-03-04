@@ -30,7 +30,8 @@ SRC_STRUCT	=	src/structures/create_window.c \
 			src/structures/create_ui.c \
 			src/structures/create_buble_box.c \
 			src/structures/create_text_box.c \
-			src/structures/create_element.c
+			src/structures/create_element.c \
+			src/structures/get_percent_position.c
 
 SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/click_button.c \
@@ -40,7 +41,8 @@ SRC_EVENT	=	src/event_handler/event_manager.c \
 			src/event_handler/text_box_manager.c \
 			src/event_handler/key/key_manager.c \
 			src/event_handler/key/shortcuts_tool.c \
-			src/event_handler/mouse_translation.c
+			src/event_handler/mouse_translation.c \
+			src/event_handler/handler_textbox.c
 
 SRC_BUTTON	=	src/button_behaviour/button_translate.c \
 			src/button_behaviour/button_application.c \

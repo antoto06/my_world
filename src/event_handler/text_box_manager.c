@@ -7,27 +7,6 @@
 
 #include "my_world.h"
 
-void handle_textbox_action(window_t *window,
-		char *stock_tmp_save, char *stock_tmp_load)
-{
-	if (window->window_ui.tools_state.save == sfTrue) {
-		save_map(stock_tmp_save, *window);
-		free(window->window_ui.input_box.stock_str);
-		window->window_ui.input_box.stock_str = NULL;
-		window->window_ui.tools_state.save = sfFalse;
-		sfText_setString(window->window_ui.input_box.dynamic_txt, "");
-		return;
-	} else if (window->window_ui.tools_state.load == sfTrue) {
-		load_new_map(stock_tmp_load, window);
-		free(window->window_ui.input_box_load.stock_str);
-		window->window_ui.input_box_load.stock_str = NULL;
-		window->window_ui.tools_state.load = sfFalse;
-		sfText_setString(window->window_ui.input_box_load.dynamic_txt,
-				"");
-		return;
-	}
-}
-
 void button_text_box(window_t *window, sfMouseButtonEvent mouse_evt)
 {
 	button_t *buttons_save = window->window_ui.input_box.buttons;
@@ -40,19 +19,7 @@ void button_text_box(window_t *window, sfMouseButtonEvent mouse_evt)
 		handle_textbox_action(window, stock_tmp_save, stock_tmp_load);
 	if (button_is_clicked(buttons_save[1], mouse_evt) == sfTrue
 	|| button_is_clicked(buttons_load[1], mouse_evt) == sfTrue) {
-		if (window->window_ui.tools_state.save == sfTrue) {
-			window->window_ui.tools_state.save = sfFalse;
-			free(window->window_ui.input_box.stock_str);
-			window->window_ui.input_box.stock_str = NULL;
-			sfText_setString(window->window_ui.input_box.dynamic_txt,
-				"");
-		} else if (window->window_ui.tools_state.load == sfTrue) {
-			window->window_ui.tools_state.load = sfFalse;
-			free(window->window_ui.input_box_load.stock_str);
-			window->window_ui.input_box_load.stock_str = NULL;
-			sfText_setString(
-			window->window_ui.input_box_load.dynamic_txt, "");
-		}
+		handle_exit_click(window, mouse_evt);
 	}
 }
 

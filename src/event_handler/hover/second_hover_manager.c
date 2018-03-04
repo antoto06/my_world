@@ -8,7 +8,7 @@
 #include "my_world.h"
 
 int one_is_hovered(button_t **button_array, window_t *window,
-		   sfMouseMoveEvent mouse_pos, int *size_array)
+		sfMouseMoveEvent mouse_pos, int *size_array)
 {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < size_array[i]; j++) {
@@ -60,6 +60,7 @@ void buble_hover_manager(sfMouseMoveEvent mouse_evt, window_t *window)
 
 	set_box_pos(mouse_evt, window->buble_box);
 	for (int i = 0; i < 3; i++) {
+		one_is_hovered(button_array, window, mouse_evt, size_array);
 		hovered = button_checker(button_array[i],
 					mouse_evt, size_array[i]);
 		if (hovered >= 0) {

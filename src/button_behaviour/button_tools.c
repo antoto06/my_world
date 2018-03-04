@@ -21,7 +21,7 @@ void elevate_button_manager(button_t *buttons_tmp, window_t *window,
 	sfVector2u tmp;
 
 	if (is_hovered(map2d) == sfTrue
-	    && window->window_ui.tools_state.elevate == sfTrue) {
+	&& window->window_ui.tools_state.elevate == sfTrue) {
 		tmp = get_hovered_point(map2d);
 		tool_elevate(window, tmp.x, tmp.y, map2d);
 	}
@@ -42,7 +42,7 @@ void dig_button_manager(button_t *buttons_tmp, window_t *window,
 	sfVector2u tmp;
 
 	if (is_hovered(map2d) == sfTrue
-	    && window->window_ui.tools_state.dig == sfTrue) {
+	&& window->window_ui.tools_state.dig == sfTrue) {
 		sound_manager();
 		tmp = get_hovered_point(map2d);
 		tool_dig(window, tmp.x, tmp.y, map2d);

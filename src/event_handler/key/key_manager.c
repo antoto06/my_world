@@ -19,7 +19,7 @@ void key_translate(map_node_t **map2d, sfKeyEvent key)
 		button_translate(map2d, 1, 0);
 }
 
-void key_manager(window_t *window, sfKeyEvent key ,map_node_t **map2d)
+void key_manager(window_t *window, sfKeyEvent key , map_node_t **map2d)
 {
 	key_translate(map2d, key);
 	shortcut_tools(key, window);

@@ -41,15 +41,15 @@
 #define HOVER_SHAPE "ressources/UI/hover_vertex.png"
 #define CONVEX_SHAPE "ressources/UI/convex_txtr_base.png"
 
-#define FONT1 "ressources/Font/Font1.otf"
+#define FONT1 "ressources/Font/font01.otf"
 
-#define TXTR_GRASS "ressources/UI/grass-texture.jpg"
+#define TXTR_GRASS "ressources/UI/grass_texture.jpg"
 #define TXTR_DIRT "ressources/UI/brown.png"
 #define TXTR_ROCK_BURN "ressources/UI/rock_texture_burn.png"
 #define TXTR_ROCK "ressources/UI/rock_texture.jpg"
 #define TXTR_WATER "ressources/UI/water_texture.jpg"
 #define TXTR_GELE "ressources/UI/gele_texture.jpg"
-#define TXTR_GRASS_HOVER "ressources/UI/grass-texture-hover.jpg"
+#define TXTR_GRASS_HOVER "ressources/UI/grass_texture_hover.jpg"
 
 #define SONG_BUILD "ressources/sound/build.ogg"
 #define SONG_DUG "ressources/sound/dug.ogg"
@@ -259,5 +259,6 @@ void			manage_elem_display(window_t window,
 				map_node_t *node);
 void			display_elements(window_t *window, map_node_t node);
 void			free_element(element_t item);
+void			set_elem_hight(sfVector2f iso, element_t *item);
 
 #endif

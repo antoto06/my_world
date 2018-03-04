@@ -41,6 +41,14 @@ void set_texture_map(map_node_t **map2d, int i, int j)
 			sfTexture_createFromFile(TXTR_ROCK_BURN, NULL);
 }
 
+void generate_convex_shape(map_node_t node, sfVector2f *vector_array)
+{
+	for (int k = 0; k < 4; k++) {
+		sfConvexShape_setPoint(node.node_shape,
+			k, vector_array[k]);
+	}
+}
+
 void generate_texture(map_node_t **map2d)
 {
 	sfVector2f *vector_array;
@@ -53,10 +61,7 @@ void generate_texture(map_node_t **map2d)
 			vector_array = get_vector_array(map2d, i, j);
 			map2d[i][j].convex_points = vector_array;
 			sfConvexShape_setPointCount(map2d[i][j].node_shape, 4);
-			for (int k = 0; k < 4; k++) {
-				sfConvexShape_setPoint(map2d[i][j].node_shape,
-				k, vector_array[k]);
-			}
+			generate_convex_shape(map2d[i][j], vector_array);
 			sfConvexShape_setTexture(map2d[i][j].node_shape,
 					map2d[i][j].node_txtr, sfFalse);
 			j++;

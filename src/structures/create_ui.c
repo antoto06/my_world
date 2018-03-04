@@ -7,16 +7,6 @@
 
 #include "my_world.h"
 
-sfVector2f get_position_by_percent(window_t window,
-		int perc_x, int perc_y)
-{
-	sfVector2f position;
-
-	position.x = (perc_x * window.size.x) / 100;
-	position.y = (perc_y * window.size.y) / 100;
-	return position;
-}
-
 button_t *create_translate_buttons(window_t window)
 {
 	sfVector2f button_left = get_position_by_percent(window, 0, 25);

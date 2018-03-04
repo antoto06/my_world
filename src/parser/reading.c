@@ -21,7 +21,6 @@ input_map_t my_rd(char *path)
 	input_map_t input;
 	int error = check_valid_file(path);
 
-	printf("open %s\n", path);
 	if (error == -1) {
 		input.error = -1;
 		return input;

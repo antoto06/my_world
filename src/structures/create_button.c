@@ -27,24 +27,27 @@ void create_button_map(button_t button, sfVector2f message_pos, char *msg)
 	sfText_setCharacterSize(button.message, 30);
 }
 
+void set_object(button_t *button, sfVector2f position, sfVector2f size)
+{
+	button->shape = sfRectangleShape_create();
+	button->txtr = sfTexture_createFromFile(BUTTON_GREEN, NULL);
+	sfRectangleShape_setTexture(button->shape, button->txtr, sfFalse);
+	sfRectangleShape_setSize(button->shape, size);
+	sfRectangleShape_setPosition(button->shape, position);
+}
+
 button_t create_button(sfVector2f position, char *msg, char *buble_str)
 {
 	button_t button;
 	sfVector2f message_pos;
 	sfVector2f size = {100, 50};
 
-	button.shape = sfRectangleShape_create();
-	button.txtr = sfTexture_createFromFile(BUTTON_GREEN, NULL);
-	sfRectangleShape_setTexture(button.shape, button.txtr, sfFalse);
-	sfRectangleShape_setSize(button.shape, size);
-	sfRectangleShape_setPosition(button.shape, position);
-
+	set_object(&button, position, size);
 	button.shape_hover = sfRectangleShape_create();
 	button.txtr = sfTexture_createFromFile(BUTTON_GREEN_HOVER, NULL);
 	sfRectangleShape_setTexture(button.shape_hover, button.txtr, sfFalse);
 	sfRectangleShape_setSize(button.shape_hover, size);
 	sfRectangleShape_setPosition(button.shape_hover, position);
-
 	button.pos = position;
 	message_pos.x = position.x + (size.x / 8);
 	message_pos.y = position.y + (size.y / 8);

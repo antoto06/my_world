@@ -47,7 +47,8 @@ void button_zoom(map_node_t **map2d, int offset, window_t *window)
 	current_zoom += offset;
 	while (i < tmp5.len_x) {
 		while (j < tmp5.len_y) {
-			map2d[i][j].iso_point = get_iso_point(current_zoom, tmp5, i, j);
+			map2d[i][j].iso_point = get_iso_point(current_zoom,
+						tmp5, i, j);
 			map2d[i][j].iso_point.x += (window->size.x / 2);
 			map2d[i][j].iso_point.y += (window->size.y / 2) - 2
 				* (SCALING_Y + current_zoom);
@@ -58,5 +59,4 @@ void button_zoom(map_node_t **map2d, int offset, window_t *window)
 		i++;
 		j = 0;
 	}
-	generate_texture(map2d);
 }
