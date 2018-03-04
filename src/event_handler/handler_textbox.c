@@ -43,5 +43,6 @@ void handle_exit_click(window_t *window, sfMouseButtonEvent mouse_evt)
 		sfText_setString(
 		window->window_ui.input_box_load.dynamic_txt, "");
 	}
+	(void)mouse_evt;
 }
 

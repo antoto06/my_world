@@ -260,5 +260,9 @@ void			manage_elem_display(window_t window,
 void			display_elements(window_t *window, map_node_t node);
 void			free_element(element_t item);
 void			set_elem_hight(sfVector2f iso, element_t *item);
+void			handle_exit_click(window_t *window,
+				sfMouseButtonEvent mouse_evt);
+void			handle_textbox_action(window_t *window,
+				char *stock_tmp_save, char *stock_tmp_load);
 
 #endif
