@@ -1,4 +1,5 @@
 # My_world
+> This is an Epitech Project, don't steal it ! Or you'll get -42
 
 For this project you will have to create your own terraformer program. You can pick up some ideas from Tycoon Terrain for Unity3D.
 Your main challenge will be to display a map and edit it at runtime.
